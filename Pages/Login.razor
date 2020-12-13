@@ -1,4 +1,5 @@
-@inject IJSRuntime JS;
+@using Serilog
+@inject IToastService toastService
 
 <div class="limiter">
     <div class="container-login100">
@@ -8,7 +9,7 @@
             </div>
             @if (LogInPage)
             {
-                <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@OnValidSubmit">
+                <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@TryToLogIn">
                     <DataAnnotationsValidator />
                     <span class="login100-form-title">
                         Üye Giriş
@@ -33,9 +34,7 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button type="submit" class="login100-form-btn">
-                            @ButtonText
-                        </button>
+                        <input type="submit" class="login100-form-btn" value="@ButtonText" />
                     </div>
 
                     <div class="text-center p-t-12">
@@ -53,6 +52,7 @@
                             <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
                         </a>
                     </div>
+                    <ValidationSummary />
                 </EditForm>
             }
             else
@@ -95,9 +95,7 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button type="submit" class="login100-form-btn">
-                            @ButtonText
-                        </button>
+                        <input type="submit" class="login100-form-btn" value="@ButtonText" />
                     </div>
 
                     <div class="text-center p-t-12">
@@ -115,6 +113,7 @@
                             <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
                         </a>
                     </div>
+                    <ValidationSummary />
                 </EditForm>
             }
 
@@ -131,8 +130,20 @@
     public Uye uye { get; set; } = new Uye();
     [Parameter]
     public string ButtonText { get; set; } = "Giriş Yap";
-    [Parameter]
-    public EventCallback OnValidSubmit { get; set; }
+    async void OnValidSubmit()
+    {
+        Log.Information("uye.ToString()");
+        Log.Information(uye.Email);
+        Log.Information(uye.Sifre);
+        toastService.ShowSuccess("I'm a SUCCESS message");
+        await Task.Delay(19);
+    }
+
+    async void TryToLogIn()
+    {
+        
+        await Task.Delay(19);
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -147,7 +158,7 @@
             ButtonText = "Hesap Oluştur";
         else
             ButtonText = "Giriş Yap";
-
+        toastService.ShowInfo("I'm an INFO message");
     }
 
 }

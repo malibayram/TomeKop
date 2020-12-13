@@ -17,7 +17,7 @@ namespace TomeKop
         public static NpgsqlConnection DbCon;
         public static void Main(string[] args)
         {
-            DbCon = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2121;Database=company");
+            DbCon = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2121;Database=tomekop");
 
             Log.Logger = new LoggerConfiguration()
            .MinimumLevel.Information()

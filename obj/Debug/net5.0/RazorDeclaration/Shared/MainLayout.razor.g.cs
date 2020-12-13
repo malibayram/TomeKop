@@ -83,8 +83,50 @@ using TomeKop.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "/Users/ma/Desktop/TomeKop/TomeKop/_Imports.razor"
+using Blazored.Toast;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "/Users/ma/Desktop/TomeKop/TomeKop/_Imports.razor"
+using Blazored.Toast.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
+using Npgsql;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
+using Serilog;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
 using TomeKop.Pages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
+using Utils;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
+using Blazored.Toast.Configuration;
 
 #line default
 #line hidden
@@ -97,40 +139,62 @@ using TomeKop.Pages;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
+#line 46 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
        
-    private bool IsLoggedIn = false;
+    private bool Waiting = true;
     protected override async Task OnInitializedAsync()
-    {        
-        await Task.Delay(10);
-        
+    {
+        await Task.Delay(500);
 
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 38 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
-                                                                                  
+        // await sessionStorage.SetItem<Uye>(key, forecasts);
+        // await localStorage.SetItem<WeatherForecast[]>(key, forecasts);
+        // var fromLocal = await localStorage.GetItem<WeatherForecast[]>(key);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        Log.Information("OnAfterRenderAsync");
         if (firstRender)
         {
+            Log.Information("firstRender");
             var key = "tomekopuye";
-            Uye fromSession = await sessionStorage.GetItem<Uye>(key);
-            if (fromSession == null)
+            try
             {
-                Program.DbCon.Open();
+                Uye fromSession = await sessionStorage.GetItem<Uye>(key);
+                Log.Information("try fromSession sessionStorage");
             }
+            catch (System.Exception)
+            {
+                Log.Information("catch fromSession Exception");
 
+                if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                    Program.DbCon.Open();
+                using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUyelerTableExist, Program.DbCon);
+
+                try
+                {
+                    Log.Information("try NpgsqlCommand CheckIfUyelerTableExist");
+                    var version = cmd.ExecuteScalar().ToString();
+                    Log.Information($"try NpgsqlCommand CheckIfUyelerTableExist {version}");
+                }
+                catch (System.Exception)
+                {
+                    Log.Information("catch CreateUyeTable");
+                    using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUyeTable, Program.DbCon);
+                    cmd2.ExecuteNonQuery();
+                }
+                if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                    Program.DbCon.Close();
+            }
+            Waiting = false;
+            StateHasChanged();
         }
+        await base.OnAfterRenderAsync(firstRender);
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazor.Extensions.Storage.Interfaces.ILocalStorage localStorage { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazor.Extensions.Storage.Interfaces.ISessionStorage sessionStorage { get; set; }
     }
 }

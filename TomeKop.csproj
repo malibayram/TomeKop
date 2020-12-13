@@ -3,12 +3,13 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.2.4" />
-    <PackageReference Include="Npgsql" Version="5.0.1.1" />
-    <PackageReference Include="Serilog" Version="2.10.0" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="Serilog.Sinks.BrowserConsole" Version="1.0.0-dev-00019" />
-    <PackageReference Include="Blazor.Extensions.Storage" Version="1.1.0-preview3" />
+    <PackageReference Include="Blazored.Toast" Version="3.1.2"/>
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="0.9.2.4"/>
+    <PackageReference Include="Npgsql" Version="5.0.1.1"/>
+    <PackageReference Include="Serilog" Version="2.10.0"/>
+    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0"/>
+    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1"/>
+    <PackageReference Include="Serilog.Sinks.BrowserConsole" Version="1.0.0-dev-00019"/>
+    <PackageReference Include="Blazor.Extensions.Storage" Version="1.1.0-preview3"/>
   </ItemGroup>
 </Project>

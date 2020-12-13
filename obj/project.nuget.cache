@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "q/1EimbKydPxZ/tsZBwpzepYBehQJqrjS1b0qrwQCX+ZhdcGP43UbPlPrSlDh3rw+d2N3xpMq1wIJLTqp1lQLg==",
+  "dgSpecHash": "hn2WuNhZ2tl7Xw8hkuvSzIVEuz60BgAydlSioABNntFbQSsZyCCDB2UnDzUmOsBUlzkdbyv+DQQOdt0eRrdJKg==",
   "success": true,
   "projectFilePath": "/Users/ma/Desktop/TomeKop/TomeKop/TomeKop.csproj",
   "expectedPackageFiles": [
     "/Users/ma/.nuget/packages/blazor.extensions.storage/1.1.0-preview3/blazor.extensions.storage.1.1.0-preview3.nupkg.sha512",
+    "/Users/ma/.nuget/packages/blazored.toast/3.1.2/blazored.toast.3.1.2.nupkg.sha512",
     "/Users/ma/.nuget/packages/blazorise/0.9.2.4/blazorise.0.9.2.4.nupkg.sha512",
     "/Users/ma/.nuget/packages/blazorise.icons.fontawesome/0.9.2.4/blazorise.icons.fontawesome.0.9.2.4.nupkg.sha512",
     "/Users/ma/.nuget/packages/microsoft.aspnetcore.authorization/5.0.0/microsoft.aspnetcore.authorization.5.0.0.nupkg.sha512",

@@ -1,11 +1,26 @@
+@using Npgsql
+@using Serilog
 @using TomeKop.Pages
+@using Utils
+@using Blazored.Toast.Configuration
 
 @inherits LayoutComponentBase
 
 @inject Blazor.Extensions.Storage.Interfaces.ISessionStorage sessionStorage
-@inject Blazor.Extensions.Storage.Interfaces.ILocalStorage localStorage
+@* @inject Blazor.Extensions.Storage.Interfaces.ILocalStorage localStorage *@
 
-@if (IsLoggedIn)
+<BlazoredToasts Position="ToastPosition.BottomRight" Timeout="3" IconType="IconType.FontAwesome" ErrorIcon="fa fa-bug"
+    InfoIcon="fa fa-info" SuccessIcon="fa fa-thumbs-up" WarningIcon="fa fa-exclamation" ShowProgressBar="true" />
+
+@if (Waiting)
+{
+    <div class="text-center">
+        <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden"></span>
+        </div>
+    </div>
+}
+else if (Program.IsLoggedIn)
 {
     <div class="page">
         <div class="sidebar">
@@ -29,26 +44,54 @@ else
 }
 
 @code {
-    private bool IsLoggedIn = false;
+    private bool Waiting = true;
     protected override async Task OnInitializedAsync()
-    {        
-        await Task.Delay(10);
-        @* await sessionStorage.SetItem<Uye>(key, forecasts);
-            await localStorage.SetItem<WeatherForecast[]>(key, forecasts);
-            var fromLocal = await localStorage.GetItem<WeatherForecast[]>(key); *@
+    {
+        await Task.Delay(500);
+
+        // await sessionStorage.SetItem<Uye>(key, forecasts);
+        // await localStorage.SetItem<WeatherForecast[]>(key, forecasts);
+        // var fromLocal = await localStorage.GetItem<WeatherForecast[]>(key);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        Log.Information("OnAfterRenderAsync");
         if (firstRender)
         {
+            Log.Information("firstRender");
             var key = "tomekopuye";
-            Uye fromSession = await sessionStorage.GetItem<Uye>(key);
-            if (fromSession == null)
+            try
             {
-                Program.DbCon.Open();
+                Uye fromSession = await sessionStorage.GetItem<Uye>(key);
+                Log.Information("try fromSession sessionStorage");
             }
+            catch (System.Exception)
+            {
+                Log.Information("catch fromSession Exception");
 
+                if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                    Program.DbCon.Open();
+                using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUyelerTableExist, Program.DbCon);
+
+                try
+                {
+                    Log.Information("try NpgsqlCommand CheckIfUyelerTableExist");
+                    var version = cmd.ExecuteScalar().ToString();
+                    Log.Information($"try NpgsqlCommand CheckIfUyelerTableExist {version}");
+                }
+                catch (System.Exception)
+                {
+                    Log.Information("catch CreateUyeTable");
+                    using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUyeTable, Program.DbCon);
+                    cmd2.ExecuteNonQuery();
+                }
+                if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                    Program.DbCon.Close();
+            }
+            Waiting = false;
+            StateHasChanged();
         }
+        await base.OnAfterRenderAsync(firstRender);
     }
 }

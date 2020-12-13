@@ -83,6 +83,20 @@ using TomeKop.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "/Users/ma/Desktop/TomeKop/TomeKop/_Imports.razor"
+using Blazored.Toast;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "/Users/ma/Desktop/TomeKop/TomeKop/_Imports.razor"
+using Blazored.Toast.Services;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "/Users/ma/Desktop/TomeKop/TomeKop/Pages/FetchData.razor"
 using TomeKop.Data;
 

@@ -16,6 +16,26 @@
           "lib/netstandard2.0/Blazor.Extensions.Storage.dll": {}
         }
       },
+      "Blazored.Toast/3.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.4",
+          "Microsoft.AspNetCore.Components.Web": "3.1.4",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.4"
+        },
+        "compile": {
+          "lib/netstandard2.0/Blazored.Toast.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Blazored.Toast.dll": {}
+        },
+        "build": {
+          "buildTransitive/Blazored.Toast.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Blazored.Toast.props": {}
+        }
+      },
       "Blazorise/0.9.2.4": {
         "type": "package",
         "dependencies": {
@@ -692,6 +712,24 @@
         "lib/netstandard2.0/Blazor.Extensions.Storage.JS.dll",
         "lib/netstandard2.0/Blazor.Extensions.Storage.dll",
         "lib/netstandard2.0/Blazor.Extensions.Storage.pdb"
+      ]
+    },
+    "Blazored.Toast/3.1.2": {
+      "sha512": "EDwxOEeqcT8vNIqn+sCYv/Maouu223UfMCuBxtlUpqPsVHql6OmhZgpo3j9GssIkGU1utKKdi4NaAoUoXDKWSQ==",
+      "type": "package",
+      "path": "blazored.toast/3.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazored.toast.3.1.2.nupkg.sha512",
+        "blazored.toast.nuspec",
+        "build/Blazored.Toast.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Blazored.Toast.props",
+        "buildTransitive/Blazored.Toast.props",
+        "lib/netstandard2.0/Blazored.Toast.dll",
+        "staticwebassets/blazored-toast.css",
+        "staticwebassets/blazored-toast.min.css"
       ]
     },
     "Blazorise/0.9.2.4": {
@@ -2466,6 +2504,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Blazor.Extensions.Storage >= 1.1.0-preview3",
+      "Blazored.Toast >= 3.1.2",
       "Blazorise.Icons.FontAwesome >= 0.9.2.4",
       "Npgsql >= 5.0.1.1",
       "Serilog >= 2.10.0",
@@ -2487,7 +2526,7 @@
       "outputPath": "/Users/ma/Desktop/TomeKop/TomeKop/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/ma/.config/NuGet/NuGet.Config"
+        "/Users/ma/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -2514,6 +2553,10 @@
           "Blazor.Extensions.Storage": {
             "target": "Package",
             "version": "[1.1.0-preview3, )"
+          },
+          "Blazored.Toast": {
+            "target": "Package",
+            "version": "[3.1.2, )"
           },
           "Blazorise.Icons.FontAwesome": {
             "target": "Package",
