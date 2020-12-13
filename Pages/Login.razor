@@ -1,5 +1,9 @@
 @using Serilog
+@using Utils
 @inject IToastService toastService
+@using Npgsql
+@using System.Text.Json;
+@using System.Text.Json.Serialization;
 
 <div class="limiter">
     <div class="container-login100">
@@ -141,6 +145,63 @@
 
     async void TryToLogIn()
     {
+
+        if (GeneralFunctions.IsValidEmail(uye.Email) && uye.Sifre.Length > 5 && uye.Sifre.Length < 21)
+        {
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckUserLogin, Program.DbCon);
+
+            cmd.Parameters.AddWithValue("email", uye.Email);
+            cmd.Parameters.AddWithValue("sifre", uye.Sifre);
+            cmd.Prepare();
+
+            Log.Information($"Command: {SqlCommands.CheckUserLogin}");
+            try
+            {
+                Log.Information("try NpgsqlCommand CheckUserLogin");
+
+                NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows && reader.Read())
+                {
+                    Log.Information($"0: {reader.GetValue(0)} 1: {reader.GetValue(1)}");
+                    Log.Information($"reader.FieldCount: {reader.FieldCount}");
+                    Log.Information($"reader.VisibleFieldCount: {reader.VisibleFieldCount}");
+
+                    var expando = new System.Dynamic.ExpandoObject() as IDictionary<string, object>;
+                    for (int i = 0; i < reader.VisibleFieldCount; i++)
+                    {
+                        expando[reader.GetName(i)] = reader.GetValue(i);
+                    }
+
+                    string json = JsonSerializer.Serialize(expando);
+                    Log.Information($"json: {json}");
+                    
+                    // SIFRE123
+                    // ornek@ornek.com
+                }
+                else
+                {
+                    toastService.ShowWarning("Girilen bilgilere sahip bir kullanıcı bulunamadı! Email ve Şifrenizi doğru yazdığınızdan emin olun. Henüz kayıt olmadıysanız lütfen kayıt olun.", "Uyarı");
+                }
+
+                Log.Information($"try NpgsqlCommand CheckUserLogin reader.HasRows {reader.HasRows}");
+            }
+            catch (Npgsql.PostgresException npge)
+            {
+                Log.Error($"Exception handled: {npge}");
+                toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
+            }
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                Program.DbCon.Close();
+        } 
+        else
+        {
+            toastService.ShowWarning("Geçerli bir mail adresi ve en az 6 en fazla 20 karakter uzunluğunda bir şifre girdiğinizden emin olun", "Uyarı");
+        }
         
         await Task.Delay(19);
     }
@@ -158,7 +219,6 @@
             ButtonText = "Hesap Oluştur";
         else
             ButtonText = "Giriş Yap";
-        toastService.ShowInfo("I'm an INFO message");
     }
 
 }

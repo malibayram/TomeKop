@@ -17,6 +17,8 @@ namespace TomeKop
         public static NpgsqlConnection DbCon;
         public static void Main(string[] args)
         {
+            // http://zetcode.com/csharp/postgresql/
+
             DbCon = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2121;Database=tomekop");
 
             Log.Logger = new LoggerConfiguration()
@@ -30,7 +32,6 @@ namespace TomeKop
 
             CreateHostBuilder(args).Build().Run();
         }
-
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

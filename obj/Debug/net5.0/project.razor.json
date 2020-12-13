@@ -180,6 +180,39 @@
         }
       },
       {
+        "HashCode": 627896984,
+        "Kind": "Components.Component",
+        "Name": "TomeKop.App",
+        "AssemblyName": "TomeKop",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "TomeKop.App"
+        }
+      },
+      {
+        "HashCode": 191246497,
+        "Kind": "Components.Component",
+        "Name": "TomeKop.App",
+        "AssemblyName": "TomeKop",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "TomeKop.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "TomeKop.App",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": -871886175,
         "Kind": "Components.Component",
         "Name": "TomeKop.Shared.SurveyPrompt",
@@ -362,35 +395,334 @@
         }
       },
       {
-        "HashCode": 627896984,
+        "HashCode": -1713274639,
         "Kind": "Components.Component",
-        "Name": "TomeKop.App",
-        "AssemblyName": "TomeKop",
+        "Name": "Blazored.Toast.BlazoredToast",
+        "AssemblyName": "Blazored.Toast",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "App"
+            "TagName": "BlazoredToast"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "ToastId",
+            "TypeName": "System.Guid",
+            "Metadata": {
+              "Common.PropertyName": "ToastId"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ToastSettings",
+            "TypeName": "Blazored.Toast.Configuration.ToastSettings",
+            "Metadata": {
+              "Common.PropertyName": "ToastSettings"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Timeout",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "Timeout"
+            }
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "TomeKop.App"
+          "Common.TypeName": "Blazored.Toast.BlazoredToast"
         }
       },
       {
-        "HashCode": 191246497,
+        "HashCode": -921623207,
         "Kind": "Components.Component",
-        "Name": "TomeKop.App",
-        "AssemblyName": "TomeKop",
+        "Name": "Blazored.Toast.BlazoredToast",
+        "AssemblyName": "Blazored.Toast",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "TomeKop.App"
+            "TagName": "Blazored.Toast.BlazoredToast"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "ToastId",
+            "TypeName": "System.Guid",
+            "Metadata": {
+              "Common.PropertyName": "ToastId"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ToastSettings",
+            "TypeName": "Blazored.Toast.Configuration.ToastSettings",
+            "Metadata": {
+              "Common.PropertyName": "ToastSettings"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Timeout",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "Timeout"
+            }
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "TomeKop.App",
+          "Common.TypeName": "Blazored.Toast.BlazoredToast",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -237185128,
+        "Kind": "Components.Component",
+        "Name": "Blazored.Toast.BlazoredToasts",
+        "AssemblyName": "Blazored.Toast",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "BlazoredToasts"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "IconType",
+            "TypeName": "Blazored.Toast.IconType?",
+            "Metadata": {
+              "Common.PropertyName": "IconType"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "InfoClass",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "InfoClass"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "InfoIcon",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "InfoIcon"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "SuccessClass",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "SuccessClass"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "SuccessIcon",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "SuccessIcon"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "WarningClass",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "WarningClass"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "WarningIcon",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "WarningIcon"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ErrorClass",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ErrorClass"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ErrorIcon",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ErrorIcon"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Position",
+            "TypeName": "Blazored.Toast.Configuration.ToastPosition",
+            "IsEnum": true,
+            "Metadata": {
+              "Common.PropertyName": "Position"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Timeout",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "Timeout"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "RemoveToastsOnNavigation",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "RemoveToastsOnNavigation"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ShowProgressBar",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "ShowProgressBar"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blazored.Toast.BlazoredToasts"
+        }
+      },
+      {
+        "HashCode": -523824299,
+        "Kind": "Components.Component",
+        "Name": "Blazored.Toast.BlazoredToasts",
+        "AssemblyName": "Blazored.Toast",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Blazored.Toast.BlazoredToasts"
+          }
+        ],
+        "BoundAttributes": [
+          {
+            "Kind": "Components.Component",
+            "Name": "IconType",
+            "TypeName": "Blazored.Toast.IconType?",
+            "Metadata": {
+              "Common.PropertyName": "IconType"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "InfoClass",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "InfoClass"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "InfoIcon",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "InfoIcon"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "SuccessClass",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "SuccessClass"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "SuccessIcon",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "SuccessIcon"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "WarningClass",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "WarningClass"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "WarningIcon",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "WarningIcon"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ErrorClass",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ErrorClass"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ErrorIcon",
+            "TypeName": "System.String",
+            "Metadata": {
+              "Common.PropertyName": "ErrorIcon"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Position",
+            "TypeName": "Blazored.Toast.Configuration.ToastPosition",
+            "IsEnum": true,
+            "Metadata": {
+              "Common.PropertyName": "Position"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "Timeout",
+            "TypeName": "System.Int32",
+            "Metadata": {
+              "Common.PropertyName": "Timeout"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "RemoveToastsOnNavigation",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "RemoveToastsOnNavigation"
+            }
+          },
+          {
+            "Kind": "Components.Component",
+            "Name": "ShowProgressBar",
+            "TypeName": "System.Boolean",
+            "Metadata": {
+              "Common.PropertyName": "ShowProgressBar"
+            }
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Blazored.Toast.BlazoredToasts",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -43889,338 +44221,6 @@
           "Runtime.Name": "Components.None",
           "Common.TypeName": "Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize<TItem>.Placeholder",
           "Components.IsSpecialKind": "Components.ChildContent",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1713274639,
-        "Kind": "Components.Component",
-        "Name": "Blazored.Toast.BlazoredToast",
-        "AssemblyName": "Blazored.Toast",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "BlazoredToast"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "ToastId",
-            "TypeName": "System.Guid",
-            "Metadata": {
-              "Common.PropertyName": "ToastId"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ToastSettings",
-            "TypeName": "Blazored.Toast.Configuration.ToastSettings",
-            "Metadata": {
-              "Common.PropertyName": "ToastSettings"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Timeout",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "Timeout"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Blazored.Toast.BlazoredToast"
-        }
-      },
-      {
-        "HashCode": -921623207,
-        "Kind": "Components.Component",
-        "Name": "Blazored.Toast.BlazoredToast",
-        "AssemblyName": "Blazored.Toast",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Blazored.Toast.BlazoredToast"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "ToastId",
-            "TypeName": "System.Guid",
-            "Metadata": {
-              "Common.PropertyName": "ToastId"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ToastSettings",
-            "TypeName": "Blazored.Toast.Configuration.ToastSettings",
-            "Metadata": {
-              "Common.PropertyName": "ToastSettings"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Timeout",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "Timeout"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Blazored.Toast.BlazoredToast",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -237185128,
-        "Kind": "Components.Component",
-        "Name": "Blazored.Toast.BlazoredToasts",
-        "AssemblyName": "Blazored.Toast",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "BlazoredToasts"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "IconType",
-            "TypeName": "Blazored.Toast.IconType?",
-            "Metadata": {
-              "Common.PropertyName": "IconType"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "InfoClass",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "InfoClass"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "InfoIcon",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "InfoIcon"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "SuccessClass",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "SuccessClass"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "SuccessIcon",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "SuccessIcon"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "WarningClass",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "WarningClass"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "WarningIcon",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "WarningIcon"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ErrorClass",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "ErrorClass"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ErrorIcon",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "ErrorIcon"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Position",
-            "TypeName": "Blazored.Toast.Configuration.ToastPosition",
-            "IsEnum": true,
-            "Metadata": {
-              "Common.PropertyName": "Position"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Timeout",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "Timeout"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "RemoveToastsOnNavigation",
-            "TypeName": "System.Boolean",
-            "Metadata": {
-              "Common.PropertyName": "RemoveToastsOnNavigation"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ShowProgressBar",
-            "TypeName": "System.Boolean",
-            "Metadata": {
-              "Common.PropertyName": "ShowProgressBar"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Blazored.Toast.BlazoredToasts"
-        }
-      },
-      {
-        "HashCode": -523824299,
-        "Kind": "Components.Component",
-        "Name": "Blazored.Toast.BlazoredToasts",
-        "AssemblyName": "Blazored.Toast",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Blazored.Toast.BlazoredToasts"
-          }
-        ],
-        "BoundAttributes": [
-          {
-            "Kind": "Components.Component",
-            "Name": "IconType",
-            "TypeName": "Blazored.Toast.IconType?",
-            "Metadata": {
-              "Common.PropertyName": "IconType"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "InfoClass",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "InfoClass"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "InfoIcon",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "InfoIcon"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "SuccessClass",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "SuccessClass"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "SuccessIcon",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "SuccessIcon"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "WarningClass",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "WarningClass"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "WarningIcon",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "WarningIcon"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ErrorClass",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "ErrorClass"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ErrorIcon",
-            "TypeName": "System.String",
-            "Metadata": {
-              "Common.PropertyName": "ErrorIcon"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Position",
-            "TypeName": "Blazored.Toast.Configuration.ToastPosition",
-            "IsEnum": true,
-            "Metadata": {
-              "Common.PropertyName": "Position"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "Timeout",
-            "TypeName": "System.Int32",
-            "Metadata": {
-              "Common.PropertyName": "Timeout"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "RemoveToastsOnNavigation",
-            "TypeName": "System.Boolean",
-            "Metadata": {
-              "Common.PropertyName": "RemoveToastsOnNavigation"
-            }
-          },
-          {
-            "Kind": "Components.Component",
-            "Name": "ShowProgressBar",
-            "TypeName": "System.Boolean",
-            "Metadata": {
-              "Common.PropertyName": "ShowProgressBar"
-            }
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Blazored.Toast.BlazoredToasts",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
