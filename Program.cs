@@ -6,13 +6,28 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Npgsql;
+using Serilog;
 
 namespace TomeKop
 {
     public class Program
     {
+        public static bool IsLoggedIn = false;
+        public static NpgsqlConnection DbCon;
         public static void Main(string[] args)
         {
+            DbCon = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2121;Database=company");
+
+            Log.Logger = new LoggerConfiguration()
+           .MinimumLevel.Information()
+           .WriteTo.Console()
+           .WriteTo.BrowserConsole()
+           .WriteTo.File("log.txt",
+               rollingInterval: RollingInterval.Day,
+               rollOnFileSizeLimit: true)
+           .CreateLogger();
+
             CreateHostBuilder(args).Build().Run();
         }
 

@@ -1,0 +1,153 @@
+@inject IJSRuntime JS;
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="images/img-01.png" alt="IMG">
+            </div>
+            @if (LogInPage)
+            {
+                <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@OnValidSubmit">
+                    <DataAnnotationsValidator />
+                    <span class="login100-form-title">
+                        Üye Giriş
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir mail adresi girin">
+                        <InputText @bind-Value="@uye.Email" class="input100" placeholder="Email" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.Email)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
+                        <InputText @bind-Value="@uye.Sifre" class="input100" type="password" placeholder="Şifre" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.Sifre)" />
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
+                            @ButtonText
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-12">
+                        @* <span class="txt1">
+                            Forgot
+                            </span>
+                            <a class="txt2" href="#">
+                            Username / Password?
+                            </a> *@
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        <a class="txt2" href="#" @onclick="(() => ChangeForm(false))">
+                            Hesabın yoksa buradan <b>Kayıt Ol!</b>
+                            <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </EditForm>
+            }
+            else
+            {
+                <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@OnValidSubmit">
+                    <span class="login100-form-title">
+                        Üye Kayıt
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir doğum girin">
+                        <label>Doğum Tarihi:</label>
+                        <InputDate @bind-Value="@uye.DogumTarihi" DisplayName="Doğum Tarihi" class="form-control" />
+                        <ValidationMessage For="@(() => uye.DogumTarihi)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir mail adresi girin">
+                        <InputText @bind-Value="@uye.Email" class="input100" placeholder="Email" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.Email)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
+                        <InputText @bind-Value="@uye.Sifre" class="input100" type="password" placeholder="Şifre" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.Sifre)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
+                        <InputText @bind-Value="@SifreTekrar" class="input100" type="password" placeholder="Şifre Tekrar" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
+                            @ButtonText
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-12">
+                        @* <span class="txt1">
+                            Forgot
+                            </span>
+                            <a class="txt2" href="#">
+                            Username / Password?
+                            </a> *@
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        <a class="txt2" href="#" @onclick="(() => ChangeForm(true))">
+                            Hesabın varsa buradan <b>Giriş Yap!</b>
+                            <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </EditForm>
+            }
+
+
+            </div>
+        </div>
+    </div>
+
+    @code {
+    private bool LogInPage = true;
+    private string SifreTekrar = "";
+
+    [Parameter]
+    public Uye uye { get; set; } = new Uye();
+    [Parameter]
+    public string ButtonText { get; set; } = "Giriş Yap";
+    [Parameter]
+    public EventCallback OnValidSubmit { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        uye.DogumTarihi = DateTime.Today;
+        await Task.Delay(100);
+    }
+
+    private void ChangeForm(bool lp)
+    {
+        LogInPage = lp;
+        if (!lp)
+            ButtonText = "Hesap Oluştur";
+        else
+            ButtonText = "Giriş Yap";
+
+    }
+
+}

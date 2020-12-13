@@ -1,17 +1,54 @@
+@using TomeKop.Pages
+
 @inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+@inject Blazor.Extensions.Storage.Interfaces.ISessionStorage sessionStorage
+@inject Blazor.Extensions.Storage.Interfaces.ILocalStorage localStorage
 
-    <div class="main">
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+@if (IsLoggedIn)
+{
+    <div class="page">
+        <div class="sidebar">
+            <NavMenu />
         </div>
 
-        <div class="content px-4">
-            @Body
+        <div class="main">
+            <div class="top-row px-4">
+                <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            </div>
+
+            <div class="content px-4">
+                @Body
+            </div>
         </div>
     </div>
-</div>
+}
+else
+{
+    <Login />
+}
+
+@code {
+    private bool IsLoggedIn = false;
+    protected override async Task OnInitializedAsync()
+    {        
+        await Task.Delay(10);
+        @* await sessionStorage.SetItem<Uye>(key, forecasts);
+            await localStorage.SetItem<WeatherForecast[]>(key, forecasts);
+            var fromLocal = await localStorage.GetItem<WeatherForecast[]>(key); *@
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var key = "tomekopuye";
+            Uye fromSession = await sessionStorage.GetItem<Uye>(key);
+            if (fromSession == null)
+            {
+                Program.DbCon.Open();
+            }
+
+        }
+    }
+}
