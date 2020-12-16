@@ -17,10 +17,11 @@ namespace TomeKop.Utils
                                                             PRIMARY KEY (UYE_ID)
                                                         );";
 
-        public static readonly string CreateUserLogin = "INSERT INTO UYELER (DANISMAN_ID, TC_NO, ADI, SOYADI, CINSIYET, TEL_NO, DOGUM_TARIHI, EMAIL, LOGIN_PASSWORD) VALUES (@DANISMAN_ID, @TC_NO, @ADI, @SOYADI, @CINSIYET, @TEL_NO, @DOGUM_TARIHI, @EMAIL, @LOGIN_PASSWORD);";
-        public static readonly string UpdateUserLogin = "UPDATE UYELER SET DANISMAN_ID = @danisman_id, TC_NO = @tc_no, ADI = @adi, SOYADI = @soyadi, CINSIYET = @cinsiyet, TEL_NO = @tel_no, DOGUM_TARIHI = @dogum_tarihi, EMAIL = @email, LOGIN_PASSWORD = @login_password WHERE uye_id = @uye_id;";
+        public static readonly string CreateUserLogin = "INSERT INTO uyeler (DANISMAN_ID, TC_NO, ADI, SOYADI, CINSIYET, TEL_NO, DOGUM_TARIHI, EMAIL, LOGIN_PASSWORD) VALUES (@DANISMAN_ID, @TC_NO, @ADI, @SOYADI, @CINSIYET, @TEL_NO, @DOGUM_TARIHI, @EMAIL, @LOGIN_PASSWORD);";
+        public static readonly string UpdateUserLogin = "UPDATE uyeler SET DANISMAN_ID = @danisman_id, TC_NO = @tc_no, ADI = @adi, SOYADI = @soyadi, CINSIYET = @cinsiyet, TEL_NO = @tel_no, DOGUM_TARIHI = @dogum_tarihi, EMAIL = @email, LOGIN_PASSWORD = @login_password WHERE uye_id = @uye_id;";
         public static readonly string DeleteUser = "DELETE FROM uyeler WHERE uye_id = @uye_id";
-        public static readonly string CheckUserLogin = "SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;";
+        public static readonly string CheckUserLogin = "SELECT * FROM uyeler WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;";
+        public static readonly string SelectDanisman = "SELECT adi, soyadi, email, tel_no FROM uyeler WHERE uye_id = @uye_id;";
 
     }
 }

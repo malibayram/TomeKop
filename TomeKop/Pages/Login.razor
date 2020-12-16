@@ -15,185 +15,183 @@
             </div>
             @if (LogInPage)
             {
-        <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@TryToLogIn">
-            <DataAnnotationsValidator />
-            <span class="login100-form-title">
-                Üye Giriş
-            </span>
+                <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@TryToLogIn">
+                    <DataAnnotationsValidator />
+                    <span class="login100-form-title">
+                        Üye Giriş
+                    </span>
 
-            <div class="wrap-input100 validate-input" data-validate="Geçerli bir mail adresi girin">
-                <InputText @bind-Value="@uye.email" class="input100" placeholder="email" />
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </span>
-                <ValidationMessage For="@(() => uye.email)" />
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
-                <InputText @bind-Value="@uye.login_password" class="input100" type="password" placeholder="Şifre" />
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                </span>
-                <ValidationMessage For="@(() => uye.login_password)" />
-            </div>
-
-            @if (progressing)
-            {
-                <div class="text-center">
-                    <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
-                        <span class="visually-hidden"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir mail adresi girin">
+                        <InputText @bind-Value="@uye.email" class="input100" placeholder="email" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.email)" />
                     </div>
-                </div>
-            }
-            else
-            {
-                <div class="container-login100-form-btn">
-                    <input type="submit" class="login100-form-btn" value="@ButtonText" />
-                </div>
-            }
 
-
-
-            <div class="text-center p-t-12">
-                @* <span class="txt1">
-            Forgot
-            </span>
-            <a class="txt2" href="#">
-            Username / Password?
-            </a> *@
-            </div>
-
-            <div class="text-center p-t-136">
-                <a class="txt2" href="#" @onclick="(() => ChangeForm(false))">
-                    Hesabın yoksa buradan <b>Kayıt Ol!</b>
-                    <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
-                </a>
-            </div>
-            <ValidationSummary />
-        </EditForm>
-            }
-            else
-            {
-        <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@TryToRegister">
-            <span class="login100-form-title">
-                Üye Kayıt
-            </span>
-
-            <div class="wrap-input100 validate-input" data-validate="Geçerli bir doğum girin">
-                <label>Doğum Tarihi:</label>
-                <InputDate @bind-Value="@uye.dogum_tarihi" DisplayName="Doğum Tarihi" class="form-control" />
-                <ValidationMessage For="@(() => uye.dogum_tarihi)" />
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Geçerli bir Ad girin">
-                <InputText @bind-Value="@uye.adi" class="input100" placeholder="Adı" />
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </span>
-                <ValidationMessage For="@(() => uye.adi)" />
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
-                <InputText @bind-Value="@uye.soyadi" class="input100" placeholder="Soyadı" />
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </span>
-                <ValidationMessage For="@(() => uye.soyadi)" />
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
-                <InputRadioGroup @bind-Value="@uye.cinsiyet" class="input100">
-                    Cinsiyet: <InputRadio Value="'E'" /><span> </span> Erkek <InputRadio Value="'K'" /> <span> </span>Kadın <InputRadio Value="'D'" /> <span> </span>Diğer
-                </InputRadioGroup>
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Geçerli bir TC no girin">
-                <InputText @bind-Value="@uye.tc_no" class="input100" placeholder="TC Numarası" />
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </span>
-                <ValidationMessage For="@(() => uye.tc_no)" />
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Geçerli bir TC no girin">
-                <InputText @bind-Value="@uye.tel_no" class="input100" placeholder="Telefon Numarası" />
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </span>
-                <ValidationMessage For="@(() => uye.tel_no)" />
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Geçerli bir mail adresi girin">
-                <InputText @bind-Value="@uye.email" class="input100" placeholder="Email" />
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                </span>
-                <ValidationMessage For="@(() => uye.email)" />
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
-                <InputText @bind-Value="@uye.login_password" class="input100" type="password" placeholder="Şifre" />
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                </span>
-                <ValidationMessage For="@(() => uye.login_password)" />
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
-                <InputText @bind-Value="@SifreTekrar" class="input100" type="password" placeholder="Şifre Tekrar" />
-                <span class="focus-input100"></span>
-                <span class="symbol-input100">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                </span>
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
-                <InputCheckbox @bind-Value="@isDanisman" /> Danışman olarak kayıt ol. <small>Daha sonra değiştiremezsiniz. Lütfen danışman değilseniz bu kutucuğu işaretlemeyin!</small>
-            </div>
-
-            @if (progressing)
-            {
-                <div class="text-center">
-                    <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
-                        <span class="visually-hidden"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
+                        <InputText @bind-Value="@uye.login_password" class="input100" type="password" placeholder="Şifre" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.login_password)" />
                     </div>
-                </div>
+
+                    @if (progressing)
+                    {
+                        <div class="text-center">
+                            <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+                                <span class="visually-hidden"></span>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="container-login100-form-btn">
+                            <input type="submit" class="login100-form-btn" value="@ButtonText" />
+                        </div>
+                    }
+
+
+
+                    <div class="text-center p-t-12">
+                        @* <span class="txt1">
+                    Forgot
+                    </span>
+                    <a class="txt2" href="#">
+                    Username / Password?
+                    </a> *@
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        <a class="txt2" href="#" @onclick="(() => ChangeForm(false))">
+                            Hesabın yoksa buradan <b>Kayıt Ol!</b>
+                            <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <ValidationSummary />
+                </EditForm>
             }
             else
             {
-                <div class="container-login100-form-btn">
-                    <input type="submit" class="login100-form-btn" value="@ButtonText" />
-                </div>
+                <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@TryToRegister">
+                    <span class="login100-form-title">
+                        Üye Kayıt
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir doğum girin">
+                        <label>Doğum Tarihi:</label>
+                        <InputDate @bind-Value="@uye.dogum_tarihi" DisplayName="Doğum Tarihi" class="form-control" />
+                        <ValidationMessage For="@(() => uye.dogum_tarihi)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir Ad girin">
+                        <InputText @bind-Value="@uye.adi" class="input100" placeholder="Adı" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.adi)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
+                        <InputText @bind-Value="@uye.soyadi" class="input100" placeholder="Soyadı" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.soyadi)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
+                        <InputRadioGroup @bind-Value="@uye.cinsiyet" class="input100">
+                            Cinsiyet: <InputRadio Value="'E'" /><span> </span> Erkek <InputRadio Value="'K'" /> <span> </span>Kadın <InputRadio Value="'D'" /> <span> </span>Diğer
+                        </InputRadioGroup>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir TC no girin">
+                        <InputText @bind-Value="@uye.tc_no" class="input100" placeholder="TC Numarası" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.tc_no)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir TC no girin">
+                        <InputText @bind-Value="@uye.tel_no" class="input100" placeholder="Telefon Numarası" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.tel_no)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir mail adresi girin">
+                        <InputText @bind-Value="@uye.email" class="input100" placeholder="Email" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.email)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
+                        <InputText @bind-Value="@uye.login_password" class="input100" type="password" placeholder="Şifre" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                        <ValidationMessage For="@(() => uye.login_password)" />
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
+                        <InputText @bind-Value="@SifreTekrar" class="input100" type="password" placeholder="Şifre Tekrar" />
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
+                        <InputCheckbox @bind-Value="@isDanisman" /> Danışman olarak kayıt ol. <small>Daha sonra değiştiremezsiniz. Lütfen danışman değilseniz bu kutucuğu işaretlemeyin!</small>
+                    </div>
+
+                    @if (progressing)
+                    {
+                        <div class="text-center">
+                            <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+                                <span class="visually-hidden"></span>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="container-login100-form-btn">
+                            <input type="submit" class="login100-form-btn" value="@ButtonText" />
+                        </div>
+                    }
+
+                    <div class="text-center p-t-12">
+                        @* <span class="txt1">
+                    Forgot
+                    </span>
+                    <a class="txt2" href="#">
+                    Username / Password?
+                    </a> *@
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        <a class="txt2" href="#" @onclick="(() => ChangeForm(true))">
+                            Hesabın varsa buradan <b>Giriş Yap!</b>
+                            <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <ValidationSummary />
+                </EditForm>
             }
-
-            <div class="text-center p-t-12">
-                @* <span class="txt1">
-            Forgot
-            </span>
-            <a class="txt2" href="#">
-            Username / Password?
-            </a> *@
-            </div>
-
-            <div class="text-center p-t-136">
-                <a class="txt2" href="#" @onclick="(() => ChangeForm(true))">
-                    Hesabın varsa buradan <b>Giriş Yap!</b>
-                    <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
-                </a>
-            </div>
-            <ValidationSummary />
-        </EditForm>
-            }
-
-
             </div>
         </div>
     </div>
@@ -209,7 +207,7 @@
         public Uye uye { get; set; } = new Uye();
         [Parameter]
         public string ButtonText { get; set; } = "Giriş Yap";
-        async void TryToRegister()
+        private async void TryToRegister()
         {
             progressing = true;
             if (uye.email == null || !GeneralFunctions.IsValidEmail(uye.email))
@@ -287,7 +285,7 @@
             StateHasChanged();
         }
 
-        async void TryToLogIn()
+        private async void TryToLogIn()
         {
             progressing = true;
             if (GeneralFunctions.IsValidEmail(uye.email) && uye.login_password.Length > 5 && uye.login_password.Length < 21)
@@ -300,11 +298,11 @@
 
                 cmd.Parameters.AddWithValue("email", uye.email);
                 cmd.Parameters.AddWithValue("login_password", uye.login_password);
-                cmd.Prepare();
                 try
                 {
                     Log.Information("try NpgsqlCommand CheckUserLogin");
 
+                    cmd.Prepare();
                     NpgsqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.HasRows && reader.Read())

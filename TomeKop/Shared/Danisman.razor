@@ -1,0 +1,79 @@
+@using Npgsql
+@using System.Text.Json;
+@using Serilog
+@using Utils
+
+@inject IToastService toastService
+
+@if (Waiting)
+{
+    <div class="spinner-grow text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+}
+else if (danisman != null)
+{
+    <div class="card">
+        <div class="card-header">
+            Danışman Bilgisi
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@danisman.adi @danisman.soyadi</h5>
+            <p class="card-text">@danisman.email</p>
+            <p class="card-text">@danisman.tel_no</p>
+            <a href="mailto:@danisman.email" class="btn btn-primary">Mail Gönder</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger" role="alert">
+        Danışman bilgisi getirilemedi! Henüz danışman atanmamış olabilir. Atandığından eminseniz daha sonra sayfayı tekrar
+        yenileyerek bilgilerin gelmesini bekleyebilirsiniz.
+    </div>
+}
+
+@code {
+    private Uye danisman;
+    private bool Waiting = true;
+    protected override async Task OnInitializedAsync()
+    {
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+
+
+        using var cmd = new NpgsqlCommand(SqlCommands.SelectDanisman, Program.DbCon);
+        cmd.Parameters.AddWithValue("uye_id", Program.uye.danisman_id);
+
+        try
+        {
+            cmd.Prepare();
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows && reader.Read())
+            {
+                var expando = new System.Dynamic.ExpandoObject() as IDictionary<string, object>;
+                for (int i = 0; i < reader.VisibleFieldCount; i++)
+                {
+                    expando[reader.GetName(i)] = reader.GetValue(i);
+                }
+
+                string jsonString = JsonSerializer.Serialize(expando);
+                Log.Information($"jsonString: {jsonString}");
+                danisman = JsonSerializer.Deserialize<Uye>(jsonString);
+            }
+        }
+        catch (Npgsql.PostgresException npge)
+        {
+            Log.Error($"Exception handled: {npge}");
+            toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
+        }
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+
+        Waiting = false;
+        await Task.Delay(100);
+    }
+
+}

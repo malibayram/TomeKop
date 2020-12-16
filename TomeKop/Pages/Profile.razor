@@ -30,7 +30,7 @@
 }
 
 <div class="container row">
-    <div class="col-6">
+    <div class="col-4">
         <h2>Profil Sayfası</h2>
         <EditForm Model="@Program.uye" OnValidSubmit="UpdateProfile">
             <div class="input-group">
@@ -100,8 +100,14 @@
                 <button @onclick="@(()=> ShowAlertDialog = true)" class="btn btn-danger">Profili Sil</button>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-4">
             <h2>Adresler</h2>
+        </div>
+        <div class="col-4">
+            @if (Program.uye.danisman_id > 0)
+            {
+                <Danisman />
+            }            
         </div>
     </div>
 
