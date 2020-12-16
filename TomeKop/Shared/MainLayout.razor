@@ -31,6 +31,7 @@ else if (Program.uye != null)
             <div class="top-row px-4">
                 @* <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a> *@
                 <span>Hoşgeldin @Program.uye.adi @Program.uye.soyadi</span>
+                <NavLink href="profil"> Profil Bilgileri</NavLink>
                 <a href="#" @onclick="LogOut">Çıkış Yap</a>
             </div>
 
@@ -47,6 +48,7 @@ else
 
 @code {
     private bool Waiting = true;
+
     protected override async Task OnInitializedAsync()
     {
         await Task.Delay(10);
@@ -58,9 +60,11 @@ else
 
     private async Task LogOut()
     {
+        Waiting = true;
         Program.uye = null;
         await localStorage.RemoveItemAsync("uyeJsonString");
         uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+        Waiting = false;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

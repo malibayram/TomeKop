@@ -15,154 +15,182 @@
             </div>
             @if (LogInPage)
             {
-                <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@TryToLogIn">
-                    <DataAnnotationsValidator />
-                    <span class="login100-form-title">
-                        Üye Giriş
-                    </span>
+        <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@TryToLogIn">
+            <DataAnnotationsValidator />
+            <span class="login100-form-title">
+                Üye Giriş
+            </span>
 
-                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir mail adresi girin">
-                        <InputText @bind-Value="@uye.email" class="input100" placeholder="email" />
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                        <ValidationMessage For="@(() => uye.email)" />
-                    </div>
+            <div class="wrap-input100 validate-input" data-validate="Geçerli bir mail adresi girin">
+                <InputText @bind-Value="@uye.email" class="input100" placeholder="email" />
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+                <ValidationMessage For="@(() => uye.email)" />
+            </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
-                        <InputText @bind-Value="@uye.login_password" class="input100" type="password" placeholder="Şifre" />
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                        </span>
-                        <ValidationMessage For="@(() => uye.login_password)" />
-                    </div>
+            <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
+                <InputText @bind-Value="@uye.login_password" class="input100" type="password" placeholder="Şifre" />
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </span>
+                <ValidationMessage For="@(() => uye.login_password)" />
+            </div>
 
-                    <div class="container-login100-form-btn">
-                        <input type="submit" class="login100-form-btn" value="@ButtonText" />
+            @if (progressing)
+            {
+                <div class="text-center">
+                    <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden"></span>
                     </div>
-
-                    <div class="text-center p-t-12">
-                        @* <span class="txt1">
-                            Forgot
-                            </span>
-                            <a class="txt2" href="#">
-                            Username / Password?
-                            </a> *@
-                    </div>
-
-                    <div class="text-center p-t-136">
-                        <a class="txt2" href="#" @onclick="(() => ChangeForm(false))">
-                            Hesabın yoksa buradan <b>Kayıt Ol!</b>
-                            <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    <ValidationSummary />
-                </EditForm>
+                </div>
             }
             else
             {
-                <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@TryToRegister">
-                    <span class="login100-form-title">
-                        Üye Kayıt
-                    </span>
+                <div class="container-login100-form-btn">
+                    <input type="submit" class="login100-form-btn" value="@ButtonText" />
+                </div>
+            }
 
-                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir doğum girin">
-                        <label>Doğum Tarihi:</label>
-                        <InputDate @bind-Value="@uye.dogum_tarihi" DisplayName="Doğum Tarihi" class="form-control" />
-                        <ValidationMessage For="@(() => uye.dogum_tarihi)" />
-                    </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir Ad girin">
-                        <InputText @bind-Value="@uye.adi" class="input100" placeholder="Adı" />
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                        <ValidationMessage For="@(() => uye.adi)" />
-                    </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
-                        <InputText @bind-Value="@uye.soyadi" class="input100" placeholder="Soyadı" />
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                        <ValidationMessage For="@(() => uye.soyadi)" />
-                    </div>
+            <div class="text-center p-t-12">
+                @* <span class="txt1">
+            Forgot
+            </span>
+            <a class="txt2" href="#">
+            Username / Password?
+            </a> *@
+            </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
-                        <InputRadioGroup @bind-Value="@uye.cinsiyet" class="input100">
-                            Cinsiyet: <InputRadio Value="'E'" /><span> </span> Erkek <InputRadio Value="'K'" /> <span> </span>Kadın <InputRadio Value="'D'" /> <span> </span>Diğer
-                        </InputRadioGroup>
-                    </div>
+            <div class="text-center p-t-136">
+                <a class="txt2" href="#" @onclick="(() => ChangeForm(false))">
+                    Hesabın yoksa buradan <b>Kayıt Ol!</b>
+                    <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
+                </a>
+            </div>
+            <ValidationSummary />
+        </EditForm>
+            }
+            else
+            {
+        <EditForm class="login100-form validate-form" Model="@uye" OnValidSubmit="@TryToRegister">
+            <span class="login100-form-title">
+                Üye Kayıt
+            </span>
 
-                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir TC no girin">
-                        <InputText @bind-Value="@uye.tc_no" class="input100" placeholder="TC Numarası" />
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                        <ValidationMessage For="@(() => uye.tc_no)" />
-                    </div>
+            <div class="wrap-input100 validate-input" data-validate="Geçerli bir doğum girin">
+                <label>Doğum Tarihi:</label>
+                <InputDate @bind-Value="@uye.dogum_tarihi" DisplayName="Doğum Tarihi" class="form-control" />
+                <ValidationMessage For="@(() => uye.dogum_tarihi)" />
+            </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir TC no girin">
-                        <InputText @bind-Value="@uye.tel_no" class="input100" placeholder="Telefon Numarası" />
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                        <ValidationMessage For="@(() => uye.tel_no)" />
-                    </div>
+            <div class="wrap-input100 validate-input" data-validate="Geçerli bir Ad girin">
+                <InputText @bind-Value="@uye.adi" class="input100" placeholder="Adı" />
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+                <ValidationMessage For="@(() => uye.adi)" />
+            </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Geçerli bir mail adresi girin">
-                        <InputText @bind-Value="@uye.email" class="input100" placeholder="Email" />
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                        <ValidationMessage For="@(() => uye.email)" />
-                    </div>
+            <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
+                <InputText @bind-Value="@uye.soyadi" class="input100" placeholder="Soyadı" />
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+                <ValidationMessage For="@(() => uye.soyadi)" />
+            </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
-                        <InputText @bind-Value="@uye.login_password" class="input100" type="password" placeholder="Şifre" />
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                        </span>
-                        <ValidationMessage For="@(() => uye.login_password)" />
-                    </div>
+            <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
+                <InputRadioGroup @bind-Value="@uye.cinsiyet" class="input100">
+                    Cinsiyet: <InputRadio Value="'E'" /><span> </span> Erkek <InputRadio Value="'K'" /> <span> </span>Kadın <InputRadio Value="'D'" /> <span> </span>Diğer
+                </InputRadioGroup>
+            </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
-                        <InputText @bind-Value="@SifreTekrar" class="input100" type="password" placeholder="Şifre Tekrar" />
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                        </span>
-                    </div>
+            <div class="wrap-input100 validate-input" data-validate="Geçerli bir TC no girin">
+                <InputText @bind-Value="@uye.tc_no" class="input100" placeholder="TC Numarası" />
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+                <ValidationMessage For="@(() => uye.tc_no)" />
+            </div>
 
-                    <div class="container-login100-form-btn">
-                        <input type="submit" class="login100-form-btn" value="@ButtonText" />
-                    </div>
+            <div class="wrap-input100 validate-input" data-validate="Geçerli bir TC no girin">
+                <InputText @bind-Value="@uye.tel_no" class="input100" placeholder="Telefon Numarası" />
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+                <ValidationMessage For="@(() => uye.tel_no)" />
+            </div>
 
-                    <div class="text-center p-t-12">
-                        @* <span class="txt1">
-                            Forgot
-                            </span>
-                            <a class="txt2" href="#">
-                            Username / Password?
-                            </a> *@
-                    </div>
+            <div class="wrap-input100 validate-input" data-validate="Geçerli bir mail adresi girin">
+                <InputText @bind-Value="@uye.email" class="input100" placeholder="Email" />
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </span>
+                <ValidationMessage For="@(() => uye.email)" />
+            </div>
 
-                    <div class="text-center p-t-136">
-                        <a class="txt2" href="#" @onclick="(() => ChangeForm(true))">
-                            Hesabın varsa buradan <b>Giriş Yap!</b>
-                            <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
-                        </a>
+            <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
+                <InputText @bind-Value="@uye.login_password" class="input100" type="password" placeholder="Şifre" />
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </span>
+                <ValidationMessage For="@(() => uye.login_password)" />
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Şifre Zorunludur">
+                <InputText @bind-Value="@SifreTekrar" class="input100" type="password" placeholder="Şifre Tekrar" />
+                <span class="focus-input100"></span>
+                <span class="symbol-input100">
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </span>
+            </div>
+
+            <div class="wrap-input100 validate-input" data-validate="Geçerli bir Soyad girin">
+                <InputCheckbox @bind-Value="@isDanisman" /> Danışman olarak kayıt ol. <small>Daha sonra değiştiremezsiniz. Lütfen danışman değilseniz bu kutucuğu işaretlemeyin!</small>
+            </div>
+
+            @if (progressing)
+            {
+                <div class="text-center">
+                    <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden"></span>
                     </div>
-                    <ValidationSummary />
-                </EditForm>
+                </div>
+            }
+            else
+            {
+                <div class="container-login100-form-btn">
+                    <input type="submit" class="login100-form-btn" value="@ButtonText" />
+                </div>
+            }
+
+            <div class="text-center p-t-12">
+                @* <span class="txt1">
+            Forgot
+            </span>
+            <a class="txt2" href="#">
+            Username / Password?
+            </a> *@
+            </div>
+
+            <div class="text-center p-t-136">
+                <a class="txt2" href="#" @onclick="(() => ChangeForm(true))">
+                    Hesabın varsa buradan <b>Giriş Yap!</b>
+                    <i class="fa fa-arrow-right m-l-5" aria-hidden="true"></i>
+                </a>
+            </div>
+            <ValidationSummary />
+        </EditForm>
             }
 
 
@@ -171,163 +199,177 @@
     </div>
 
     @code {
-    private bool LogInPage = true;
-    private string SifreTekrar = "";
-    private char[] cins = new char[] {'E', 'K', 'D'}; 
+        private bool LogInPage = true;
+        private bool progressing = false;
+        private bool isDanisman = false;
+        private string SifreTekrar = "";
+        private char[] cins = new char[] {'E', 'K', 'D'};
 
-    [Parameter]
-    public Uye uye { get; set; } = new Uye();
-    [Parameter]
-    public string ButtonText { get; set; } = "Giriş Yap";
-    async void TryToRegister()
-    {
-        if (uye.email == null || !GeneralFunctions.IsValidEmail(uye.email))
+        [Parameter]
+        public Uye uye { get; set; } = new Uye();
+        [Parameter]
+        public string ButtonText { get; set; } = "Giriş Yap";
+        async void TryToRegister()
         {
-            toastService.ShowWarning("Geçerli bir mail adresi girdiğinizden emin olun", "Uyarı");
-        }
-        else if (uye.login_password == null || uye.login_password.Length < 6 || uye.login_password.Length > 20 || SifreTekrar != uye.login_password)
-        {
-            toastService.ShowWarning("En az 6 en fazla 20 karakter uzunluğunda bir şifre girdiğinizden ve şifre tekrarının aynı olduğundan emin olun", "Uyarı");
-        }
-        else if (uye.adi == null || uye.soyadi == null || uye.adi.Length < 2 || uye.soyadi.Length < 2)
-        {
-            toastService.ShowWarning("Ad ve soyad boş geçilemez.", "Uyarı");
-        }
-        else if (uye.tc_no == null || uye.tc_no.Length != 11)
-        {
-            toastService.ShowWarning("Tc kimlik numarası 11 haneli olmalıdır.", "Uyarı");
-        }
-        else if (uye.tel_no == null || uye.tel_no.Length != 10)
-        {
-            toastService.ShowWarning("Telefon numarası 10 haneli olmalıdır.", "Uyarı");
-        }
-        else if (!cins.Contains(uye.cinsiyet))
-        {
-            toastService.ShowWarning("Cinsiyet seçimi yapmalısınız", "Uyarı");
-        }
-        else if (uye.dogum_tarihi.CompareTo(DateTime.Parse("1/1/1915")) < 0 || uye.dogum_tarihi.CompareTo(DateTime.Parse("1/1/2002")) > 0)
-        {
-            toastService.ShowWarning("Yaşınız 18-105 arasında olmalıdır.", "Uyarı");
-        }
-        else
-        {
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
-
-            using var cmd = new NpgsqlCommand(SqlCommands.CreatekUserLogin, Program.DbCon);
-
-            cmd.Parameters.AddWithValue("tc_no", uye.tc_no);
-            cmd.Parameters.AddWithValue("adi", uye.adi);
-            cmd.Parameters.AddWithValue("soyadi", uye.soyadi);
-            cmd.Parameters.AddWithValue("cinsiyet", uye.cinsiyet);
-            cmd.Parameters.AddWithValue("tel_no", uye.tel_no);
-            cmd.Parameters.AddWithValue("dogum_tarihi", uye.dogum_tarihi);
-            cmd.Parameters.AddWithValue("email", uye.email);
-            cmd.Parameters.AddWithValue("login_password", uye.login_password);
-
-            cmd.Prepare();
-
-            try
+            progressing = true;
+            if (uye.email == null || !GeneralFunctions.IsValidEmail(uye.email))
             {
-                int sonuc = await cmd.ExecuteNonQueryAsync();
-                string jsonString = JsonSerializer.Serialize(uye);
-                Log.Information($"jsonString: {jsonString}");
-
-                Program.uye = uye;
-
-                await localStorage.SetItemAsync<string>("uyeJsonString", jsonString);
-                uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+                toastService.ShowWarning("Geçerli bir mail adresi girdiğinizden emin olun", "Uyarı");
             }
-            catch (Npgsql.PostgresException npge)
+            else if (uye.login_password == null || uye.login_password.Length < 6 || uye.login_password.Length > 20 || SifreTekrar != uye.login_password)
             {
-                Log.Error($"Exception handled: {npge}");
-                toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
+                toastService.ShowWarning("En az 6 en fazla 20 karakter uzunluğunda bir şifre girdiğinizden ve şifre tekrarının aynı olduğundan emin olun", "Uyarı");
             }
-
-        }
-        await Task.Delay(19);
-    }
-
-    async void TryToLogIn()
-    {
-
-        if (GeneralFunctions.IsValidEmail(uye.email) && uye.login_password.Length > 5 && uye.login_password.Length < 21)
-        {
-
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
-
-            using var cmd = new NpgsqlCommand(SqlCommands.CheckUserLogin, Program.DbCon);
-
-            cmd.Parameters.AddWithValue("email", uye.email);
-            cmd.Parameters.AddWithValue("login_password", uye.login_password);
-            cmd.Prepare();
-            try
+            else if (uye.adi == null || uye.soyadi == null || uye.adi.Length < 2 || uye.soyadi.Length < 2)
             {
-                Log.Information("try NpgsqlCommand CheckUserLogin");
+                toastService.ShowWarning("Ad ve soyad boş geçilemez.", "Uyarı");
+            }
+            else if (uye.tc_no == null || uye.tc_no.Length != 11)
+            {
+                toastService.ShowWarning("Tc kimlik numarası 11 haneli olmalıdır.", "Uyarı");
+            }
+            else if (uye.tel_no == null || uye.tel_no.Length != 10)
+            {
+                toastService.ShowWarning("Telefon numarası 10 haneli olmalıdır.", "Uyarı");
+            }
+            else if (!cins.Contains(uye.cinsiyet))
+            {
+                toastService.ShowWarning("Cinsiyet seçimi yapmalısınız", "Uyarı");
+            }
+            else if (uye.dogum_tarihi.CompareTo(DateTime.Parse("1/1/1915")) < 0 || uye.dogum_tarihi.CompareTo(DateTime.Parse("1/1/2002")) > 0)
+            {
+                toastService.ShowWarning("Yaşınız 18-105 arasında olmalıdır.", "Uyarı");
+            }
+            else
+            {
+                if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                    Program.DbCon.Open();
 
-                NpgsqlDataReader reader = cmd.ExecuteReader();
+                using var cmd = new NpgsqlCommand(SqlCommands.CreateUserLogin, Program.DbCon);
 
-                if (reader.HasRows && reader.Read())
+                if (isDanisman)
+                uye.danisman_id = -1;
+
+                cmd.Parameters.AddWithValue("tc_no", uye.tc_no);
+                cmd.Parameters.AddWithValue("adi", uye.adi);
+                cmd.Parameters.AddWithValue("soyadi", uye.soyadi);
+                cmd.Parameters.AddWithValue("cinsiyet", uye.cinsiyet);
+                cmd.Parameters.AddWithValue("tel_no", uye.tel_no);
+                cmd.Parameters.AddWithValue("dogum_tarihi", uye.dogum_tarihi);
+                cmd.Parameters.AddWithValue("email", uye.email);
+                cmd.Parameters.AddWithValue("login_password", uye.login_password);
+                cmd.Parameters.AddWithValue("danisman_id", uye.danisman_id);
+
+                try
                 {
-                    Log.Information($"0: {reader.GetValue(0)} 1: {reader.GetValue(1)}");
-                    Log.Information($"reader.FieldCount: {reader.FieldCount}");
-                    Log.Information($"reader.VisibleFieldCount: {reader.VisibleFieldCount}");
-
-                    var expando = new System.Dynamic.ExpandoObject() as IDictionary<string, object>;
-                    for (int i = 0; i < reader.VisibleFieldCount; i++)
-                    {
-                        expando[reader.GetName(i)] = reader.GetValue(i);
-                    }
-
-                    string jsonString = JsonSerializer.Serialize(expando);
+                    cmd.Prepare();
+                    int sonuc = await cmd.ExecuteNonQueryAsync();
+                    string jsonString = JsonSerializer.Serialize(uye);
                     Log.Information($"jsonString: {jsonString}");
 
-                    Program.uye = JsonSerializer.Deserialize<Uye>(jsonString);
+                    Program.uye = uye;
 
                     await localStorage.SetItemAsync<string>("uyeJsonString", jsonString);
                     uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
-
-                                        
-                    // SIFRE123
-                    // ornek@ornek.com
                 }
-                else
+                catch (Npgsql.PostgresException npge)
                 {
-                    toastService.ShowWarning("Girilen bilgilere sahip bir kullanıcı bulunamadı! email ve Şifrenizi doğru yazdığınızdan emin olun. Henüz kayıt olmadıysanız lütfen kayıt olun.", "Uyarı");
+                    Log.Error($"Exception handled: {npge}");
+                    toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
                 }
 
-                Log.Information($"try NpgsqlCommand CheckUserLogin reader.HasRows {reader.HasRows}");
-            }
-            catch (Npgsql.PostgresException npge)
-            {
-                Log.Error($"Exception handled: {npge}");
-                toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
-            }
+                if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                    Program.DbCon.Close();
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
-        } 
-        else
-        {
-            toastService.ShowWarning("Geçerli bir mail adresi ve en az 6 en fazla 20 karakter uzunluğunda bir şifre girdiğinizden emin olun", "Uyarı");
+            }
+            progressing = false;
+            await Task.Delay(19);
+            StateHasChanged();
         }
-        
-    }
 
-    protected override async Task OnInitializedAsync()
-    {
-        uye.dogum_tarihi = DateTime.Today;
-        await Task.Delay(100);
-    }
+        async void TryToLogIn()
+        {
+            progressing = true;
+            if (GeneralFunctions.IsValidEmail(uye.email) && uye.login_password.Length > 5 && uye.login_password.Length < 21)
+            {
 
-    private void ChangeForm(bool lp)
-    {
-        LogInPage = lp;
-        if (!lp)
-            ButtonText = "Hesap Oluştur";
-        else
-            ButtonText = "Giriş Yap";
-    }
+                if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                    Program.DbCon.Open();
+
+                using var cmd = new NpgsqlCommand(SqlCommands.CheckUserLogin, Program.DbCon);
+
+                cmd.Parameters.AddWithValue("email", uye.email);
+                cmd.Parameters.AddWithValue("login_password", uye.login_password);
+                cmd.Prepare();
+                try
+                {
+                    Log.Information("try NpgsqlCommand CheckUserLogin");
+
+                    NpgsqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows && reader.Read())
+                    {
+                        Log.Information($"0: {reader.GetValue(0)} 1: {reader.GetValue(1)}");
+                        Log.Information($"reader.FieldCount: {reader.FieldCount}");
+                        Log.Information($"reader.VisibleFieldCount: {reader.VisibleFieldCount}");
+
+                        var expando = new System.Dynamic.ExpandoObject() as IDictionary<string, object>;
+                        for (int i = 0; i < reader.VisibleFieldCount; i++)
+                        {
+                            expando[reader.GetName(i)] = reader.GetValue(i);
+                        }
+
+                        string jsonString = JsonSerializer.Serialize(expando);
+                        Log.Information($"jsonString: {jsonString}");
+
+                        Program.uye = JsonSerializer.Deserialize<Uye>(jsonString);
+
+                        await localStorage.SetItemAsync<string>("uyeJsonString", jsonString);
+                        uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+
+                        // SIFRE123
+                        // ornek@ornek.com
+                    }
+                    else
+                    {
+                        toastService.ShowWarning("Girilen bilgilere sahip bir kullanıcı bulunamadı! email ve Şifrenizi doğru yazdığınızdan emin olun. Henüz kayıt olmadıysanız lütfen kayıt olun.", "Uyarı");
+                    }
+
+                    Log.Information($"try NpgsqlCommand CheckUserLogin reader.HasRows {reader.HasRows}");
+                }
+                catch (Npgsql.PostgresException npge)
+                {
+                    Log.Error($"Exception handled: {npge}");
+                    toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
+                }
+
+                if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                    Program.DbCon.Close();
+            }
+            else
+            {
+                toastService.ShowWarning("Geçerli bir mail adresi ve en az 6 en fazla 20 karakter uzunluğunda bir şifre girdiğinizden emin olun", "Uyarı");
+            }
+
+            progressing = false;
+            await Task.Delay(19);
+            StateHasChanged();
+
+        }
+
+        protected override async Task OnInitializedAsync()
+        {
+            uye.dogum_tarihi = DateTime.Today;
+            await Task.Delay(100);
+        }
+
+        private void ChangeForm(bool lp)
+        {
+            LogInPage = lp;
+            if (!lp)
+                ButtonText = "Hesap Oluştur";
+            else
+                ButtonText = "Giriş Yap";
+        }
 
 }

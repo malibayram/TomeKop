@@ -5,6 +5,7 @@ using TomeKop.Utils;
 public class Uye
 {
     public int uye_id { get; set; }
+    public int danisman_id { get; set; } = 0;
 
     [StringLength(11, ErrorMessage = "Tc Kimlik Numarası 11 haneli olmalıdır.")]
     public string tc_no { get; set; }

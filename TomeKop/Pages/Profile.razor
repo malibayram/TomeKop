@@ -1,0 +1,218 @@
+@page "/profil"
+
+@using Serilog
+@using Utils
+@inject IToastService toastService
+@using Npgsql
+@using System.Text.Json;
+
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject NavigationManager uriHelper;
+
+@if (ShowAlertDialog)
+{
+    <div class="modal" tabindex="-1" role="dialog" style="display: @(ShowAlertDialog ? "block" : "none")">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Profil Silmeyi Onayla</h5>
+                </div>
+                <div class="modal-body">
+                    <p>Profilinize silmek istediğinizden emin misiniz? Profilinizi başarılı bir şekilde silebilmek için diğer bölümlerdeki tüm verilerinizi silmiş olmanız gerekiyor.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" @onclick="DeleteProfile">Sil</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="@(()=> ShowAlertDialog = false)">Hayır Silme</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container row">
+    <div class="col-6">
+        <h2>Profil Sayfası</h2>
+        <EditForm Model="@Program.uye" OnValidSubmit="UpdateProfile">
+            <div class="input-group">
+                <label>Adı:
+                    <InputText @bind-Value="@Program.uye.adi" class="form-control" />
+                </label>
+            </div>
+            <div class="input-group">
+                <label>Soyadı:
+                    <InputText @bind-Value="@Program.uye.soyadi" class="form-control" />
+                </label>
+            </div>
+            <div class="input-group">
+                <label>
+                    Cinsiyet:
+                    <br/>
+                    <InputRadioGroup @bind-Value="@Program.uye.cinsiyet" class="input100">
+                        <InputRadio Value="'E'" /><span> </span> Erkek
+                        <InputRadio Value="'K'" /> <span> </span>Kadın
+                        <InputRadio Value="'D'" /> <span> </span>Diğer
+                    </InputRadioGroup>
+                </label>
+            </div>
+            <div class="input-group">
+                <label>TC Kimlik Numarası:
+                    <InputText @bind-Value="@Program.uye.tc_no" class="form-control" />
+                </label>
+            </div>
+            <div class="input-group">
+                <label>Telefon Numarası:
+                    <InputText @bind-Value="@Program.uye.tel_no" class="form-control" />
+                </label>
+            </div>
+            <div class="input-group">
+                <label>Email Adresi:
+                    <InputText @bind-Value="@Program.uye.email" class="form-control" />
+                </label>
+            </div>
+            <div class="input-group">
+                <label>Şifre:
+                    <InputText @bind-Value="@Program.uye.login_password" class="form-control" />
+                </label>
+            </div>
+            <div class="input-group">
+                <label>Doğum Tarihi:
+                    <InputDate @bind-Value="@Program.uye.dogum_tarihi" class="form-control" />
+                </label>
+            </div>
+            @if (progressing)
+                {
+                    <div class="text-center">
+                        <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+                            <span class="visually-hidden"></span>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="input-group">
+                        <input type="submit" class="btn btn-success" value="Güncelle" />
+                    </div>
+                }
+            </EditForm>
+            <br/>
+            <br/>
+            <div class="input-group">
+                <button @onclick="@(()=> ShowAlertDialog = true)" class="btn btn-danger">Profili Sil</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <h2>Adresler</h2>
+        </div>
+    </div>
+
+    @code {
+    private bool progressing = false;
+    private bool ShowAlertDialog = false;
+    private char[] cins = new char[] {'E', 'K', 'D'};
+
+    private async void DeleteProfile()
+    {
+        progressing = true;
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+
+        using var cmd = new NpgsqlCommand(SqlCommands.DeleteUser, Program.DbCon);
+        cmd.Parameters.AddWithValue("uye_id", Program.uye.uye_id);
+
+        try
+        {
+            cmd.Prepare();
+            int sonuc = await cmd.ExecuteNonQueryAsync();
+            await localStorage.RemoveItemAsync("uyeJsonString");
+            
+            Program.uye = null;
+            uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+        }
+        catch (Npgsql.PostgresException npge)
+        {
+            Log.Error($"Exception handled: {npge}");
+            toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
+        }
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+
+        progressing = false;
+        ShowAlertDialog = false;
+    }
+    private async void UpdateProfile()
+    {
+        progressing = true;
+        if (Program.uye.email == null || !GeneralFunctions.IsValidEmail(Program.uye.email))
+        {
+            toastService.ShowWarning("Geçerli bir mail adresi girdiğinizden emin olun", "Uyarı");
+        }
+        else if (Program.uye.login_password == null || Program.uye.login_password.Length < 6 || Program.uye.login_password.Length > 20)
+        {
+            toastService.ShowWarning("En az 6 en fazla 20 karakter uzunluğunda bir şifre girdiğinizden ve şifre tekrarının aynı olduğundan emin olun", "Uyarı");
+        }
+        else if (Program.uye.adi == null || Program.uye.soyadi == null || Program.uye.adi.Length < 2 || Program.uye.soyadi.Length < 2)
+        {
+            toastService.ShowWarning("Ad ve soyad boş geçilemez.", "Uyarı");
+        }
+        else if (Program.uye.tc_no == null || Program.uye.tc_no.Length != 11)
+        {
+            toastService.ShowWarning("Tc kimlik numarası 11 haneli olmalıdır.", "Uyarı");
+        }
+        else if (Program.uye.tel_no == null || Program.uye.tel_no.Length != 10)
+        {
+            toastService.ShowWarning("Telefon numarası 10 haneli olmalıdır.", "Uyarı");
+        }
+        else if (!cins.Contains(Program.uye.cinsiyet))
+        {
+            toastService.ShowWarning("Cinsiyet seçimi yapmalısınız", "Uyarı");
+        }
+        else if (Program.uye.dogum_tarihi.CompareTo(DateTime.Parse("1/1/1915")) < 0 || Program.uye.dogum_tarihi.CompareTo(DateTime.Parse("1/1/2002")) > 0)
+        {
+            toastService.ShowWarning("Yaşınız 18-105 arasında olmalıdır.", "Uyarı");
+        }
+        else
+        {
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            using var cmd = new NpgsqlCommand(SqlCommands.UpdateUserLogin, Program.DbCon);
+
+            cmd.Parameters.AddWithValue("tc_no", Program.uye.tc_no);
+            cmd.Parameters.AddWithValue("adi", Program.uye.adi);
+            cmd.Parameters.AddWithValue("soyadi", Program.uye.soyadi);
+            cmd.Parameters.AddWithValue("cinsiyet", Program.uye.cinsiyet);
+            cmd.Parameters.AddWithValue("tel_no", Program.uye.tel_no);
+            cmd.Parameters.AddWithValue("dogum_tarihi", Program.uye.dogum_tarihi);
+            cmd.Parameters.AddWithValue("email", Program.uye.email);
+            cmd.Parameters.AddWithValue("login_password", Program.uye.login_password);
+            cmd.Parameters.AddWithValue("danisman_id", Program.uye.danisman_id);
+            cmd.Parameters.AddWithValue("uye_id", Program.uye.uye_id);
+
+            try
+            {
+                cmd.Prepare();
+                int sonuc = await cmd.ExecuteNonQueryAsync();
+                string jsonString = JsonSerializer.Serialize(Program.uye);
+                Log.Information($"jsonString: {jsonString}");
+
+
+                await localStorage.SetItemAsync<string>("uyeJsonString", jsonString);
+                uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+            }
+            catch (Npgsql.PostgresException npge)
+            {
+                Log.Error($"Exception handled: {npge}");
+                toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
+            }
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                Program.DbCon.Close();
+        }
+
+        progressing = false;
+        await Task.Delay(19);
+        StateHasChanged();
+    }
+}
