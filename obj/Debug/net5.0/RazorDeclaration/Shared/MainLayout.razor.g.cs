@@ -112,20 +112,27 @@ using Serilog;
 #nullable disable
 #nullable restore
 #line 3 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
-using TomeKop.Pages;
+using System.Text.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
-using Utils;
+using TomeKop.Pages;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
+using Utils;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
 using Blazored.Toast.Configuration;
 
 #line default
@@ -139,16 +146,23 @@ using Blazored.Toast.Configuration;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 46 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
+#line 48 "/Users/ma/Desktop/TomeKop/TomeKop/Shared/MainLayout.razor"
        
     private bool Waiting = true;
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(500);
+        await Task.Delay(10);
 
         // await sessionStorage.SetItem<Uye>(key, forecasts);
         // await localStorage.SetItem<WeatherForecast[]>(key, forecasts);
         // var fromLocal = await localStorage.GetItem<WeatherForecast[]>(key);
+    }
+
+    private async Task LogOut()
+    {
+        Program.uye = null;
+        await localStorage.RemoveItemAsync("uyeJsonString");
+        uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -157,10 +171,9 @@ using Blazored.Toast.Configuration;
         if (firstRender)
         {
             Log.Information("firstRender");
-            var key = "tomekopuye";
             try
             {
-                Uye fromSession = await sessionStorage.GetItem<Uye>(key);
+                Program.uye = JsonSerializer.Deserialize<Uye>(await localStorage.GetItemAsync<string>("uyeJsonString"));
                 Log.Information("try fromSession sessionStorage");
             }
             catch (System.Exception)
@@ -195,7 +208,8 @@ using Blazored.Toast.Configuration;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazor.Extensions.Storage.Interfaces.ISessionStorage sessionStorage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager uriHelper { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Blazored.LocalStorage.ILocalStorageService localStorage { get; set; }
     }
 }
 #pragma warning restore 1591

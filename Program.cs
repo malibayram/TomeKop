@@ -13,7 +13,7 @@ namespace TomeKop
 {
     public class Program
     {
-        public static bool IsLoggedIn = false;
+        public static Uye uye;
         public static NpgsqlConnection DbCon;
         public static void Main(string[] args)
         {
@@ -25,7 +25,7 @@ namespace TomeKop
            .MinimumLevel.Information()
            .WriteTo.Console()
            .WriteTo.BrowserConsole()
-           .WriteTo.File("log.txt",
+           .WriteTo.File("Logs/log.txt",
                rollingInterval: RollingInterval.Day,
                rollOnFileSizeLimit: true)
            .CreateLogger();

@@ -16,6 +16,8 @@ namespace TomeKop.Utils
                                                     PRIMARY KEY (UYE_ID)
                                                 );";
 
-        public static string CheckUserLogin = "SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @sifre;";
+        public static string CreatekUserLogin = "INSERT INTO UYELER (TC_NO, ADI,SOYADI, CINSIYET, TEL_NO, DOGUM_TARIHI, EMAIL, LOGIN_PASSWORD) VALUES (@TC_NO, @ADI, @SOYADI, @CINSIYET, @TEL_NO, @DOGUM_TARIHI, @EMAIL, @LOGIN_PASSWORD);";
+        public static string CheckUserLogin = "SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;";
+
     }
 }

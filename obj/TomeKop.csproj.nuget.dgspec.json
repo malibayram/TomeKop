@@ -14,7 +14,7 @@
         "outputPath": "/Users/ma/Desktop/TomeKop/TomeKop/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/ma/.nuget/NuGet/NuGet.Config"
+          "/Users/ma/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -38,9 +38,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Blazor.Extensions.Storage": {
+            "Blazored.LocalStorage": {
               "target": "Package",
-              "version": "[1.1.0-preview3, )"
+              "version": "[3.0.0, )"
             },
             "Blazored.Toast": {
               "target": "Package",
@@ -89,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
         }
       }
     }

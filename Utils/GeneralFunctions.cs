@@ -1,5 +1,6 @@
 namespace TomeKop.Utils
 {
+    public enum Cinsiyet { E, K }
     public class GeneralFunctions
     {
         public static bool IsValidEmail(string email)

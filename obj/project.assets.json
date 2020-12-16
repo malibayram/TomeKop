@@ -2,18 +2,17 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "Blazor.Extensions.Storage/1.1.0-preview3": {
+      "Blazored.LocalStorage/3.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.Components.Web": "3.1.0-preview3.19555.2"
+          "Microsoft.AspNetCore.Components": "3.1.6",
+          "Microsoft.AspNetCore.Components.Web": "3.1.6"
         },
         "compile": {
-          "lib/netstandard2.0/Blazor.Extensions.Storage.JS.dll": {},
-          "lib/netstandard2.0/Blazor.Extensions.Storage.dll": {}
+          "lib/netstandard2.1/Blazored.LocalStorage.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Blazor.Extensions.Storage.JS.dll": {},
-          "lib/netstandard2.0/Blazor.Extensions.Storage.dll": {}
+          "lib/netstandard2.1/Blazored.LocalStorage.dll": {}
         }
       },
       "Blazored.Toast/3.1.2": {
@@ -700,18 +699,17 @@
     }
   },
   "libraries": {
-    "Blazor.Extensions.Storage/1.1.0-preview3": {
-      "sha512": "C3eEBn/6x20VLEFqJ4dWJR4yNG5gprR+Y5lWWe9u6JCW0rpXSygoCb9+VTa5XYIN6f7fGrChvtZ5tP+HWn1JEQ==",
+    "Blazored.LocalStorage/3.0.0": {
+      "sha512": "eXpHDvog+nRvAFsrqVKqGrpHXuyPTH8tgAremHKbteP5nNEROlItfP8Xh8pNMpTovuQ4tl3NyfQcG0rnbjQ5jw==",
       "type": "package",
-      "path": "blazor.extensions.storage/1.1.0-preview3",
+      "path": "blazored.localstorage/3.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "blazor.extensions.storage.1.1.0-preview3.nupkg.sha512",
-        "blazor.extensions.storage.nuspec",
-        "lib/netstandard2.0/Blazor.Extensions.Storage.JS.dll",
-        "lib/netstandard2.0/Blazor.Extensions.Storage.dll",
-        "lib/netstandard2.0/Blazor.Extensions.Storage.pdb"
+        "blazored.localstorage.3.0.0.nupkg.sha512",
+        "blazored.localstorage.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/Blazored.LocalStorage.dll"
       ]
     },
     "Blazored.Toast/3.1.2": {
@@ -2503,7 +2501,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "Blazor.Extensions.Storage >= 1.1.0-preview3",
+      "Blazored.LocalStorage >= 3.0.0",
       "Blazored.Toast >= 3.1.2",
       "Blazorise.Icons.FontAwesome >= 0.9.2.4",
       "Npgsql >= 5.0.1.1",
@@ -2526,7 +2524,7 @@
       "outputPath": "/Users/ma/Desktop/TomeKop/TomeKop/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/ma/.nuget/NuGet/NuGet.Config"
+        "/Users/ma/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -2550,9 +2548,9 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
-          "Blazor.Extensions.Storage": {
+          "Blazored.LocalStorage": {
             "target": "Package",
-            "version": "[1.1.0-preview3, )"
+            "version": "[3.0.0, )"
           },
           "Blazored.Toast": {
             "target": "Package",
@@ -2601,7 +2599,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
       }
     }
   }

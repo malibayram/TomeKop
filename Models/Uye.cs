@@ -1,24 +1,26 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using TomeKop.Utils;
 
 public class Uye
 {
-    public int Id { get; set; }
-    /* [Required] */
-    public string IsimSoyisim { get; set; }
+    public int uye_id { get; set; }
+
+    [StringLength(11, ErrorMessage = "Tc Kimlik Numarası 11 haneli olmalıdır.")]
+    public string tc_no { get; set; }
+    public string adi { get; set; }
+    public string soyadi { get; set; }
+    public char cinsiyet { get; set; }
+
+    [StringLength(10, ErrorMessage = "Telefon numarası 10 haneli olmalıdır.")]
+    public string tel_no { get; set; }
+
+    public DateTime dogum_tarihi { get; set; }
+
     [Required]
-    public string Email { get; set; }
+    public string email { get; set; }
+
     [Required]
     [StringLength(20, ErrorMessage = "Şifre is too long.")]
-    public string Sifre { get; set; }
-
-    /* [Range(typeof(DateTime), "1/1/1970", "12/31/2002", ErrorMessage = "Value for {0} must be between {1} and {2}")] */
-    public DateTime DogumTarihi { get; set; }
-    public Int16 Cinsiyet { get; set; }
-    /* [Required] */
-    [StringLength(10, ErrorMessage = "Telephone number is too long.")]
-    public string TelNo { get; set; }
-    /* [Required] */
-    [StringLength(11, ErrorMessage = "National identity number is too long.")]
-    public string TcNo { get; set; }
+    public string login_password { get; set; }
 }

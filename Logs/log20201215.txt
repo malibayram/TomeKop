@@ -1,0 +1,369 @@
+2020-12-15 19:34:47.429 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 19:34:47.498 +03:00 [INF] firstRender
+2020-12-15 19:34:47.586 +03:00 [INF] catch fromSession Exception
+2020-12-15 19:34:48.165 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 19:34:48.186 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 19:34:48.230 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 19:34:48.305 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 19:35:01.625 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @sifre;
+2020-12-15 19:35:01.626 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 19:35:01.633 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows False
+2020-12-15 19:36:54.645 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 19:36:54.705 +03:00 [INF] firstRender
+2020-12-15 19:36:54.788 +03:00 [INF] catch fromSession Exception
+2020-12-15 19:36:55.307 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 19:36:55.321 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 19:36:55.384 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 19:36:55.467 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:11:15.914 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:11:15.979 +03:00 [INF] firstRender
+2020-12-15 20:11:16.064 +03:00 [INF] catch fromSession Exception
+2020-12-15 20:11:16.571 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 20:11:16.585 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 20:11:16.602 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:11:16.628 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:12:06.547 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:12:06.619 +03:00 [INF] firstRender
+2020-12-15 20:12:06.734 +03:00 [INF] catch fromSession Exception
+2020-12-15 20:12:07.330 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 20:12:07.343 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 20:12:07.387 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:12:07.461 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:12:25.732 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:12:25.793 +03:00 [INF] firstRender
+2020-12-15 20:12:25.882 +03:00 [INF] catch fromSession Exception
+2020-12-15 20:12:26.442 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 20:12:26.455 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 20:12:26.540 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:12:26.592 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:13:34.444 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:13:34.509 +03:00 [INF] firstRender
+2020-12-15 20:13:34.593 +03:00 [INF] catch fromSession Exception
+2020-12-15 20:13:35.148 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 20:13:35.162 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 20:13:35.213 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:13:35.218 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:13:48.135 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 20:13:48.135 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 20:13:48.186 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 20:13:48.188 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 20:13:48.189 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 20:13:48.196 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 20:15:36.399 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:15:36.462 +03:00 [INF] firstRender
+2020-12-15 20:15:36.544 +03:00 [INF] catch fromSession Exception
+2020-12-15 20:15:37.096 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 20:15:37.113 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 20:15:37.249 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:15:37.354 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:16:16.490 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 20:16:16.490 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 20:16:16.495 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 20:16:16.496 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 20:16:16.496 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 20:16:16.503 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 20:22:34.550 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:22:34.612 +03:00 [INF] firstRender
+2020-12-15 20:22:34.696 +03:00 [INF] catch fromSession Exception
+2020-12-15 20:22:35.235 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 20:22:35.251 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 20:22:35.298 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:22:35.342 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:23:02.345 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 20:23:02.345 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 20:23:02.349 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 20:23:02.350 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 20:23:02.350 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 20:23:02.357 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 20:26:00.278 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:26:00.339 +03:00 [INF] firstRender
+2020-12-15 20:26:00.427 +03:00 [INF] catch fromSession Exception
+2020-12-15 20:26:00.937 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 20:26:00.950 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 20:26:01.061 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:26:01.097 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 20:31:32.345 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 20:31:32.346 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 20:31:32.350 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 20:31:32.351 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 20:31:32.351 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 20:31:32.358 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:05:28.000 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:05:28.071 +03:00 [INF] firstRender
+2020-12-15 21:05:28.140 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:05:28.711 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:05:28.726 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:05:28.776 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:05:28.915 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:05:49.035 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 21:05:49.036 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 21:05:49.040 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 21:05:49.041 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 21:05:49.041 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 21:05:49.049 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:05:49.068 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-15 21:06:46.919 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:06:46.920 +03:00 [INF] firstRender
+2020-12-15 21:06:46.995 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:06:46.995 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:06:47.003 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:06:47.012 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:06:47.391 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:13:56.813 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:13:56.880 +03:00 [INF] firstRender
+2020-12-15 21:13:56.994 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:13:57.557 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:13:57.572 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:13:57.678 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:13:57.789 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:14:38.567 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 21:14:38.567 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 21:14:38.572 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 21:14:38.572 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 21:14:38.573 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 21:14:38.579 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:14:38.658 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-15 21:14:39.546 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:14:39.547 +03:00 [INF] firstRender
+2020-12-15 21:14:39.649 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:14:39.650 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:14:39.652 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:14:39.660 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:14:40.025 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:06.229 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:06.291 +03:00 [INF] firstRender
+2020-12-15 21:21:06.414 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:21:06.918 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:21:06.931 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:21:06.996 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:06.999 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:10.506 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 21:21:10.507 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 21:21:10.511 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 21:21:10.512 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 21:21:10.512 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 21:21:10.519 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:21:10.570 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-15 21:21:11.389 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:11.501 +03:00 [INF] firstRender
+2020-12-15 21:21:11.571 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:21:11.572 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:21:11.574 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:21:11.583 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:11.890 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:15.855 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:15.924 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:16.752 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:16.777 +03:00 [INF] firstRender
+2020-12-15 21:21:16.817 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:21:16.818 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:21:16.820 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:21:16.824 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:17.305 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:18.885 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:18.955 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:19.656 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:19.704 +03:00 [INF] firstRender
+2020-12-15 21:21:19.746 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:21:19.747 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:21:19.749 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:21:19.777 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:21:20.180 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:01.557 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:01.621 +03:00 [INF] firstRender
+2020-12-15 21:22:01.683 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:22:02.233 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:22:02.248 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:22:02.341 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:02.369 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:05.407 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 21:22:05.408 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 21:22:05.412 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 21:22:05.413 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 21:22:05.413 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 21:22:05.420 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:22:05.468 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-15 21:22:06.264 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:06.265 +03:00 [INF] firstRender
+2020-12-15 21:22:06.432 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:22:06.433 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:22:06.435 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:22:06.465 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:06.742 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:08.488 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:08.568 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:09.476 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:09.478 +03:00 [INF] firstRender
+2020-12-15 21:22:09.528 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:22:09.528 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:22:09.531 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:22:09.538 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:09.902 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:11.463 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 21:22:11.464 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 21:22:11.465 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 21:22:11.465 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 21:22:11.465 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 21:22:11.466 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:22:11.522 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-15 21:22:12.210 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:12.236 +03:00 [INF] firstRender
+2020-12-15 21:22:12.287 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:22:12.287 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:22:12.289 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:22:12.293 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:12.708 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:55.348 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:55.410 +03:00 [INF] firstRender
+2020-12-15 21:22:55.481 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:22:55.987 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:22:56.001 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:22:56.067 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:56.190 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:58.699 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 21:22:58.699 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 21:22:58.704 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 21:22:58.704 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 21:22:58.705 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 21:22:58.711 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:22:58.784 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-15 21:22:59.609 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:22:59.610 +03:00 [INF] firstRender
+2020-12-15 21:22:59.724 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:22:59.725 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:22:59.726 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:22:59.734 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:00.027 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:01.678 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:01.803 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:01.805 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:01.806 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:02.823 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 21:23:02.824 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 21:23:02.825 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 21:23:02.826 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 21:23:02.826 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 21:23:02.827 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:23:02.878 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-15 21:23:02.912 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:04.145 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:04.199 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:04.201 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:04.228 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:23:05.303 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 21:23:05.304 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 21:23:05.308 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 21:23:05.308 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 21:23:05.309 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 21:23:05.309 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:23:05.364 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-15 21:23:05.374 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:33:06.149 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:33:06.271 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:33:06.273 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:33:06.349 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:33:07.462 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 21:33:07.462 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 21:33:07.464 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 21:33:07.465 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 21:33:07.465 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 21:33:07.466 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:33:07.563 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-15 21:33:07.572 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:39:40.017 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:39:40.097 +03:00 [INF] firstRender
+2020-12-15 21:39:40.229 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:39:41.036 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:39:41.061 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:39:41.159 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:39:41.318 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:39:42.864 +03:00 [INF] Command: SELECT * FROM UYELER WHERE EMAIL = @email AND LOGIN_PASSWORD = @login_password;
+2020-12-15 21:39:42.865 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-15 21:39:42.869 +03:00 [INF] 0: 1 1: 1234578901 
+2020-12-15 21:39:42.870 +03:00 [INF] reader.FieldCount: 9
+2020-12-15 21:39:42.870 +03:00 [INF] reader.VisibleFieldCount: 9
+2020-12-15 21:39:42.877 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"1234578901 ","adi":"HASAN","soyadi":"ASLAN","cinsiyet":"E","tel_no":"5051243123","dogum_tarihi":"1990-01-01T00:00:00","email":"ornek@ornek.com","login_password":"SIFRE123"}
+2020-12-15 21:39:42.935 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-15 21:39:43.822 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:39:43.823 +03:00 [INF] firstRender
+2020-12-15 21:39:43.922 +03:00 [INF] catch fromSession Exception
+2020-12-15 21:39:43.923 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 21:39:43.926 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 21:39:43.936 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:39:44.324 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:40:25.119 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:40:25.120 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:40:25.130 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:40:25.157 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 21:40:26.783 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:09:30.909 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:09:30.994 +03:00 [INF] firstRender
+2020-12-15 23:09:31.091 +03:00 [INF] catch fromSession Exception
+2020-12-15 23:09:31.897 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 23:09:31.916 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 23:09:31.982 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:09:31.984 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:23:43.327 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:23:43.395 +03:00 [INF] firstRender
+2020-12-15 23:23:43.466 +03:00 [INF] catch fromSession Exception
+2020-12-15 23:23:44.043 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 23:23:44.059 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 23:23:44.107 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:23:44.160 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:23:48.520 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:26:26.231 +03:00 [INF] uye.ToString()
+2020-12-15 23:26:26.232 +03:00 [INF] ornek@ornek.com
+2020-12-15 23:26:26.232 +03:00 [INF] SIFRE123
+2020-12-15 23:27:18.890 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:27:18.954 +03:00 [INF] firstRender
+2020-12-15 23:27:19.017 +03:00 [INF] catch fromSession Exception
+2020-12-15 23:27:19.537 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 23:27:19.552 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 23:27:19.615 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:27:19.691 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:27:21.565 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:28:34.139 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:28:34.203 +03:00 [INF] firstRender
+2020-12-15 23:28:34.265 +03:00 [INF] catch fromSession Exception
+2020-12-15 23:28:34.826 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 23:28:34.842 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 23:28:34.890 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:28:34.965 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:28:36.865 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:44:11.186 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:44:11.256 +03:00 [INF] firstRender
+2020-12-15 23:44:11.262 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:44:11.320 +03:00 [INF] catch fromSession Exception
+2020-12-15 23:44:11.823 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 23:44:11.837 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 23:44:11.897 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:50:29.646 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:52:47.113 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:52:47.176 +03:00 [INF] firstRender
+2020-12-15 23:52:47.205 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:52:47.261 +03:00 [INF] catch fromSession Exception
+2020-12-15 23:52:47.908 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 23:52:47.927 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 23:52:48.028 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:53:32.731 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:53:59.646 +03:00 [INF] jsonString: {"uye_id":0,"tc_no":"44312341234","adi":null,"soyadi":null,"cinsiyet":0,"tel_no":"4431234123","dogum_tarihi":"2020-12-15T00:00:00+03:00","email":"ali@ali.com","login_password":"ali123"}
+2020-12-15 23:53:59.722 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:54:01.282 +03:00 [INF] jsonString: {"uye_id":0,"tc_no":"44312341234","adi":null,"soyadi":null,"cinsiyet":0,"tel_no":"4431234123","dogum_tarihi":"2020-12-15T00:00:00+03:00","email":"ali@ali.com","login_password":"ali123"}
+2020-12-15 23:54:01.370 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:54:02.157 +03:00 [INF] jsonString: {"uye_id":0,"tc_no":"44312341234","adi":null,"soyadi":null,"cinsiyet":0,"tel_no":"4431234123","dogum_tarihi":"2020-12-15T00:00:00+03:00","email":"ali@ali.com","login_password":"ali123"}
+2020-12-15 23:54:02.247 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:55:53.626 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:55:53.691 +03:00 [INF] firstRender
+2020-12-15 23:55:53.720 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:55:53.792 +03:00 [INF] catch fromSession Exception
+2020-12-15 23:55:54.308 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 23:55:54.321 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 23:55:54.362 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:58:50.956 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:58:51.022 +03:00 [INF] firstRender
+2020-12-15 23:58:51.028 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:58:51.101 +03:00 [INF] catch fromSession Exception
+2020-12-15 23:58:51.631 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist
+2020-12-15 23:58:51.644 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-15 23:58:51.689 +03:00 [INF] OnAfterRenderAsync
+2020-12-15 23:58:54.030 +03:00 [INF] OnAfterRenderAsync
