@@ -9,13 +9,14 @@
 @if (Waiting)
 {
     <div class="spinner-grow text-danger" role="status">
-        <span class="visually-hidden">Loading...</span>
+        <span class="visually-hidden"></span>
     </div>
 }
 else
 {
     <br />
     <EditForm class="form-group" Model="@adres" OnValidSubmit="@AdresEkle">
+        <DataAnnotationsValidator />
         <div class="form-group">
             <InputText @bind-Value="@adres.il" class="form-control" placeholder="İl" />
         </div>
@@ -30,13 +31,14 @@ else
         </div>
 
         <button class="btn btn-outline-success" type="submit" @onclick="AdresEkle">Kaydet</button>
+        <ValidationSummary />
     </EditForm>
 
     @foreach (Adres adresItem in adresler)
     {
         <div class="card mb-4">
             <div class="card-body">
-                @adresItem.adres_id @adresItem.mahalle @adresItem.adres @adresItem.ilce / @adresItem.il
+                @adresItem.mahalle @adresItem.adres @adresItem.ilce / @adresItem.il
             </div>
             <div class="card-footer">
                 <button class="btn btn-warning" @onclick="@(() => adres = adresItem)">Düzenle</button>
@@ -46,7 +48,7 @@ else
     }
 }
 
-    @code {
+@code {
     private bool Waiting = true;
     private List<Adres> adresler = new List<Adres>();
     private Adres adres = new Adres();
@@ -67,7 +69,7 @@ else
 
         await Task.Delay(20);
         Waiting = false;
-        
+
         uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
     }
     private async void AdresEkle()
@@ -101,10 +103,11 @@ else
         await Task.Delay(20);
         Waiting = false;
         adres = new Adres();
-        
+
         uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
-        
+
     }
+
     protected override async Task OnInitializedAsync()
     {
         if (Program.DbCon.State == System.Data.ConnectionState.Closed)

@@ -19,9 +19,9 @@ namespace TomeKop
         {
             // http://zetcode.com/csharp/postgresql/
 
-            // DbCon = new NpgsqlConnection("Host=tomekop.postgres.database.azure.com;Username=tomekop91@tomekop;Password=Tomekop21.;Database=tomekop;SSLMode=Prefer");
+            DbCon = new NpgsqlConnection("Host=tomekop.postgres.database.azure.com;Username=tomekop91@tomekop;Password=Tomekop21.;Database=tomekop;SSLMode=Prefer");
+            // DbCon = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2121;Database=tomekop");
 
-            DbCon = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2121;Database=tomekop");
             ///subscriptions/8e63cebe-39c8-46d3-af71-498785212248/resourceGroups/First/providers/Microsoft.Resources/deployments/Microsoft.PostgreSQLServer.createPostgreSqlServer_4c09d8f933e043/operations/7AE9B2AED706BC07
 
             Log.Logger = new LoggerConfiguration()
