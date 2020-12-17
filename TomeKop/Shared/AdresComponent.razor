@@ -1,0 +1,152 @@
+@using Npgsql
+@using System.Text.Json
+@using Utils
+@using Serilog
+
+@inject NavigationManager uriHelper;
+
+<h2>Adresler</h2>
+@if (Waiting)
+{
+    <div class="spinner-grow text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+}
+else
+{
+    <br />
+    <EditForm class="form-group" Model="@adres" OnValidSubmit="@AdresEkle">
+        <div class="form-group">
+            <InputText @bind-Value="@adres.il" class="form-control" placeholder="İl" />
+        </div>
+        <div class="form-group">
+            <InputText @bind-Value="@adres.ilce" class="form-control" placeholder="İlçe" />
+        </div>
+        <div class="form-group">
+            <InputText @bind-Value="@adres.mahalle" class="form-control" placeholder="Mahalle" />
+        </div>
+        <div class="form-group">
+            <InputTextArea @bind-Value="@adres.adres" class="form-control" placeholder="Adres Detayı" />
+        </div>
+
+        <button class="btn btn-outline-success" type="submit" @onclick="AdresEkle">Kaydet</button>
+    </EditForm>
+
+    @foreach (Adres adresItem in adresler)
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                @adresItem.adres_id @adresItem.mahalle @adresItem.adres @adresItem.ilce / @adresItem.il
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-warning" @onclick="@(() => adres = adresItem)">Düzenle</button>
+                <button class="btn btn-danger" @onclick="@(() => AdresSil(adresItem))">Sil</button>
+            </div>
+        </div>
+    }
+}
+
+    @code {
+    private bool Waiting = true;
+    private List<Adres> adresler = new List<Adres>();
+    private Adres adres = new Adres();
+    private async void AdresSil(Adres adr)
+    {
+        Waiting = true;
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+        using var cmd = new NpgsqlCommand(SqlCommands.DeleteAdres, Program.DbCon);
+        cmd.Parameters.AddWithValue("adres_id", adr.adres_id);
+
+        cmd.Prepare();
+
+        cmd.ExecuteNonQuery();
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+
+        await Task.Delay(20);
+        Waiting = false;
+        
+        uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+    }
+    private async void AdresEkle()
+    {
+        Waiting = true;
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+        var cmd = new NpgsqlCommand(SqlCommands.CreateAdres, Program.DbCon);
+
+        if (adres.adres_id > 0)
+        {
+            cmd = new NpgsqlCommand(SqlCommands.UpdateAdres, Program.DbCon);
+            cmd.Parameters.AddWithValue("adres_id", adres.adres_id);
+        }
+
+        adres.uye_id = Program.uye.uye_id;
+
+        cmd.Parameters.AddWithValue("il", adres.il);
+        cmd.Parameters.AddWithValue("ilce", adres.ilce);
+        cmd.Parameters.AddWithValue("mahalle", adres.mahalle);
+        cmd.Parameters.AddWithValue("adres", adres.adres);
+        cmd.Parameters.AddWithValue("uye_id", adres.uye_id);
+
+        cmd.Prepare();
+
+        cmd.ExecuteNonQuery();
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+
+        await Task.Delay(20);
+        Waiting = false;
+        adres = new Adres();
+        
+        uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+        
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+        using var cmd = new NpgsqlCommand(SqlCommands.CheckIfAdresTableExist, Program.DbCon);
+
+        try
+        {
+            var version = cmd.ExecuteScalar().ToString();
+            Log.Information($"try NpgsqlCommand CheckIfAdresTableExist {version}");
+        }
+        catch (System.Exception)
+        {
+            Log.Information("catch CreateAdresTable");
+            using var cmd2 = new NpgsqlCommand(SqlCommands.CreateAdresTable, Program.DbCon);
+            cmd2.ExecuteNonQuery();
+        }
+
+        using var cmd3 = new NpgsqlCommand(SqlCommands.SelectAdresler, Program.DbCon);
+        cmd3.Parameters.AddWithValue("uye_id", Program.uye.uye_id);
+        cmd3.Prepare();
+
+        NpgsqlDataReader reader = cmd3.ExecuteReader();
+
+        while (reader.HasRows && reader.Read())
+        {
+            var expando = new System.Dynamic.ExpandoObject() as IDictionary<string, object>;
+            for (int i = 0; i < reader.VisibleFieldCount; i++)
+            {
+                expando[reader.GetName(i)] = reader.GetValue(i);
+            }
+
+            string jsonString = JsonSerializer.Serialize(expando);
+            Adres dbAdres = JsonSerializer.Deserialize<Adres>(jsonString);
+            adresler.Add(dbAdres);
+        }
+
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+
+        await Task.Delay(10);
+        Waiting = false;
+    }
+}

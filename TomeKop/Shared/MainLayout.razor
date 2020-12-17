@@ -88,7 +88,6 @@ else
 
                 try
                 {
-                    Log.Information("try NpgsqlCommand CheckIfUyelerTableExist");
                     var version = cmd.ExecuteScalar().ToString();
                     Log.Information($"try NpgsqlCommand CheckIfUyelerTableExist {version}");
                 }

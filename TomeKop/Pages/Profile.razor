@@ -2,10 +2,10 @@
 
 @using Serilog
 @using Utils
-@inject IToastService toastService
 @using Npgsql
-@using System.Text.Json;
 
+@using System.Text.Json;
+@inject IToastService toastService
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject NavigationManager uriHelper;
 
@@ -29,55 +29,46 @@
     </div>
 }
 
-<div class="container row">
-    <div class="col-4">
+<div class="container-fluid row">
+    <div class="col-md-4">
         <h2>Profil Sayfası</h2>
-        <EditForm Model="@Program.uye" OnValidSubmit="UpdateProfile">
-            <div class="input-group">
-                <label>Adı:
-                    <InputText @bind-Value="@Program.uye.adi" class="form-control" />
-                </label>
+        <EditForm class="form-group" Model="@Program.uye" OnValidSubmit="UpdateProfile">
+            <div class="form-group">
+                <label>Adı: </label>
+                <InputText @bind-Value="@Program.uye.adi" class="form-control" />
             </div>
-            <div class="input-group">
-                <label>Soyadı:
-                    <InputText @bind-Value="@Program.uye.soyadi" class="form-control" />
-                </label>
+            <div class="form-group">
+                <label>Soyadı: </label>
+                <InputText @bind-Value="@Program.uye.soyadi" class="form-control" />
             </div>
-            <div class="input-group">
-                <label>
-                    Cinsiyet:
-                    <br/>
-                    <InputRadioGroup @bind-Value="@Program.uye.cinsiyet" class="input100">
-                        <InputRadio Value="'E'" /><span> </span> Erkek
-                        <InputRadio Value="'K'" /> <span> </span>Kadın
-                        <InputRadio Value="'D'" /> <span> </span>Diğer
-                    </InputRadioGroup>
-                </label>
+            <div class="form-group">
+                <label>Cinsiyet: </label>
+                <br/>
+                <InputRadioGroup @bind-Value="@Program.uye.cinsiyet" class="form-control">
+                    <InputRadio Value="'E'" /><span> </span> Erkek
+                    <InputRadio Value="'K'" /> <span> </span>Kadın
+                    <InputRadio Value="'D'" /> <span> </span>Diğer
+                </InputRadioGroup>
             </div>
-            <div class="input-group">
-                <label>TC Kimlik Numarası:
-                    <InputText @bind-Value="@Program.uye.tc_no" class="form-control" />
-                </label>
+            <div class="form-group">
+                <label>TC Kimlik Numarası: </label>
+                <InputText @bind-Value="@Program.uye.tc_no" class="form-control" />
             </div>
-            <div class="input-group">
-                <label>Telefon Numarası:
-                    <InputText @bind-Value="@Program.uye.tel_no" class="form-control" />
-                </label>
+            <div class="form-group">
+                <label>Telefon Numarası: </label>
+                <InputText @bind-Value="@Program.uye.tel_no" class="form-control" />
             </div>
-            <div class="input-group">
-                <label>Email Adresi:
-                    <InputText @bind-Value="@Program.uye.email" class="form-control" />
-                </label>
+            <div class="form-group">
+                <label>Email Adresi: </label>
+                <InputText @bind-Value="@Program.uye.email" class="form-control" />
             </div>
-            <div class="input-group">
-                <label>Şifre:
-                    <InputText @bind-Value="@Program.uye.login_password" class="form-control" />
-                </label>
+            <div class="form-group">
+                <label>Şifre: </label>
+                <InputText @bind-Value="@Program.uye.login_password" class="form-control" />
             </div>
-            <div class="input-group">
-                <label>Doğum Tarihi:
-                    <InputDate @bind-Value="@Program.uye.dogum_tarihi" class="form-control" />
-                </label>
+            <div class="form-group">
+                <label>Doğum Tarihi: </label>
+                <InputDate @bind-Value="@Program.uye.dogum_tarihi" class="form-control" />
             </div>
             @if (progressing)
                 {
@@ -100,10 +91,10 @@
                 <button @onclick="@(()=> ShowAlertDialog = true)" class="btn btn-danger">Profili Sil</button>
             </div>
         </div>
-        <div class="col-4">
-            <h2>Adresler</h2>
+        <div class="col-md-4">
+            <AdresComponent />
         </div>
-        <div class="col-4">
+        <div class="col-md-4">
             @if (Program.uye.danisman_id > 0)
             {
                 <Danisman />
