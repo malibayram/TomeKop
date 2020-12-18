@@ -30,7 +30,7 @@
 }
 
 <div class="container-fluid row">
-    <div class="col-md-4">
+    <div class="col-lg-4">
         <h2>Profil Sayfası</h2>
         <EditForm class="form-group" Model="@Program.uye" OnValidSubmit="UpdateProfile">
             <div class="form-group">
@@ -91,10 +91,10 @@
                 <button @onclick="@(()=> ShowAlertDialog = true)" class="btn btn-danger">Profili Sil</button>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4">
             <AdresComponent />
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4">
             @if (Program.uye.danisman_id > 0)
             {
                 <Danisman />

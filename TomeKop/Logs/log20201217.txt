@@ -1397,3 +1397,74 @@
 2020-12-17 06:52:51.669 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
 2020-12-17 06:52:51.705 +03:00 [INF] OnAfterRenderAsync
 2020-12-17 06:52:51.706 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:42:01.804 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:42:01.872 +03:00 [INF] firstRender
+2020-12-17 15:42:01.902 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:42:01.982 +03:00 [INF] catch fromSession Exception
+2020-12-17 15:42:07.466 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-17 15:42:07.537 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:42:09.829 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-17 15:42:10.500 +03:00 [INF] 0: 12 1: 54315234554
+2020-12-17 15:42:10.501 +03:00 [INF] reader.FieldCount: 10
+2020-12-17 15:42:10.501 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-17 15:42:10.512 +03:00 [INF] jsonString: {"uye_id":12,"tc_no":"54315234554","adi":"first","soyadi":"mail","cinsiyet":"E","tel_no":"2345232455","dogum_tarihi":"1997-12-16T00:00:00","email":"first@mail.com","login_password":"ali123","danisman_id":-1}
+2020-12-17 15:42:10.608 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-17 15:42:10.998 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:42:10.999 +03:00 [INF] firstRender
+2020-12-17 15:42:11.069 +03:00 [INF] catch fromSession Exception
+2020-12-17 15:42:11.211 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-17 15:42:11.223 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:42:11.225 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:43:08.517 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2020-12-17 15:43:09.475 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:43:42.424 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:43:42.489 +03:00 [INF] firstRender
+2020-12-17 15:43:42.518 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:43:42.587 +03:00 [INF] catch fromSession Exception
+2020-12-17 15:43:43.156 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-17 15:43:43.216 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:44:18.928 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-17 15:44:18.955 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-17 15:44:18.955 +03:00 [INF] reader.FieldCount: 10
+2020-12-17 15:44:18.956 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-17 15:44:18.964 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"33344455566","adi":"first","soyadi":"mail","cinsiyet":"E","tel_no":"5325321410","dogum_tarihi":"2001-01-16T00:00:00","email":"first@mail.com","login_password":"ali123","danisman_id":3}
+2020-12-17 15:44:19.016 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-17 15:44:19.326 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:44:19.327 +03:00 [INF] firstRender
+2020-12-17 15:44:19.445 +03:00 [INF] catch fromSession Exception
+2020-12-17 15:44:19.450 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-17 15:44:19.458 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:44:19.465 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:44:21.805 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2020-12-17 15:44:21.815 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2020-12-17 15:44:21.845 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:45:05.751 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:45:05.810 +03:00 [INF] firstRender
+2020-12-17 15:45:05.837 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:45:05.924 +03:00 [INF] catch fromSession Exception
+2020-12-17 15:45:06.452 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-17 15:45:06.515 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:45:08.569 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-17 15:45:08.592 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-17 15:45:08.592 +03:00 [INF] reader.FieldCount: 10
+2020-12-17 15:45:08.593 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-17 15:45:08.600 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"33344455566","adi":"first","soyadi":"mail","cinsiyet":"E","tel_no":"5325321410","dogum_tarihi":"2001-01-16T00:00:00","email":"first@mail.com","login_password":"ali123","danisman_id":3}
+2020-12-17 15:45:08.691 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-17 15:45:09.187 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:45:09.188 +03:00 [INF] firstRender
+2020-12-17 15:45:09.275 +03:00 [INF] catch fromSession Exception
+2020-12-17 15:45:09.277 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-17 15:45:09.285 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:45:09.318 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 15:45:11.268 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2020-12-17 15:45:11.275 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2020-12-17 15:45:11.305 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 16:13:37.103 +03:00 [INF] jsonString: {"uye_id":1,"danisman_id":3,"tc_no":"33344455566","adi":"first","soyadi":"mail","cinsiyet":"E","tel_no":"5325321410","dogum_tarihi":"1998-01-16T00:00:00","email":"first@mail.com","login_password":"ali123"}
+2020-12-17 16:13:37.550 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 16:13:37.575 +03:00 [INF] firstRender
+2020-12-17 16:13:37.681 +03:00 [INF] catch fromSession Exception
+2020-12-17 16:13:37.685 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-17 16:13:37.687 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2020-12-17 16:13:37.690 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2020-12-17 16:13:37.693 +03:00 [INF] OnAfterRenderAsync
+2020-12-17 16:13:37.700 +03:00 [INF] OnAfterRenderAsync

@@ -23,7 +23,7 @@ namespace TomeKop.Utils
         public static readonly string DeleteUser = "DELETE FROM uyeler WHERE uye_id = @uye_id";
         public static readonly string CheckUserLogin = "SELECT * FROM uyeler WHERE email = @email AND login_password = @login_password;";
         public static readonly string SelectDanisman = "SELECT adi, soyadi, email, tel_no FROM uyeler WHERE uye_id = @uye_id;";
-        public static readonly string SelectUyeler = "SELECT * FROM uyeler WHERE danisman_id > -1;";
+        public static readonly string UpdateUyeDanisman = "UPDATE uyeler SET danisman_id = @danisman_id WHERE uye_id = @uye_id;";
 
         // Adres İşlemleri
         public static readonly string CheckIfAdresTableExist = "SELECT * FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'adresler'";
@@ -40,5 +40,14 @@ namespace TomeKop.Utils
         public static readonly string UpdateAdres = "UPDATE adresler SET il = @il, ilce = @ilce, mahalle = @mahalle, adres = @adres WHERE adres_id = @adres_id;";
         public static readonly string DeleteAdres = "DELETE FROM adresler WHERE adres_id = @adres_id;";
         public static readonly string SelectAdresler = "SELECT * FROM adresler WHERE uye_id = @uye_id;";
+
+        // View İşlemleri
+        public static readonly string CheckIfUyeViewExist = "SELECT * FROM information_schema.views WHERE table_schema = 'public' AND table_name = 'uye_view'";
+        public static readonly string CreateUyeView = "CREATE OR REPLACE VIEW uye_view AS SELECT * FROM uyeler WHERE danisman_id > -1;";
+        public static readonly string CheckIfDanismanViewExist = "SELECT * FROM information_schema.views WHERE table_schema = 'public' AND table_name = 'danisman_view'";
+        public static readonly string CreateDanismanView = "CREATE OR REPLACE VIEW danisman_view AS SELECT adi, soyadi, email, tel_no FROM uyeler WHERE danisman_id = -1;";
+        public static readonly string SelectUyeler = "SELECT * FROM uye_view;";
+        public static readonly string SelectDanismanlar = "SELECT * FROM danisman_view;";
+
     }
 }

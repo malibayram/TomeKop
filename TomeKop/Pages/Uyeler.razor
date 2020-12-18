@@ -1,0 +1,136 @@
+@page "/uyeler"
+
+@using Npgsql
+@using Serilog
+@using System.Text.Json
+@using Utils
+
+@inject NavigationManager uriHelper;
+
+@if (isDanisman)
+{
+    <h2>Üyeler</h2>
+}
+else
+{
+    <h2>Danışmanlar</h2>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ad Soyad</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefon</th>
+            @if (isDanisman)
+            {
+                <th>Danışmanlık Durumu</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            int i = 0;
+        }
+        @foreach (Uye uyeItem in uyeler)
+        {
+            i++;
+            <tr>
+                <th scope="row">@i</th>
+                <td>@uyeItem.adi @uyeItem.soyadi</td>
+                <td>@uyeItem.email</td>
+                <td>@uyeItem.tel_no</td>
+                @if (isDanisman)
+                {
+                    <td>
+                        <button class="btn btn-success" @onclick="@(() => DanismanOl(uyeItem))">@(uyeItem.danisman_id != 0 ?
+                    "Danışman Ol":"Danışmanı Var")</button>
+                    </td>
+                }
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+@code {
+    private bool isDanisman => Program.uye.danisman_id == -1;
+    private List<Uye> uyeler = new List<Uye>();
+
+    private void DanismanOl(Uye ud)
+    {
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+
+        using var cmd = new NpgsqlCommand(SqlCommands.UpdateUyeDanisman, Program.DbCon);
+        cmd.Parameters.AddWithValue("uye_id", ud.uye_id);
+        cmd.Parameters.AddWithValue("danisman_id", Program.uye.uye_id);
+        cmd.Prepare();
+
+        cmd.ExecuteNonQuery();
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+
+        uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+
+        if (isDanisman)
+        {
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUyeViewExist, Program.DbCon);
+            try
+            {
+                var version = cmd.ExecuteScalar().ToString();
+                Log.Information($"try NpgsqlCommand CheckIfUyeViewExist {version}");
+            }
+            catch (System.Exception)
+            {
+                Log.Information("catch CreateUyeView");
+                using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUyeView, Program.DbCon);
+                cmd2.ExecuteNonQuery();
+            }
+        }
+        else
+        {
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfDanismanViewExist, Program.DbCon);
+            try
+            {
+                var version = cmd.ExecuteScalar().ToString();
+                Log.Information($"try NpgsqlCommand CheckIfDanismanViewExist {version}");
+            }
+            catch (System.Exception)
+            {
+                Log.Information("catch CreateDanismanView");
+                using var cmd2 = new NpgsqlCommand(SqlCommands.CreateDanismanView, Program.DbCon);
+                cmd2.ExecuteNonQuery();
+            }
+        }
+
+        using var cmd3 = new NpgsqlCommand(isDanisman ? SqlCommands.SelectUyeler : SqlCommands.SelectDanismanlar,
+            Program.DbCon);
+        NpgsqlDataReader reader = cmd3.ExecuteReader();
+
+        while (reader.HasRows && reader.Read())
+        {
+            var expando = new System.Dynamic.ExpandoObject() as IDictionary<string, object>;
+            for (int i = 0; i < reader.VisibleFieldCount; i++)
+            {
+                expando[reader.GetName(i)] = reader.GetValue(i);
+            }
+
+            string jsonString = JsonSerializer.Serialize(expando);
+            Uye dbUye = JsonSerializer.Deserialize<Uye>(jsonString);
+            uyeler.Add(dbUye);
+        }
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+
+        await Task.Delay(20);
+    }
+}
