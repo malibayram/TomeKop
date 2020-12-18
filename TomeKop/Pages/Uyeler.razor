@@ -44,8 +44,10 @@ else
                 @if (isDanisman)
                 {
                     <td>
-                        <button class="btn btn-success" @onclick="@(() => DanismanOl(uyeItem))">@(uyeItem.danisman_id != 0 ?
-                    "Danışman Ol":"Danışmanı Var")</button>
+                        <button class="btn btn-success" @onclick="@(() => DanismanOl(uyeItem))">
+                            @(uyeItem.danisman_id == 0 ?
+                    "Danışman Ol":"Danışmanı Var")
+                        </button>
                     </td>
                 }
             </tr>
@@ -60,20 +62,23 @@ else
 
     private void DanismanOl(Uye ud)
     {
-        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-            Program.DbCon.Open();
+        if (ud.danisman_id == 0)
+        {
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
 
-        using var cmd = new NpgsqlCommand(SqlCommands.UpdateUyeDanisman, Program.DbCon);
-        cmd.Parameters.AddWithValue("uye_id", ud.uye_id);
-        cmd.Parameters.AddWithValue("danisman_id", Program.uye.uye_id);
-        cmd.Prepare();
+            using var cmd = new NpgsqlCommand(SqlCommands.UpdateUyeDanisman, Program.DbCon);
+            cmd.Parameters.AddWithValue("uye_id", ud.uye_id);
+            cmd.Parameters.AddWithValue("danisman_id", Program.uye.uye_id);
+            cmd.Prepare();
 
-        cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Open)
-            Program.DbCon.Close();
+            if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                Program.DbCon.Close();
 
-        uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+            uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+        }
     }
     protected override async Task OnInitializedAsync()
     {
