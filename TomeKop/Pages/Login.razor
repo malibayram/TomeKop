@@ -4,7 +4,7 @@
 @using Npgsql
 @using System.Text.Json;
 
-@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 @inject NavigationManager uriHelper;
 
 <div class="limiter">
@@ -267,7 +267,7 @@
 
                     Program.uye = uye;
 
-                    await localStorage.SetItemAsync<string>("uyeJsonString", jsonString);
+                    await sessionStorage.SetItemAsync<string>("uyeJsonString", jsonString);
                     uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
                 }
                 catch (Npgsql.PostgresException npge)
@@ -322,9 +322,8 @@
 
                         Program.uye = JsonSerializer.Deserialize<Uye>(jsonString);
 
-                        await localStorage.SetItemAsync<string>("uyeJsonString", jsonString);
+                        await sessionStorage.SetItemAsync<string>("uyeJsonString", jsonString);
                         uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
-
                         // SIFRE123
                         // ornek@ornek.com
                     }

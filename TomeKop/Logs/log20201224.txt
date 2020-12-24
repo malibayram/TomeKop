@@ -1,0 +1,17 @@
+2020-12-24 02:56:08.478 +03:00 [INF] OnAfterRenderAsync
+2020-12-24 02:56:08.533 +03:00 [INF] firstRender
+2020-12-24 02:56:08.542 +03:00 [INF] OnAfterRenderAsync
+2020-12-24 02:56:08.546 +03:00 [INF] catch fromSession Exception
+2020-12-24 02:56:09.095 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2020-12-24 02:56:09.132 +03:00 [INF] OnAfterRenderAsync
+2020-12-24 02:56:11.089 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-24 02:56:11.205 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-24 02:56:11.206 +03:00 [INF] reader.FieldCount: 10
+2020-12-24 02:56:11.206 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-24 02:56:11.214 +03:00 [INF] jsonString: {"uye_id":1,"tc_no":"33344455566","adi":"first","soyadi":"mail","cinsiyet":"E","tel_no":"5325321410","dogum_tarihi":"1998-01-16T00:00:00","email":"first@mail.com","login_password":"ali123","danisman_id":3}
+2020-12-24 02:56:11.233 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-24 02:56:11.403 +03:00 [INF] OnAfterRenderAsync
+2020-12-24 02:56:11.404 +03:00 [INF] firstRender
+2020-12-24 02:56:11.410 +03:00 [INF] try fromSession sessionStorage
+2020-12-24 02:56:11.422 +03:00 [INF] OnAfterRenderAsync
+2020-12-24 02:56:11.422 +03:00 [INF] OnAfterRenderAsync

@@ -6,7 +6,7 @@
 @using Blazored.Toast.Configuration
 @inherits LayoutComponentBase
 
-@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 @inject NavigationManager uriHelper;
 
 <BlazoredToasts Position="ToastPosition.BottomRight" Timeout="3" IconType="IconType.FontAwesome" ErrorIcon="fa fa-bug"
@@ -61,7 +61,7 @@ else
     {
         Waiting = true;
         Program.uye = null;
-        await localStorage.RemoveItemAsync("uyeJsonString");
+        await sessionStorage.RemoveItemAsync("uyeJsonString");
         uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
         Waiting = false;
     }
@@ -74,7 +74,7 @@ else
             Log.Information("firstRender");
             try
             {
-                Program.uye = JsonSerializer.Deserialize<Uye>(await localStorage.GetItemAsync<string>("uyeJsonString"));
+                Program.uye = JsonSerializer.Deserialize<Uye>(await sessionStorage.GetItemAsync<string>("uyeJsonString"));
                 Log.Information("try fromSession sessionStorage");
             }
             catch (System.Exception)
