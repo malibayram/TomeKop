@@ -13,7 +13,7 @@ namespace TomeKop
 {
     public class Program
     {
-        public static Uye uye;
+        public Uye uye;
         public static NpgsqlConnection DbCon;
         public static void Main(string[] args)
         {

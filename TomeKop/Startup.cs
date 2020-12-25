@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Blazored.SessionStorage;
+using Blazored.LocalStorage;
 using Blazored.Toast;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
@@ -37,7 +37,7 @@ namespace TomeKop
 
             // https://www.nuget.org/profiles/BlazorExtensions
             // https://www.nuget.org/packages/Blazor.ContextMenu/
-            services.AddBlazoredSessionStorage();
+            services.AddBlazoredLocalStorage();
 
             services.AddRazorPages();
             services.AddServerSideBlazor();

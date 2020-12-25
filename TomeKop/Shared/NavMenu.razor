@@ -1,4 +1,8 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
+﻿@using System.Text.Json
+
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">TomeKop</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
@@ -15,7 +19,7 @@
         <li class="nav-item px-3">
             <NavLink class="nav-link" href="uyeler" Match="NavLinkMatch.All">
                 <span class="oi oi-people" aria-hidden="true"></span>
-                @(Program.uye.danisman_id > -1 ? "Danışmanlar" : "Üyeler")
+                @(uye.danisman_id > -1 ? "Danışmanlar" : "Üyeler")
             </NavLink>
         </li>
         <li class="nav-item px-3">
@@ -46,6 +50,22 @@
 
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
+    public Uye uye = new Uye();
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                uye = JsonSerializer.Deserialize<Uye>(await localStorage.GetItemAsync<byte[]>("uyeJsonString"));
+                StateHasChanged();
+            }
+            catch (System.Exception)
+            { }
+
+        }
+        await base.OnAfterRenderAsync(firstRender);
+    }
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;

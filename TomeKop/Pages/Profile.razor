@@ -3,10 +3,10 @@
 @using Serilog
 @using Utils
 @using Npgsql
-
 @using System.Text.Json;
+
 @inject IToastService toastService
-@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject NavigationManager uriHelper;
 
 @if (ShowAlertDialog)
@@ -32,19 +32,19 @@
 <div class="container-fluid row">
     <div class="col-lg-4">
         <h2>Profil Sayfası</h2>
-        <EditForm class="form-group" Model="@Program.uye" OnValidSubmit="UpdateProfile">
+        <EditForm class="form-group" Model="@uye" OnValidSubmit="UpdateProfile">
             <div class="form-group">
                 <label>Adı: </label>
-                <InputText @bind-Value="@Program.uye.adi" class="form-control" />
+                <InputText @bind-Value="@uye.adi" class="form-control" />
             </div>
             <div class="form-group">
                 <label>Soyadı: </label>
-                <InputText @bind-Value="@Program.uye.soyadi" class="form-control" />
+                <InputText @bind-Value="@uye.soyadi" class="form-control" />
             </div>
             <div class="form-group">
                 <label>Cinsiyet: </label>
                 <br/>
-                <InputRadioGroup @bind-Value="@Program.uye.cinsiyet" class="form-control">
+                <InputRadioGroup @bind-Value="@uye.cinsiyet" class="form-control">
                     <InputRadio Value="'E'" /><span> </span> Erkek
                     <InputRadio Value="'K'" /> <span> </span>Kadın
                     <InputRadio Value="'D'" /> <span> </span>Diğer
@@ -52,23 +52,23 @@
             </div>
             <div class="form-group">
                 <label>TC Kimlik Numarası: </label>
-                <InputText @bind-Value="@Program.uye.tc_no" class="form-control" />
+                <InputText @bind-Value="@uye.tc_no" class="form-control" />
             </div>
             <div class="form-group">
                 <label>Telefon Numarası: </label>
-                <InputText @bind-Value="@Program.uye.tel_no" class="form-control" />
+                <InputText @bind-Value="@uye.tel_no" class="form-control" />
             </div>
             <div class="form-group">
                 <label>Email Adresi: </label>
-                <InputText @bind-Value="@Program.uye.email" class="form-control" />
+                <InputText @bind-Value="@uye.email" class="form-control" />
             </div>
             <div class="form-group">
                 <label>Şifre: </label>
-                <InputText @bind-Value="@Program.uye.login_password" class="form-control" />
+                <InputText @bind-Value="@uye.login_password" class="form-control" />
             </div>
             <div class="form-group">
                 <label>Doğum Tarihi: </label>
-                <InputDate @bind-Value="@Program.uye.dogum_tarihi" class="form-control" />
+                <InputDate @bind-Value="@uye.dogum_tarihi" class="form-control" />
             </div>
             @if (progressing)
                 {
@@ -95,7 +95,7 @@
             <AdresComponent />
         </div>
         <div class="col-lg-4">
-            @if (Program.uye.danisman_id > 0)
+            @if (uye.danisman_id > 0)
             {
                 <Danisman />
             }            
@@ -106,7 +106,21 @@
     private bool progressing = false;
     private bool ShowAlertDialog = false;
     private char[] cins = new char[] {'E', 'K', 'D'};
+    public Uye uye = new Uye();
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                uye = JsonSerializer.Deserialize<Uye>(await localStorage.GetItemAsync<byte[]>("uyeJsonString"));
+                StateHasChanged();
+            }
+            catch (System.Exception)
+            { }
 
+        }
+    }
     private async void DeleteProfile()
     {
         progressing = true;
@@ -115,15 +129,15 @@
             Program.DbCon.Open();
 
         using var cmd = new NpgsqlCommand(SqlCommands.DeleteUser, Program.DbCon);
-        cmd.Parameters.AddWithValue("uye_id", Program.uye.uye_id);
+        cmd.Parameters.AddWithValue("uye_id",uye.uye_id);
 
         try
         {
             cmd.Prepare();
             int sonuc = await cmd.ExecuteNonQueryAsync();
-            await sessionStorage.RemoveItemAsync("uyeJsonString");
+            await localStorage.RemoveItemAsync("uyeJsonString");
             
-            Program.uye = null;
+            uye = null;
             uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
         }
         catch (Npgsql.PostgresException npge)
@@ -141,31 +155,31 @@
     private async void UpdateProfile()
     {
         progressing = true;
-        if (Program.uye.email == null || !GeneralFunctions.IsValidEmail(Program.uye.email))
+        if (uye.email == null || !GeneralFunctions.IsValidEmail(uye.email))
         {
             toastService.ShowWarning("Geçerli bir mail adresi girdiğinizden emin olun", "Uyarı");
         }
-        else if (Program.uye.login_password == null || Program.uye.login_password.Length < 6 || Program.uye.login_password.Length > 20)
+        else if (uye.login_password == null || uye.login_password.Length < 6 || uye.login_password.Length > 20)
         {
             toastService.ShowWarning("En az 6 en fazla 20 karakter uzunluğunda bir şifre girdiğinizden ve şifre tekrarının aynı olduğundan emin olun", "Uyarı");
         }
-        else if (Program.uye.adi == null || Program.uye.soyadi == null || Program.uye.adi.Length < 2 || Program.uye.soyadi.Length < 2)
+        else if (uye.adi == null || uye.soyadi == null || uye.adi.Length < 2 || uye.soyadi.Length < 2)
         {
             toastService.ShowWarning("Ad ve soyad boş geçilemez.", "Uyarı");
         }
-        else if (Program.uye.tc_no == null || Program.uye.tc_no.Length != 11)
+        else if (uye.tc_no == null || uye.tc_no.Length != 11)
         {
             toastService.ShowWarning("Tc kimlik numarası 11 haneli olmalıdır.", "Uyarı");
         }
-        else if (Program.uye.tel_no == null || Program.uye.tel_no.Length != 10)
+        else if (uye.tel_no == null || uye.tel_no.Length != 10)
         {
             toastService.ShowWarning("Telefon numarası 10 haneli olmalıdır.", "Uyarı");
         }
-        else if (!cins.Contains(Program.uye.cinsiyet))
+        else if (!cins.Contains(uye.cinsiyet))
         {
             toastService.ShowWarning("Cinsiyet seçimi yapmalısınız", "Uyarı");
         }
-        else if (Program.uye.dogum_tarihi.CompareTo(DateTime.Parse("1/1/1915")) < 0 || Program.uye.dogum_tarihi.CompareTo(DateTime.Parse("1/1/2002")) > 0)
+        else if (uye.dogum_tarihi.CompareTo(DateTime.Parse("1/1/1915")) < 0 || uye.dogum_tarihi.CompareTo(DateTime.Parse("1/1/2002")) > 0)
         {
             toastService.ShowWarning("Yaşınız 18-105 arasında olmalıdır.", "Uyarı");
         }
@@ -176,25 +190,25 @@
 
             using var cmd = new NpgsqlCommand(SqlCommands.UpdateUserLogin, Program.DbCon);
 
-            cmd.Parameters.AddWithValue("tc_no", Program.uye.tc_no);
-            cmd.Parameters.AddWithValue("adi", Program.uye.adi);
-            cmd.Parameters.AddWithValue("soyadi", Program.uye.soyadi);
-            cmd.Parameters.AddWithValue("cinsiyet", Program.uye.cinsiyet);
-            cmd.Parameters.AddWithValue("tel_no", Program.uye.tel_no);
-            cmd.Parameters.AddWithValue("dogum_tarihi", Program.uye.dogum_tarihi);
-            cmd.Parameters.AddWithValue("email", Program.uye.email);
-            cmd.Parameters.AddWithValue("login_password", Program.uye.login_password);
-            cmd.Parameters.AddWithValue("danisman_id", Program.uye.danisman_id);
-            cmd.Parameters.AddWithValue("uye_id", Program.uye.uye_id);
+            cmd.Parameters.AddWithValue("tc_no", uye.tc_no);
+            cmd.Parameters.AddWithValue("adi", uye.adi);
+            cmd.Parameters.AddWithValue("soyadi", uye.soyadi);
+            cmd.Parameters.AddWithValue("cinsiyet", uye.cinsiyet);
+            cmd.Parameters.AddWithValue("tel_no", uye.tel_no);
+            cmd.Parameters.AddWithValue("dogum_tarihi", uye.dogum_tarihi);
+            cmd.Parameters.AddWithValue("email", uye.email);
+            cmd.Parameters.AddWithValue("login_password", uye.login_password);
+            cmd.Parameters.AddWithValue("danisman_id", uye.danisman_id);
+            cmd.Parameters.AddWithValue("uye_id", uye.uye_id);
 
             try
             {
                 cmd.Prepare();
                 int sonuc = await cmd.ExecuteNonQueryAsync();
-                string jsonString = JsonSerializer.Serialize(Program.uye);
+                byte[] jsonString = JsonSerializer.SerializeToUtf8Bytes(uye);
                 Log.Information($"jsonString: {jsonString}");
 
-                await sessionStorage.SetItemAsync<string>("uyeJsonString", jsonString);
+                await localStorage.SetItemAsync<byte[]>("uyeJsonString", jsonString);
                 uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
             }
             catch (Npgsql.PostgresException npge)
