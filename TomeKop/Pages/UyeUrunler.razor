@@ -1,0 +1,114 @@
+@page "/uye-urunler"
+
+@using Npgsql
+@using Serilog
+@using System.Dynamic
+@using Utils
+
+<h2>Tüm Üye Ürünleri</h2>
+<br />
+<EditForm class="form-group row" Model="@miktar_ton" OnValidSubmit="@UrunFiltrele">
+    <span class="col-md-3">Toplam ürün miktarı </span>
+    <InputNumber @bind-Value="@miktar_ton" class="form-control col-md-2" />
+    <span class="col-md-3"> tonden fazla olan üyeleri</span>
+    <button class="btn btn-outline-success col-md-4" type="submit">Listele</button>
+</EditForm>
+<p>Toplam ürün miktarı <b class="text-danger">@miktar_ton</b> tonden fazla olan <b
+        class="text-danger">@urunler.Count</b> üye bulundu</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Üye No</th>
+            <th scope="col">Adı Soyadı</th>
+            <th scope="col">Toplam ürün miktarı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+        }
+        @foreach (IDictionary<string, object> urunItem in urunler)
+        {
+            i++;
+            <tr>
+                <th scope="row">@i</th>
+                <td>@urunItem["uye_id"]</td>
+                <td>@urunItem["adi"] @urunItem["soyadi"]</td>
+                <td>@urunItem["miktar_ton"]</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private bool Waiting = true;
+    private List<IDictionary<string, object>> urunler = new List<IDictionary<string, object>>();
+    private int miktar_ton = 10;
+
+    private void UrunFiltrele()
+    {
+        Waiting = true;
+        urunler.Clear();
+
+        StateHasChanged();
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+
+        using var cmd3 = new NpgsqlCommand(SqlCommands.SelectSumUyeUrunler, Program.DbCon);
+        cmd3.Parameters.AddWithValue("miktar_ton", miktar_ton);
+        cmd3.Prepare();
+
+        NpgsqlDataReader reader = cmd3.ExecuteReader();
+
+        while (reader.HasRows && reader.Read())
+        {
+            var expando = new ExpandoObject() as IDictionary<string, object>;
+            for (int i = 0; i < reader.VisibleFieldCount; i++)
+            {
+                expando[reader.GetName(i)] = reader.GetValue(i);
+            }
+            urunler.Add(expando);
+        }
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+
+        Waiting = false;
+        StateHasChanged();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUrunTableExist, Program.DbCon);
+
+            try
+            {
+                var version = cmd.ExecuteScalar().ToString();
+                Log.Information($"try NpgsqlCommand CheckIfUrunTableExist {version}");
+            }
+            catch (System.Exception)
+            {
+                Log.Information("catch CreateUrunTable");
+                using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUrunTable, Program.DbCon);
+                cmd2.ExecuteNonQuery();
+            }
+
+            UrunFiltrele();
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                Program.DbCon.Close();
+
+            Waiting = false;
+        }
+        await Task.Delay(10);
+    }
+
+}

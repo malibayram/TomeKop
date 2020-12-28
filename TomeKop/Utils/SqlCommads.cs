@@ -88,6 +88,5 @@ namespace TomeKop.Utils
         public static readonly string DeleteUrun = "DELETE FROM urunler WHERE urun_id = @urun_id;";
         public static readonly string SelectUrunler = "SELECT * FROM urunler WHERE uye_id = @uye_id;";
         public static readonly string SelectSumUyeUrunler = "SELECT u.uye_id, u.adi, u.soyadi, COALESCE(SUM(ur.miktar_ton), 0) AS miktar_ton FROM uyeler u LEFT JOIN urunler ur ON ur.uye_id = u.uye_id GROUP BY u.uye_id HAVING SUM(ur.miktar_ton) > @miktar_ton;";
-
     }
 }

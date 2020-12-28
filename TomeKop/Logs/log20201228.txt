@@ -1258,3 +1258,16 @@
 2020-12-28 16:37:21.877 +03:00 [INF] try fromSession sessionStorage
 2020-12-28 16:37:21.892 +03:00 [INF] OnAfterRenderAsync
 2020-12-28 16:37:22.364 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:38:04.667 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:38:04.708 +03:00 [INF] firstRender
+2020-12-28 16:38:04.712 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:38:04.724 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:38:04.739 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:38:05.211 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:43:56.039 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:43:56.087 +03:00 [INF] firstRender
+2020-12-28 16:43:56.091 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:43:56.104 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:43:56.121 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:44:02.217 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:44:02.690 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
