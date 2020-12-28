@@ -131,7 +131,7 @@ else
         }
     }
 
-    public void AraziSil(Arazi arazi)
+    public void AraziSil(Arazi arz)
     {
         if (!Waiting)
         {
@@ -140,7 +140,7 @@ else
                 Program.DbCon.Open();
 
             using var cmd = new NpgsqlCommand(SqlCommands.DeleteArazi, Program.DbCon);
-            cmd.Parameters.AddWithValue("arazi_id", arazi.arazi_id);
+            cmd.Parameters.AddWithValue("arazi_id", arz.arazi_id);
 
             cmd.Prepare();
 

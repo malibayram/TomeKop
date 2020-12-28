@@ -1,7 +1,226 @@
 @page "/urunler"
+@using System.Text.Json
+@using Npgsql
+@using Serilog
+@using Utils
+
+@inject NavigationManager uriHelper;
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject IToastService toastService
 
 <h2>Ürünler</h2>
+@if (Waiting)
+{
+    <div class="spinner-grow text-danger" role="status">
+    <span class="visually-hidden"></span>
+</div>
+}
+else
+{
+    <br />
+    <EditForm class="form-group row" Model="@urun" OnValidSubmit="@UrunEkle">
+        <DataAnnotationsValidator />
+        <div class="form-group col-md-6">
+            <label>Ürün Adı: </label>
+            <InputText @bind-Value="@urun.urun_adi" class="form-control" placeholder="Ürün Adı" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>Ürün Cinsi: </label>
+            <InputText @bind-Value="@urun.cinsi" class="form-control" placeholder="Ürün Cinsi" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>Miktar Ton: </label>
+            <InputNumber @bind-Value="@urun.miktar_ton" class="form-control" placeholder="Miktar Ton" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>KG Alış Fiyatı: </label>
+            <InputNumber @bind-Value="@urun.alis_kg" class="form-control" placeholder="KG Alış Fiyatı" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>KG Satış Fiyatı: </label>
+            <InputNumber @bind-Value="@urun.satis_kg" class="form-control" placeholder="KG Satış Fiyatı" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>Üretim Tarihi: </label>
+            <InputDate @bind-Value="@urun.uret_tarihi" DisplayName="Üretim Tarihi" class="form-control" />
+        </div>
+        <div class="form-group col-md-12">
+            <button class="btn btn-outline-success" type="submit">Kaydet</button>
+        </div>
+        <ValidationSummary />
+    </EditForm>
+
+    <h3>Ürünleriniz</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ürün Adı</th>
+                <th scope="col">Ürün Cinsi</th>
+                <th scope="col">Miktar Ton</th>
+                <th scope="col">TKG Alış Fiyatı</th>
+                <th scope="col">KG Satış Fiyatı</th>
+                <th scope="col">Üretim Tarihi</th>
+                <th scope="col">İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 0;
+            }
+            @foreach (Urun urunItem in urunler)
+            {
+                i++;
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@urunItem.urun_adi</td>
+                    <td>@urunItem.cinsi</td>
+                    <td>@urunItem.miktar_ton</td>
+                    <td>@urunItem.alis_kg</td>
+                    <td>@urunItem.satis_kg</td>
+                    <td>@urunItem.uret_tarihi.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <button class="btn btn-warning" @onclick="@(() => urun = urunItem)">Düzenle</button>
+                        <button class="btn btn-danger" @onclick="@(() => UrunSil(urunItem))">Sil</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
 @code {
-    
+    private bool Waiting = true;
+    public Uye uye = new Uye();
+    private List<Urun> urunler = new List<Urun>();
+    private Urun urun = new Urun() {
+        uret_tarihi = DateTime.Now,
+    };
+
+    private async void UrunSil(Urun urn)
+    {
+        if (!Waiting)
+        {
+            Waiting = true;
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            using var cmd = new NpgsqlCommand(SqlCommands.DeleteUrun, Program.DbCon);
+            cmd.Parameters.AddWithValue("urun_id", urn.urun_id);
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                Program.DbCon.Close();
+
+            Waiting = false;
+
+            uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+        }
+        await Task.Delay(10);        
+    }
+
+    private async void UrunEkle()
+    {
+        if (!Waiting)
+        {
+            Waiting = true;
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            var cmd = new NpgsqlCommand(SqlCommands.CreateUrun, Program.DbCon);
+
+            if (urun.urun_id > 0)
+            {
+                cmd = new NpgsqlCommand(SqlCommands.UpdateUrun, Program.DbCon);
+                cmd.Parameters.AddWithValue("urun_id", urun.urun_id);
+            }
+
+            urun.uye_id = uye.uye_id;
+            
+            cmd.Parameters.AddWithValue("urun_adi", urun.urun_adi);
+            cmd.Parameters.AddWithValue("cinsi", urun.cinsi);
+            cmd.Parameters.AddWithValue("miktar_ton", urun.miktar_ton);
+            cmd.Parameters.AddWithValue("alis_kg", urun.alis_kg);
+            cmd.Parameters.AddWithValue("satis_kg", urun.satis_kg);
+            cmd.Parameters.AddWithValue("uret_tarihi", urun.uret_tarihi);
+            cmd.Parameters.AddWithValue("uye_id", urun.uye_id);
+
+            try
+            {
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+
+                if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                    Program.DbCon.Close();
+
+                urun = new Urun();
+
+                uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+            }
+            catch (Npgsql.PostgresException npge)
+            {
+                toastService.ShowError($"Kritik bir hata oluştu: {npge.MessageText}");
+            }
+            
+            Waiting = false;
+        }
+        await Task.Delay(10);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            uye = JsonSerializer.Deserialize<Uye>(await localStorage.GetItemAsync<byte[]>("uyeJsonString"));
+            urun.uye_id = uye.uye_id;
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUrunTableExist, Program.DbCon);
+
+            try
+            {
+                var version = cmd.ExecuteScalar().ToString();
+                Log.Information($"try NpgsqlCommand CheckIfUrunTableExist {version}");
+            }
+            catch (System.Exception)
+            {
+                Log.Information("catch CreateUrunTable");
+                using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUrunTable, Program.DbCon);
+                cmd2.ExecuteNonQuery();
+            }
+
+            using var cmd3 = new NpgsqlCommand(SqlCommands.SelectUrunler, Program.DbCon);
+            cmd3.Parameters.AddWithValue("uye_id", uye.uye_id);
+            cmd3.Prepare();
+
+            NpgsqlDataReader reader = cmd3.ExecuteReader();
+
+            while (reader.HasRows && reader.Read())
+            {
+                var expando = new System.Dynamic.ExpandoObject() as IDictionary<string, object>;
+                for (int i = 0; i < reader.VisibleFieldCount; i++)
+                {
+                    expando[reader.GetName(i)] = reader.GetValue(i);
+                }
+
+                string jsonString = JsonSerializer.Serialize(expando);
+                Urun dbUrun = JsonSerializer.Deserialize<Urun>(jsonString);
+                urunler.Add(dbUrun);
+            }
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                Program.DbCon.Close();
+
+            await Task.Delay(10);
+            Waiting = false;
+            StateHasChanged();
+        }
+
+        await Task.Delay(10);
+    }
 }

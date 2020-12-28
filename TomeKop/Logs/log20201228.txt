@@ -897,3 +897,364 @@
 2020-12-28 06:28:00.011 +03:00 [INF] try fromSession sessionStorage
 2020-12-28 06:28:00.059 +03:00 [INF] OnAfterRenderAsync
 2020-12-28 06:28:00.588 +03:00 [INF] try NpgsqlCommand CheckIfAraziTableExist tomekop
+2020-12-28 06:37:20.681 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:20.755 +03:00 [INF] firstRender
+2020-12-28 06:37:20.808 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:20.823 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:37:20.867 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:22.720 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:22.721 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:22.724 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:22.730 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:24.655 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:37:24.680 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:37:24.680 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:37:24.681 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:37:24.690 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:37:24.782 +03:00 [INF] System.Byte[]
+2020-12-28 06:37:24.783 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:37:24.839 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:26.733 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:37:26.737 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:37:26.737 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:37:26.738 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:37:26.738 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:37:26.916 +03:00 [INF] System.Byte[]
+2020-12-28 06:37:26.989 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:37:26.989 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:27.721 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:37:27.723 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:37:27.723 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:37:27.724 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:37:27.724 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:37:27.881 +03:00 [INF] System.Byte[]
+2020-12-28 06:37:27.930 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:37:27.931 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:28.350 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:37:28.352 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:37:28.353 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:37:28.353 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:37:28.354 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:37:28.482 +03:00 [INF] System.Byte[]
+2020-12-28 06:37:28.484 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:37:28.485 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:28.710 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:37:28.711 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:37:28.711 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:37:28.712 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:37:28.712 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:37:28.865 +03:00 [INF] System.Byte[]
+2020-12-28 06:37:28.913 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:37:28.914 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:29.136 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:37:29.138 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:37:29.139 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:37:29.139 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:37:29.140 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:37:29.203 +03:00 [INF] System.Byte[]
+2020-12-28 06:37:29.229 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:37:29.230 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:29.367 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:37:29.369 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:37:29.370 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:37:29.371 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:37:29.372 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:37:29.436 +03:00 [INF] System.Byte[]
+2020-12-28 06:37:29.480 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:37:29.481 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:30.327 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:30.352 +03:00 [INF] firstRender
+2020-12-28 06:37:30.427 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:37:30.430 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:37:30.434 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:38:35.015 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:38:35.097 +03:00 [INF] firstRender
+2020-12-28 06:38:35.125 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:38:35.139 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:38:35.183 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:38:45.043 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:38:45.044 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:38:45.046 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:38:45.103 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:38:46.788 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:38:46.812 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:38:46.813 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:38:46.813 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:38:46.820 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:38:46.891 +03:00 [INF] System.Byte[]
+2020-12-28 06:38:46.892 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:38:46.903 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:38:48.751 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:38:48.754 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:38:48.755 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:38:48.755 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:38:48.756 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:38:48.792 +03:00 [INF] System.Byte[]
+2020-12-28 06:38:48.819 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:38:48.875 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:17.221 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:17.290 +03:00 [INF] firstRender
+2020-12-28 06:39:17.321 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:17.335 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:39:17.356 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:19.675 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:19.676 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:19.770 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:19.777 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:21.160 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:39:21.185 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:39:21.185 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:39:21.186 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:39:21.193 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:39:21.243 +03:00 [INF] System.Byte[]
+2020-12-28 06:39:21.346 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:39:21.499 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:22.249 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:39:22.253 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:39:22.253 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:39:22.254 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:39:22.254 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:39:22.383 +03:00 [INF] System.Byte[]
+2020-12-28 06:39:22.536 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:39:22.663 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:23.272 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:39:23.273 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:39:23.274 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:39:23.274 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:39:23.275 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:39:23.310 +03:00 [INF] System.Byte[]
+2020-12-28 06:39:23.415 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:39:23.491 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:24.109 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:39:24.110 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:39:24.111 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:39:24.111 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:39:24.112 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:39:24.122 +03:00 [INF] System.Byte[]
+2020-12-28 06:39:24.226 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:39:24.306 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:24.932 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:39:24.934 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:39:24.935 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:39:24.935 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:39:24.936 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:39:24.946 +03:00 [INF] System.Byte[]
+2020-12-28 06:39:25.050 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:39:25.100 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:39:25.505 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:39:25.507 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:39:25.508 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:39:25.509 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:39:25.510 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:39:25.593 +03:00 [INF] System.Byte[]
+2020-12-28 06:39:25.724 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:39:25.845 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:40:59.269 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:40:59.342 +03:00 [INF] firstRender
+2020-12-28 06:40:59.347 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:40:59.360 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:40:59.406 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:41:05.777 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:41:05.777 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:41:05.801 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:41:05.879 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:41:07.867 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:41:07.891 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:41:07.891 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:41:07.892 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:41:07.899 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:41:07.993 +03:00 [INF] System.Byte[]
+2020-12-28 06:41:08.150 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:41:08.203 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:41:08.233 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:41:11.456 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:41:11.460 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:41:11.460 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:41:11.461 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:41:11.461 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:41:11.472 +03:00 [INF] System.Byte[]
+2020-12-28 06:41:11.630 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:41:11.705 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:41:11.761 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:42:04.457 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:42:04.554 +03:00 [INF] firstRender
+2020-12-28 06:42:04.581 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:42:04.595 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:42:04.615 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:42:06.837 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:42:06.837 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:42:06.885 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:42:06.988 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:42:08.624 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:42:08.650 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:42:08.650 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:42:08.651 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:42:08.659 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:42:08.709 +03:00 [INF] System.Byte[]
+2020-12-28 06:42:08.814 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:42:08.824 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:42:12.562 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:42:12.566 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:42:12.567 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:42:12.567 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:42:12.568 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:42:12.603 +03:00 [INF] System.Byte[]
+2020-12-28 06:42:12.731 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:42:12.806 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:42:14.740 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:42:14.741 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:42:14.742 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:42:14.742 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:42:14.743 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:42:14.851 +03:00 [INF] System.Byte[]
+2020-12-28 06:42:15.003 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:42:15.008 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:48:57.792 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:48:57.843 +03:00 [INF] firstRender
+2020-12-28 06:48:57.848 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:48:57.861 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:48:57.881 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:13.340 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:13.404 +03:00 [INF] firstRender
+2020-12-28 06:49:13.409 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:13.425 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:49:13.446 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:27.026 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:27.083 +03:00 [INF] firstRender
+2020-12-28 06:49:27.089 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:27.106 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:49:27.121 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:29.885 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:29.885 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:29.887 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:29.896 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:31.569 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:49:31.593 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:49:31.593 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:49:31.594 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:49:31.600 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:49:31.620 +03:00 [INF] System.Byte[]
+2020-12-28 06:49:31.621 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:49:31.782 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:31.782 +03:00 [INF] firstRender
+2020-12-28 06:49:31.785 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:49:31.791 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:31.795 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:31.810 +03:00 [INF] try NpgsqlCommand CheckIfDanismanViewExist tomekop
+2020-12-28 06:49:49.712 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:49.765 +03:00 [INF] firstRender
+2020-12-28 06:49:49.771 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:49.783 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:49:49.811 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:50.359 +03:00 [INF] try NpgsqlCommand CheckIfDanismanViewExist tomekop
+2020-12-28 06:49:52.836 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:52.837 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:52.838 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:52.841 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:54.079 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 06:49:54.102 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 06:49:54.103 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 06:49:54.103 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 06:49:54.107 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 06:49:54.125 +03:00 [INF] System.Byte[]
+2020-12-28 06:49:54.125 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 06:49:54.300 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:54.300 +03:00 [INF] firstRender
+2020-12-28 06:49:54.302 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 06:49:54.309 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 06:49:54.310 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 15:35:19.308 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 15:35:19.358 +03:00 [INF] firstRender
+2020-12-28 15:35:19.363 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 15:35:19.376 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 15:35:19.392 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 15:35:22.667 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 15:35:23.171 +03:00 [INF] try NpgsqlCommand CheckIfDanismanViewExist tomekop
+2020-12-28 15:35:27.573 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 15:35:27.576 +03:00 [INF] try NpgsqlCommand CheckIfAraziTableExist tomekop
+2020-12-28 15:35:29.813 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 15:35:29.823 +03:00 [INF] try NpgsqlCommand CheckIfAraziTableExist tomekop
+2020-12-28 15:35:33.546 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 15:35:33.552 +03:00 [INF] try NpgsqlCommand CheckIfDanismanViewExist tomekop
+2020-12-28 16:14:52.940 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:14:52.990 +03:00 [INF] firstRender
+2020-12-28 16:14:52.994 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:14:53.010 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:14:53.032 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:14:55.603 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:14:56.091 +03:00 [INF] catch CreateUrunTable
+2020-12-28 16:19:51.863 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:19:51.909 +03:00 [INF] firstRender
+2020-12-28 16:19:51.912 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:19:51.927 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:19:51.950 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:19:52.557 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:20:33.816 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:20:33.865 +03:00 [INF] firstRender
+2020-12-28 16:20:33.871 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:20:33.886 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:20:33.905 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:20:34.423 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:26:25.055 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:26:25.101 +03:00 [INF] firstRender
+2020-12-28 16:26:25.104 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:26:25.117 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:26:25.135 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:26:46.281 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:26:46.336 +03:00 [INF] firstRender
+2020-12-28 16:26:46.341 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:26:46.360 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:26:46.377 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:26:48.720 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:26:49.208 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:27:15.741 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:27:15.741 +03:00 [INF] firstRender
+2020-12-28 16:27:15.744 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:27:15.749 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:27:15.761 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:31:11.547 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:31:11.548 +03:00 [INF] firstRender
+2020-12-28 16:31:11.549 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:31:11.556 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:31:11.560 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:31:11.562 +03:00 [INF] catch CreateUrunTable
+2020-12-28 16:31:15.277 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:31:15.277 +03:00 [INF] firstRender
+2020-12-28 16:31:15.279 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:31:15.286 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:31:15.289 +03:00 [INF] catch CreateAraziSequence
+2020-12-28 16:31:15.290 +03:00 [INF] catch CreateAraziTable
+2020-12-28 16:31:56.169 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:31:56.213 +03:00 [INF] firstRender
+2020-12-28 16:31:56.217 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:31:56.228 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:31:56.242 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:31:56.772 +03:00 [INF] try NpgsqlCommand CheckIfDanismanViewExist tomekop
+2020-12-28 16:31:59.987 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:31:59.991 +03:00 [INF] try NpgsqlCommand CheckIfAraziTableExist tomekop
+2020-12-28 16:32:00.786 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:32:00.791 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:32:17.345 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:32:17.345 +03:00 [INF] firstRender
+2020-12-28 16:32:17.347 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:32:17.352 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:32:17.356 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:32:17.358 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:32:45.734 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:32:45.779 +03:00 [INF] firstRender
+2020-12-28 16:32:45.784 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:32:45.796 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:32:45.812 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:32:46.343 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:35:57.965 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:35:58.018 +03:00 [INF] firstRender
+2020-12-28 16:35:58.022 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:35:58.038 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:35:58.064 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:35:58.585 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:37:21.820 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:37:21.862 +03:00 [INF] firstRender
+2020-12-28 16:37:21.866 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:37:21.877 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:37:21.892 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:37:22.364 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop

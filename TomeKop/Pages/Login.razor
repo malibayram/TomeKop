@@ -1,11 +1,11 @@
 @using Serilog
 @using Utils
 @using Npgsql
-@using System.Text.Json;
-@using System.Text.Json.Serialization;
+@using System.Text.Json
+@using System.Text.Json.Serialization
 
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
-@inject NavigationManager uriHelper;
+@inject NavigationManager uriHelper
 @inject IToastService toastService
 
 <div class="limiter">
@@ -204,6 +204,7 @@
     private string SifreTekrar = "";
     private char[] cins = new char[] { 'E', 'K', 'D' };
     public Uye uye = new Uye();
+
     [Parameter]
     public string ButtonText { get; set; } = "Giriş Yap";
     private async void TryToRegister()
@@ -265,7 +266,7 @@
                 Log.Information($"jsonString: {jsonString}");
 
                 await localStorage.SetItemAsync<byte[]>("uyeJsonString", jsonString);
-                uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+                uriHelper.NavigateTo("", forceLoad: true);
             }
             catch (Npgsql.PostgresException npge)
             {
@@ -320,9 +321,10 @@
                     uye = JsonSerializer.Deserialize<Uye>(jsonString);
 
                     await localStorage.SetItemAsync<byte[]>("uyeJsonString", jsonString);
-                    uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
                     byte[] jsona = await localStorage.GetItemAsync<byte[]>("uyeJsonString");
                     Log.Information(jsona.ToString());
+
+                    uriHelper.NavigateTo("", forceLoad: true);
 
                     // SIFRE123
                     // ornek@ornek.com
