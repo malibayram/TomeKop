@@ -55,20 +55,19 @@ namespace TomeKop.Utils
         // Arazi İşlemleri
         public static readonly string CheckIfAraziTableExist = "SELECT * FROM information_schema.tables WHERE table_schema = 'public' AND table_name = 'araziler'";
         public static readonly string CreateAraziTable = @"CREATE TABLE araziler (
-                                                            arazi_id nextval('arazi_id_seq') PRIMARY KEY,
+                                                            arazi_id INT PRIMARY KEY,
                                                             uye_id INT NOT NULL,
                                                             parsel 	INT,
-                                                            alan_m2 INT CHECK(alam_m2 > 100 AND alam_m2 < 100000),
+                                                            alan_m2 INT CHECK(alan_m2 > 100 AND alan_m2 < 100000),
                                                             tapu_sahibi_tc_no CHAR(11) NOT NULL,
                                                             tapu_tarihi DATE,
                                                             FOREIGN KEY (uye_id) REFERENCES uyeler(uye_id) ON DELETE CASCADE
                                                         );";
-        public static readonly string CreateArazi = "INSERT INTO araziler(uye_id, parsel, alan_m2, tapu_sahibi_tc_no, tapu_tarihi) VALUES (@uye_id, @parsel, @alan_m2, @tapu_sahibi_tc_no, @tapu_tarihi);";
+        public static readonly string CreateArazi = "INSERT INTO araziler(arazi_id, uye_id, parsel, alan_m2, tapu_sahibi_tc_no, tapu_tarihi) VALUES (nextval('arazi_id_seq'), @uye_id, @parsel, @alan_m2, @tapu_sahibi_tc_no, @tapu_tarihi);";
         public static readonly string UpdateArazi = "UPDATE araziler SET parsel = @parsel, alan_m2 = @alan_m2, tapu_sahibi_tc_no = @tapu_sahibi_tc_no, tapu_tarihi = @tapu_tarihi WHERE arazi_id = @arazi_id;";
         public static readonly string DeleteArazi = "DELETE FROM araziler WHERE arazi_id = @arazi_id;";
         public static readonly string SelectAraziler = "SELECT * FROM araziler WHERE uye_id = @uye_id;";
-        public static readonly string SelectSumUyeAraziler = "SELECT u.uye_id, SUM(a.alan_m2) FROM araziler a, uyeler u WHERE y.uye_id = u.uye_id GROUP BY u.uye_id HAVING SUM(a.alan_m2) > @alan_m2;";
-
+        public static readonly string SelectSumUyeAraziler = "SELECT u.uye_id, u.adi, u.soyadi, COALESCE(SUM(a.alan_m2), 0) AS alan_m2 FROM uyeler u LEFT JOIN araziler a ON a.uye_id = u.uye_id GROUP BY u.uye_id HAVING SUM(a.alan_m2) > @alan_m2;";
 
     }
 }

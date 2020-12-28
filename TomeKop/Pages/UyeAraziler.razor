@@ -1,0 +1,133 @@
+@page "/uye-araziler"
+
+@using Npgsql
+@using Serilog
+@using System.Dynamic
+@using Utils
+
+<h2>Tüm Üye Arazileri</h2>
+<br />
+<EditForm class="form-group row" Model="@alan_m2" OnValidSubmit="@AraziFiltrele">
+    <span class="col-md-3">Toplam arazi miktarı </span>
+    <InputNumber @bind-Value="@alan_m2" class="form-control col-md-2"/>
+    <span class="col-md-3"> m2'den fazla olan üyeleri</span>
+    <button class="btn btn-outline-success col-md-4" type="submit">Listele</button>
+</EditForm>
+<p>Toplam arazi miktarı <b class="text-danger">@alan_m2</b> m2'den fazla olan <b class="text-danger">@araziler.Count</b> üye bulundu</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Üye No</th>
+            <th scope="col">Adı Soyadı</th>
+            <th scope="col">Alan (m2)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 0;
+        }
+        @foreach (IDictionary<string, object> araziItem in araziler)
+        {
+            i++;
+            <tr>
+                <th scope="row">@i</th>
+                <td>@araziItem["uye_id"]</td>
+                <td>@araziItem["adi"] @araziItem["soyadi"]</td>
+                <td>@araziItem["alan_m2"]</td>
+            </tr>
+        }            
+    </tbody>
+</table>
+
+@code {
+    private bool Waiting = true;
+    private List<IDictionary<string, object>> araziler = new List<IDictionary<string, object>>();
+    private int alan_m2 = 100;
+
+    private void AraziFiltrele()
+    {
+        Waiting = true;
+        araziler.Clear();
+
+        StateHasChanged();
+        
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();        
+
+        using var cmd3 = new NpgsqlCommand(SqlCommands.SelectSumUyeAraziler, Program.DbCon);
+        cmd3.Parameters.AddWithValue("alan_m2", alan_m2);
+        cmd3.Prepare();
+
+        NpgsqlDataReader reader = cmd3.ExecuteReader();
+
+        while (reader.HasRows && reader.Read())
+        {
+            var expando = new ExpandoObject() as IDictionary<string, object>;
+            for (int i = 0; i < reader.VisibleFieldCount; i++)
+            {
+                expando[reader.GetName(i)] = reader.GetValue(i);
+            }
+            araziler.Add(expando);
+        }
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+
+        Waiting = false;
+        StateHasChanged();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfAraziTableExist, Program.DbCon);
+
+            try
+            {
+                var version = cmd.ExecuteScalar().ToString();
+                Log.Information($"try NpgsqlCommand CheckIfAraziTableExist {version}");
+            }
+            catch (System.Exception)
+            {
+                Log.Information("catch CreateAraziSequence");
+                Log.Information("catch CreateAraziTable");
+
+                NpgsqlCommand pgCommand = new NpgsqlCommand();
+                pgCommand.Connection = Program.DbCon;
+                NpgsqlTransaction myTrans;
+
+                myTrans = Program.DbCon.BeginTransaction();
+                pgCommand.Transaction = myTrans;
+
+                try
+                {
+                    pgCommand.CommandText = SqlCommands.CreateAraziIdSeq;
+                    pgCommand.ExecuteNonQuery();
+                    pgCommand.CommandText = SqlCommands.CreateAraziTable;
+                    pgCommand.ExecuteNonQuery();
+                    myTrans.Commit();
+                }
+                catch(Exception e)
+                {
+                    myTrans.Rollback();
+                    Log.Information(e.ToString());
+                }
+
+            }
+
+            AraziFiltrele();
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                Program.DbCon.Close();
+
+            Waiting = false;
+        }
+        await Task.Delay(10);
+    }
+
+}

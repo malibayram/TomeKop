@@ -37,21 +37,19 @@ else
         @foreach (Uye uyeItem in uyeler)
         {
             i++;
-            <tr>
-                <th scope="row">@i</th>
-                <td>@uyeItem.adi @uyeItem.soyadi</td>
-                <td>@uyeItem.email</td>
-                <td>@uyeItem.tel_no</td>
-                @if (isDanisman)
-                {
-                    <td>
-                        <button class="btn btn-success" @onclick="@(() => DanismanOl(uyeItem))">
-                            @(uyeItem.danisman_id == 0 ?
-                    "Danışman Ol" : "Danışmanı Var")
-                        </button>
-                    </td>
-                }
-            </tr>
+            <th scope="row">@i</th>
+            <td>@uyeItem.adi @uyeItem.soyadi</td>
+            <td>@uyeItem.email</td>
+            <td>@uyeItem.tel_no</td>
+            @if (isDanisman)
+            {
+                <td>
+                    <button class="btn btn-success" @onclick="@(() => DanismanOl(uyeItem))">
+                        @(uyeItem.danisman_id == 0 ?
+                "Danışman Ol" : "Danışmanı Var")
+                    </button>
+                </td>
+            }
         }
 
     </tbody>

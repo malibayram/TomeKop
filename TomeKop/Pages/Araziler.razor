@@ -1,7 +1,233 @@
 @page "/araziler"
 
+@using Npgsql
+@using System.Text.Json
+@using Utils
+@using Serilog
+
+@inject NavigationManager uriHelper;
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject IToastService toastService
+
 <h2>Araziler</h2>
+@if (Waiting)
+{
+    <div class="spinner-grow text-danger" role="status">
+    <span class="visually-hidden"></span>
+</div>
+}
+else
+{
+    <br />
+    <EditForm class="form-group row" Model="@arazi" OnValidSubmit="@AraziEkle">
+        <DataAnnotationsValidator />
+        <div class="form-group col-md-6">
+            <label>Parsel: </label>
+            <InputNumber @bind-Value="@arazi.parsel" class="form-control" placeholder="Parsel" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>Alan (m2): </label>
+            <InputNumber @bind-Value="@arazi.alan_m2" class="form-control" placeholder="Alan (m2)" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>Tapu Sahibi Tc No: </label>
+            <InputText @bind-Value="@arazi.tapu_sahibi_tc_no" class="form-control" placeholder="Tapu Sahibi Tc No" />
+        </div>
+        <div class="form-group col-md-6">
+            <label>Tapu Tarihi: </label>
+            <InputDate @bind-Value="@arazi.tapu_tarihi" DisplayName="Tapu Tarihi" class="form-control" />
+        </div>
+        <div class="form-group col-md-12">
+            <button class="btn btn-outline-success" type="submit">Kaydet</button>
+        </div>
+        <ValidationSummary />
+    </EditForm>
+
+    <h3>Arazileriniz</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parsel</th>
+                <th scope="col">Alan (m2)</th>
+                <th scope="col">Tapu Sahibi Tc No</th>
+                <th scope="col">Tapu Tarihi</th>
+                <th scope="col">İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 0;
+            }
+            @foreach (Arazi araziItem in araziler)
+            {
+                i++;
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@araziItem.parsel</td>
+                    <td>@araziItem.alan_m2</td>
+                    <td>@araziItem.tapu_sahibi_tc_no</td>
+                    <td>@araziItem.tapu_tarihi.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <button class="btn btn-warning" @onclick="@(() => arazi = araziItem)">Düzenle</button>
+                        <button class="btn btn-danger" @onclick="@(() => AraziSil(araziItem))">Sil</button>
+                    </td>
+                </tr>
+            }            
+        </tbody>
+    </table>
+}
 
 @code {
-    
+    private bool Waiting = true;
+    public Uye uye = new Uye();
+    private List<Arazi> araziler = new List<Arazi>();
+    private Arazi arazi = new Arazi() {
+        tapu_tarihi = DateTime.Now,
+    };
+
+    public void AraziEkle()
+    {
+        if (!Waiting)
+        {
+            Waiting = true;
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            var cmd = new NpgsqlCommand(SqlCommands.CreateArazi, Program.DbCon);
+
+            if (arazi.arazi_id > 0)
+            {
+                cmd = new NpgsqlCommand(SqlCommands.UpdateArazi, Program.DbCon);
+                cmd.Parameters.AddWithValue("arazi_id", arazi.arazi_id);
+            }
+
+            arazi.uye_id = uye.uye_id;
+
+            cmd.Parameters.AddWithValue("parsel", arazi.parsel);
+            cmd.Parameters.AddWithValue("alan_m2", arazi.alan_m2);
+            cmd.Parameters.AddWithValue("tapu_sahibi_tc_no", arazi.tapu_sahibi_tc_no);
+            cmd.Parameters.AddWithValue("tapu_tarihi", arazi.tapu_tarihi);
+            cmd.Parameters.AddWithValue("uye_id", arazi.uye_id);
+
+            try
+            {
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+
+                if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                    Program.DbCon.Close();
+
+                arazi = new Arazi();
+
+                uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+            }
+            catch (Npgsql.PostgresException npge)
+            {
+                toastService.ShowError($"Kritik bir hata oluştu: {npge.MessageText}", "Lütfen eklemek istediğiniz arazinin 100 metrekareden büyük olduğundan emin olun!");
+            }
+            
+            Waiting = false;
+        }
+    }
+
+    public void AraziSil(Arazi arazi)
+    {
+        if (!Waiting)
+        {
+            Waiting = true;
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            using var cmd = new NpgsqlCommand(SqlCommands.DeleteArazi, Program.DbCon);
+            cmd.Parameters.AddWithValue("arazi_id", arazi.arazi_id);
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                Program.DbCon.Close();
+
+            Waiting = false;
+
+            uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
+        }
+
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            uye = JsonSerializer.Deserialize<Uye>(await localStorage.GetItemAsync<byte[]>("uyeJsonString"));
+            arazi.tapu_sahibi_tc_no = uye.tc_no;
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfAraziTableExist, Program.DbCon);
+
+            try
+            {
+                var version = cmd.ExecuteScalar().ToString();
+                Log.Information($"try NpgsqlCommand CheckIfAraziTableExist {version}");
+            }
+            catch (System.Exception)
+            {
+                Log.Information("catch CreateAraziSequence");
+                Log.Information("catch CreateAraziTable");
+
+                NpgsqlCommand pgCommand = new NpgsqlCommand();
+                pgCommand.Connection = Program.DbCon;
+                NpgsqlTransaction myTrans;
+
+                myTrans = Program.DbCon.BeginTransaction();
+                pgCommand.Transaction = myTrans;
+
+                try
+                {
+                    pgCommand.CommandText = SqlCommands.CreateAraziIdSeq;
+                    pgCommand.ExecuteNonQuery();
+                    pgCommand.CommandText = SqlCommands.CreateAraziTable;
+                    pgCommand.ExecuteNonQuery();
+                    myTrans.Commit();
+                }
+                catch(Exception e)
+                {
+                    myTrans.Rollback();
+                    Log.Information(e.ToString());
+                }
+
+            }
+
+            using var cmd3 = new NpgsqlCommand(SqlCommands.SelectAraziler, Program.DbCon);
+            cmd3.Parameters.AddWithValue("uye_id", uye.uye_id);
+            cmd3.Prepare();
+
+            NpgsqlDataReader reader = cmd3.ExecuteReader();
+
+            while (reader.HasRows && reader.Read())
+            {
+                var expando = new System.Dynamic.ExpandoObject() as IDictionary<string, object>;
+                for (int i = 0; i < reader.VisibleFieldCount; i++)
+                {
+                    expando[reader.GetName(i)] = reader.GetValue(i);
+                }
+
+                string jsonString = JsonSerializer.Serialize(expando);
+                Arazi dbArazi = JsonSerializer.Deserialize<Arazi>(jsonString);
+                araziler.Add(dbArazi);
+            }
+
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                Program.DbCon.Close();
+
+            await Task.Delay(10);
+            Waiting = false;
+            StateHasChanged();
+        }
+    }
 }
