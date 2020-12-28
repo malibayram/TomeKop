@@ -1,0 +1,156 @@
+@page "/istatistikler"
+@using Npgsql
+@using Serilog
+@using Utils
+
+<h2>İstatistikler</h2>
+@if (Waiting)
+{
+    <div class="spinner-grow text-danger" role="status">
+    <span class="visually-hidden"></span>
+</div>
+}
+else
+{
+    <br />
+    <EditForm class="form-group row" Model="@UrunAdi" OnValidSubmit="@GetTotal">
+        <InputSelect @bind-Value="UrunAdi" class="form-control col-md-3 m-2">
+            @foreach (string urunAdiItem in UrunAdlari)
+            {
+                <option value="@urunAdiItem">@urunAdiItem</option>
+            }
+        </InputSelect>
+        <InputSelect @bind-Value="UretYili" class="form-control col-md-3 m-2">
+            @foreach (int urunYilItem in UretYillari)
+            {
+                <option value="@urunYilItem">@urunYilItem</option>
+            }
+        </InputSelect>
+        <button class="btn btn-outline-success col-md-3 m-2" type="submit">Yılı Üretim Miktarını Getir</button>
+    </EditForm>
+
+    <br />
+    <EditForm class="form-group row" Model="@UretYili" OnValidSubmit="@GetMax">        
+        <InputSelect @bind-Value="UretYili" class="form-control col-md-3 m-2">
+            @foreach (int urunYilItem in UretYillari)
+            {
+                <option value="@urunYilItem">@urunYilItem</option>
+            }
+        </InputSelect>
+        <button class="btn btn-outline-success col-md-3 m-2" type="submit">Yılında En Fazla Kar Eden Ürünü Getir</button>
+    </EditForm>
+    <br />
+    <EditForm class="form-group row" Model="@UretYili" OnValidSubmit="@GetMin">        
+        <InputSelect @bind-Value="UretYili" class="form-control col-md-3 m-2">
+            @foreach (int urunYilItem in UretYillari)
+            {
+                <option value="@urunYilItem">@urunYilItem</option>
+            }
+        </InputSelect>
+        <button class="btn btn-outline-success col-md-3 m-2" type="submit">Yılında En Az Kar Eden Ürünü Getir</button>
+    </EditForm>
+
+    <br />
+    <div class="alert alert-success" role="alert">@SonucMesaji</div>
+}
+
+@code {
+    private bool Waiting = true;
+    private string SonucMesaji = "Sonuç Mesajı";
+    private string UrunAdi = "";
+    private int UretYili = 2020;
+    private List<string> UrunAdlari = new List<string>();
+    private List<int> UretYillari = new List<int>();
+    private void GetTotal()
+    {
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+        using var cmd = new NpgsqlCommand(SQLFuncs.TotalUrunC, Program.DbCon);
+        cmd.Parameters.AddWithValue("girilen_urun", UrunAdi);
+        cmd.Parameters.AddWithValue("yil", UretYili);
+        cmd.Prepare();
+        var sc = cmd.ExecuteScalar();
+
+        SonucMesaji = $"{UrunAdi} ürününden {UretYili} yılında toplam {sc} ton üretim yapılmıştır.";
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+    }
+
+    private void GetMax()
+    {
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+        using var cmd = new NpgsqlCommand(SQLFuncs.MaxKarliUrunC, Program.DbCon);
+
+        cmd.Parameters.AddWithValue("yil", UretYili);
+        cmd.Prepare();
+        var sc = cmd.ExecuteScalar();
+
+        SonucMesaji = $"{UretYili} yılında en fazla kar elde edilen ürün: {UrunAdi}.";
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+    }
+
+    private void GetMin()
+    {
+        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+            Program.DbCon.Open();
+        using var cmd = new NpgsqlCommand(SQLFuncs.MinKarliUrunC, Program.DbCon);
+
+        cmd.Parameters.AddWithValue("yil", UretYili);
+        cmd.Prepare();
+        var sc = cmd.ExecuteScalar();
+
+        SonucMesaji = $"{UretYili} yılında en az kar elde edilen ürün: {UrunAdi}.";
+
+        if (Program.DbCon.State == System.Data.ConnectionState.Open)
+            Program.DbCon.Close();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
+                Program.DbCon.Open();
+
+            using var cmd1 = new NpgsqlCommand(SQLFuncs.TotalUrun, Program.DbCon);
+            using var cmd2 = new NpgsqlCommand(SQLFuncs.MaxKarliUrun, Program.DbCon);
+            using var cmd3 = new NpgsqlCommand(SQLFuncs.MinKarliUrun, Program.DbCon);
+
+            try
+            {
+                cmd1.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                cmd3.ExecuteNonQuery();
+                Log.Information("try NpgsqlCommand");
+            }
+            catch (Npgsql.PostgresException npge)
+            {
+                Log.Information($"catch SQLFuncs.TotalUrun {npge}");
+            }
+
+            using var cmd = new NpgsqlCommand("SELECT DISTINCT urun_adi, CAST(EXTRACT(YEAR FROM uret_tarihi) AS INT) as uret_yil FROM urunler;", Program.DbCon);
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.HasRows && reader.Read())
+            {
+                UrunAdi = reader.GetString(0);
+                UretYili = reader.GetInt32(1);
+                UrunAdlari.Add(UrunAdi);
+
+                if (!UretYillari.Contains(UretYili))
+                    UretYillari.Add(UretYili);
+            }
+
+            if (Program.DbCon.State == System.Data.ConnectionState.Open)
+                Program.DbCon.Close();
+
+            Waiting = false;
+            StateHasChanged();
+        }
+        await Task.Delay(10);
+    }
+}

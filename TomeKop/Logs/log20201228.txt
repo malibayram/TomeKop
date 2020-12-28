@@ -1271,3 +1271,381 @@
 2020-12-28 16:43:56.121 +03:00 [INF] OnAfterRenderAsync
 2020-12-28 16:44:02.217 +03:00 [INF] OnAfterRenderAsync
 2020-12-28 16:44:02.690 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 16:44:36.606 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:44:36.662 +03:00 [INF] firstRender
+2020-12-28 16:44:36.672 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:44:36.689 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 16:44:36.733 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 16:44:37.223 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 18:48:43.527 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:48:43.590 +03:00 [INF] firstRender
+2020-12-28 18:48:43.594 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:48:43.611 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 18:48:43.634 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:49:33.960 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:49:34.002 +03:00 [INF] firstRender
+2020-12-28 18:49:34.005 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:49:34.018 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 18:49:34.032 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:50:10.921 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:50:11.463 +03:00 [INF] catch CreateUrunTable
+2020-12-28 18:51:14.452 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:51:14.453 +03:00 [INF] firstRender
+2020-12-28 18:51:14.456 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 18:51:14.464 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:51:14.467 +03:00 [INF] catch CreateUrunTable
+2020-12-28 18:51:14.467 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:51:18.353 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:51:18.371 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 18:51:20.043 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:51:20.045 +03:00 [INF] catch CreateUrunTable
+2020-12-28 18:51:48.519 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:51:48.561 +03:00 [INF] firstRender
+2020-12-28 18:51:48.565 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:51:48.578 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 18:51:48.593 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:51:49.064 +03:00 [INF] catch SQLFuncs.TotalUrun
+2020-12-28 18:52:13.251 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:52:13.309 +03:00 [INF] firstRender
+2020-12-28 18:52:13.313 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:52:13.330 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 18:52:13.359 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:52:13.871 +03:00 [INF] catch SQLFuncs.TotalUrun
+2020-12-28 18:53:12.507 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:53:12.552 +03:00 [INF] firstRender
+2020-12-28 18:53:12.557 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:53:12.571 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 18:53:12.589 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:53:13.136 +03:00 [INF] catch SQLFuncs.TotalUrun Npgsql.PostgresException (0x80004005): 42601: syntax error at or near "@"
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at TomeKop.Pages.Istatistikler.OnAfterRenderAsync(Boolean firstRender) in /Users/ma/Desktop/dotnets/TomeKop/TomeKop/Pages/Istatistikler.razor:line 33
+  Exception data:
+    Severity: ERROR
+    SqlState: 42601
+    MessageText: syntax error at or near "@"
+    Position: 39
+    File: scan.l
+    Line: 1180
+    Routine: scanner_yyerror
+2020-12-28 18:58:35.089 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:58:35.134 +03:00 [INF] firstRender
+2020-12-28 18:58:35.137 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:58:35.150 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 18:58:35.165 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:58:35.668 +03:00 [INF] catch SQLFuncs.TotalUrun Npgsql.PostgresException (0x80004005): 42601: syntax error at or near "@"
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at TomeKop.Pages.Istatistikler.OnAfterRenderAsync(Boolean firstRender) in /Users/ma/Desktop/dotnets/TomeKop/TomeKop/Pages/Istatistikler.razor:line 33
+  Exception data:
+    Severity: ERROR
+    SqlState: 42601
+    MessageText: syntax error at or near "@"
+    Position: 39
+    File: scan.l
+    Line: 1180
+    Routine: scanner_yyerror
+2020-12-28 18:59:23.759 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:59:23.805 +03:00 [INF] firstRender
+2020-12-28 18:59:23.809 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:59:23.822 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 18:59:23.841 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:59:28.783 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 18:59:29.267 +03:00 [INF] catch SQLFuncs.TotalUrun Npgsql.PostgresException (0x80004005): 42601: syntax error at or near "@"
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at TomeKop.Pages.Istatistikler.OnAfterRenderAsync(Boolean firstRender) in /Users/ma/Desktop/dotnets/TomeKop/TomeKop/Pages/Istatistikler.razor:line 33
+  Exception data:
+    Severity: ERROR
+    SqlState: 42601
+    MessageText: syntax error at or near "@"
+    Position: 39
+    File: scan.l
+    Line: 1180
+    Routine: scanner_yyerror
+2020-12-28 19:01:11.009 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:01:11.058 +03:00 [INF] firstRender
+2020-12-28 19:01:11.062 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:01:11.078 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:01:11.094 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:01:11.612 +03:00 [INF] catch SQLFuncs.TotalUrun Npgsql.PostgresException (0x80004005): 42601: syntax error at or near "@"
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at TomeKop.Pages.Istatistikler.OnAfterRenderAsync(Boolean firstRender) in /Users/ma/Desktop/dotnets/TomeKop/TomeKop/Pages/Istatistikler.razor:line 33
+  Exception data:
+    Severity: ERROR
+    SqlState: 42601
+    MessageText: syntax error at or near "@"
+    Position: 39
+    File: scan.l
+    Line: 1180
+    Routine: scanner_yyerror
+2020-12-28 19:05:43.662 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:05:43.663 +03:00 [INF] firstRender
+2020-12-28 19:05:43.665 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:05:43.670 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:05:43.676 +03:00 [INF] catch SQLFuncs.TotalUrun Npgsql.PostgresException (0x80004005): 42601: syntax error at or near "@"
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at TomeKop.Pages.Istatistikler.OnAfterRenderAsync(Boolean firstRender) in /Users/ma/Desktop/dotnets/TomeKop/TomeKop/Pages/Istatistikler.razor:line 33
+  Exception data:
+    Severity: ERROR
+    SqlState: 42601
+    MessageText: syntax error at or near "@"
+    Position: 39
+    File: scan.l
+    Line: 1180
+    Routine: scanner_yyerror
+2020-12-28 19:05:43.678 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:05:47.449 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:05:47.450 +03:00 [INF] firstRender
+2020-12-28 19:05:47.452 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:05:47.457 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:05:47.460 +03:00 [INF] catch SQLFuncs.TotalUrun Npgsql.PostgresException (0x80004005): 42601: syntax error at or near "@"
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at TomeKop.Pages.Istatistikler.OnAfterRenderAsync(Boolean firstRender) in /Users/ma/Desktop/dotnets/TomeKop/TomeKop/Pages/Istatistikler.razor:line 33
+  Exception data:
+    Severity: ERROR
+    SqlState: 42601
+    MessageText: syntax error at or near "@"
+    Position: 39
+    File: scan.l
+    Line: 1180
+    Routine: scanner_yyerror
+2020-12-28 19:05:47.463 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:05:48.705 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:05:48.724 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 19:05:49.947 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:05:49.952 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 19:16:11.933 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:16:11.979 +03:00 [INF] firstRender
+2020-12-28 19:16:11.983 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:16:11.995 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:16:12.016 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:16:14.572 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:16:15.059 +03:00 [INF] catch SQLFuncs.TotalUrun Npgsql.PostgresException (0x80004005): 42601: syntax error at or near "@"
+   at Npgsql.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|194_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at TomeKop.Pages.Istatistikler.OnAfterRenderAsync(Boolean firstRender) in /Users/ma/Desktop/dotnets/TomeKop/TomeKop/Pages/Istatistikler.razor:line 33
+  Exception data:
+    Severity: ERROR
+    SqlState: 42601
+    MessageText: syntax error at or near "@"
+    Position: 39
+    File: scan.l
+    Line: 1180
+    Routine: scanner_yyerror
+2020-12-28 19:16:52.558 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:16:52.613 +03:00 [INF] firstRender
+2020-12-28 19:16:52.618 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:16:52.633 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:16:52.652 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:16:53.345 +03:00 [INF] try NpgsqlCommand
+2020-12-28 19:18:04.350 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:18:04.350 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:18:04.355 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:18:04.360 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:18:07.066 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2020-12-28 19:18:07.091 +03:00 [INF] 0: 1 1: 33344455566
+2020-12-28 19:18:07.092 +03:00 [INF] reader.FieldCount: 10
+2020-12-28 19:18:07.092 +03:00 [INF] reader.VisibleFieldCount: 10
+2020-12-28 19:18:07.098 +03:00 [INF] jsonString: System.Byte[]
+2020-12-28 19:18:07.115 +03:00 [INF] System.Byte[]
+2020-12-28 19:18:07.116 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2020-12-28 19:18:07.258 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:18:07.258 +03:00 [INF] firstRender
+2020-12-28 19:18:07.261 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:18:07.267 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:18:07.274 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:19:53.778 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:19:53.825 +03:00 [INF] firstRender
+2020-12-28 19:19:53.829 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:19:53.844 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:19:53.862 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:20:17.560 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:20:18.061 +03:00 [INF] try NpgsqlCommand
+2020-12-28 19:21:48.223 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:21:48.272 +03:00 [INF] firstRender
+2020-12-28 19:21:48.276 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:21:48.290 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:21:48.306 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:21:48.876 +03:00 [INF] try NpgsqlCommand
+2020-12-28 19:28:49.252 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:28:49.299 +03:00 [INF] firstRender
+2020-12-28 19:28:49.303 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:28:49.314 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:28:49.336 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:28:51.449 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:28:51.938 +03:00 [INF] try NpgsqlCommand
+2020-12-28 19:35:55.860 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:35:55.908 +03:00 [INF] firstRender
+2020-12-28 19:35:55.915 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:35:55.934 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:35:55.954 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:35:56.451 +03:00 [INF] try NpgsqlCommand
+2020-12-28 19:35:58.173 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:35:58.190 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 19:36:24.796 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:36:24.797 +03:00 [INF] firstRender
+2020-12-28 19:36:24.799 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:36:24.804 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:36:24.808 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 19:36:24.813 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:37:29.523 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:37:29.567 +03:00 [INF] firstRender
+2020-12-28 19:37:29.571 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:37:29.582 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:37:29.599 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:37:30.058 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 19:38:35.458 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:38:35.459 +03:00 [INF] firstRender
+2020-12-28 19:38:35.462 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:38:35.468 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:38:35.469 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:38:35.474 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2020-12-28 19:38:37.158 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:38:37.170 +03:00 [INF] try NpgsqlCommand
+2020-12-28 19:39:31.633 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:39:31.674 +03:00 [INF] firstRender
+2020-12-28 19:39:31.678 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:39:31.688 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:39:31.702 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:39:32.155 +03:00 [INF] try NpgsqlCommand
+2020-12-28 19:55:53.574 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:55:53.618 +03:00 [INF] firstRender
+2020-12-28 19:55:53.622 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:55:53.634 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 19:55:53.649 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 19:55:54.118 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:02:29.574 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:02:29.628 +03:00 [INF] firstRender
+2020-12-28 20:02:29.632 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:02:29.648 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:02:29.673 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:02:30.157 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:05:13.596 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:05:13.653 +03:00 [INF] firstRender
+2020-12-28 20:05:13.657 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:05:13.674 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:05:13.694 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:05:14.189 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:05:48.519 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:05:48.578 +03:00 [INF] firstRender
+2020-12-28 20:05:48.582 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:05:48.598 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:05:48.621 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:05:49.141 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:06:06.749 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:06:06.792 +03:00 [INF] firstRender
+2020-12-28 20:06:06.796 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:06:06.808 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:06:06.825 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:06:07.314 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:06:45.669 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:06:45.722 +03:00 [INF] firstRender
+2020-12-28 20:06:45.727 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:06:45.743 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:06:45.763 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:06:46.293 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:07:23.203 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:07:23.245 +03:00 [INF] firstRender
+2020-12-28 20:07:23.251 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:07:23.263 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:07:23.279 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:07:23.807 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:09:02.154 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:09:02.208 +03:00 [INF] firstRender
+2020-12-28 20:09:02.211 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:09:02.231 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:09:02.255 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:09:02.758 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:10:30.159 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:10:30.214 +03:00 [INF] firstRender
+2020-12-28 20:10:30.218 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:10:30.234 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:10:30.255 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:10:30.762 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:14:51.670 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:14:51.724 +03:00 [INF] firstRender
+2020-12-28 20:14:51.728 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:14:51.744 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:14:51.764 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:14:52.322 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:16:02.225 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:16:02.268 +03:00 [INF] firstRender
+2020-12-28 20:16:02.271 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:16:02.284 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:16:02.300 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:16:02.790 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:17:31.334 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:17:31.383 +03:00 [INF] firstRender
+2020-12-28 20:17:31.388 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:17:31.402 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:17:31.424 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:17:31.894 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:17:57.814 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:17:57.861 +03:00 [INF] firstRender
+2020-12-28 20:17:57.866 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:17:57.879 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:17:57.895 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:17:58.434 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:18:49.438 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:18:49.488 +03:00 [INF] firstRender
+2020-12-28 20:18:49.494 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:18:49.509 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:18:49.529 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:18:50.158 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:19:36.580 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:19:36.628 +03:00 [INF] firstRender
+2020-12-28 20:19:36.632 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:19:36.652 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:19:36.670 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:19:37.203 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:23:11.117 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:23:11.167 +03:00 [INF] firstRender
+2020-12-28 20:23:11.171 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:23:11.184 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:23:11.203 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:23:11.708 +03:00 [INF] try NpgsqlCommand
+2020-12-28 20:23:47.688 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:23:47.737 +03:00 [INF] firstRender
+2020-12-28 20:23:47.743 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:23:47.757 +03:00 [INF] try fromSession sessionStorage
+2020-12-28 20:23:47.776 +03:00 [INF] OnAfterRenderAsync
+2020-12-28 20:23:48.259 +03:00 [INF] try NpgsqlCommand

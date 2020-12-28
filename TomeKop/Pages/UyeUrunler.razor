@@ -6,41 +6,50 @@
 @using Utils
 
 <h2>Tüm Üye Ürünleri</h2>
-<br />
-<EditForm class="form-group row" Model="@miktar_ton" OnValidSubmit="@UrunFiltrele">
-    <span class="col-md-3">Toplam ürün miktarı </span>
-    <InputNumber @bind-Value="@miktar_ton" class="form-control col-md-2" />
-    <span class="col-md-3"> tonden fazla olan üyeleri</span>
-    <button class="btn btn-outline-success col-md-4" type="submit">Listele</button>
-</EditForm>
-<p>Toplam ürün miktarı <b class="text-danger">@miktar_ton</b> tonden fazla olan <b
-        class="text-danger">@urunler.Count</b> üye bulundu</p>
+@if (Waiting)
+{
+    <div class="spinner-grow text-danger" role="status">
+    <span class="visually-hidden"></span>
+</div>
+}
+else
+{
+    <br />
+    <EditForm class="form-group row" Model="@miktar_ton" OnValidSubmit="@UrunFiltrele">
+        <span class="col-md-3">Toplam ürün miktarı </span>
+        <InputNumber @bind-Value="@miktar_ton" class="form-control col-md-2" />
+        <span class="col-md-3"> tonden fazla olan üyeleri</span>
+        <button class="btn btn-outline-success col-md-4" type="submit">Listele</button>
+    </EditForm>
+    <p>Toplam ürün miktarı <b class="text-danger">@miktar_ton</b> tonden fazla olan <b
+            class="text-danger">@urunler.Count</b> üye bulundu</p>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Üye No</th>
-            <th scope="col">Adı Soyadı</th>
-            <th scope="col">Toplam ürün miktarı</th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            int i = 0;
-        }
-        @foreach (IDictionary<string, object> urunItem in urunler)
-        {
-            i++;
+    <table class="table">
+        <thead>
             <tr>
-                <th scope="row">@i</th>
-                <td>@urunItem["uye_id"]</td>
-                <td>@urunItem["adi"] @urunItem["soyadi"]</td>
-                <td>@urunItem["miktar_ton"]</td>
+                <th scope="col">#</th>
+                <th scope="col">Üye No</th>
+                <th scope="col">Adı Soyadı</th>
+                <th scope="col">Toplam ürün miktarı</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @{
+                int i = 0;
+            }
+            @foreach (IDictionary<string, object> urunItem in urunler)
+            {
+                i++;
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@urunItem["uye_id"]</td>
+                    <td>@urunItem["adi"] @urunItem["soyadi"]</td>
+                    <td>@urunItem["miktar_ton"]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
 @code {
     private bool Waiting = true;
