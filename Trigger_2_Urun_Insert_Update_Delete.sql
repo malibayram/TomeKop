@@ -19,10 +19,11 @@ begin
 	GROUP BY URUN_ADI) IS NULL
 		THEN 
 		raise notice 'Müşteri ürün kaydı bulunmamaktadır.';
+		return new;
 	else
 		raise notice 'Müşteri ürün kaydı güncellenmiştir.';
-    	raise notice 'İşleme alınan ürün: % - Ürün satıcı sayısı: %', new.URUN_ADI, URUN_SAYISI;
-    	return new;
+    		raise notice 'İşleme alınan ürün: % - Ürün satıcı sayısı: %', new.URUN_ADI, URUN_SAYISI;
+    		return new;
 	end if;
 end;
 $$ language plpgsql;
