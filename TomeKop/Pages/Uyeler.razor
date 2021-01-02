@@ -61,6 +61,7 @@ else
     private bool isDanisman;
     private List<Uye> uyeler = new List<Uye>();
     public Uye uye;
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -73,12 +74,12 @@ else
             catch (System.Exception)
             { }
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
             if (isDanisman)
             {
-                using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUyeViewExist, Program.DbCon);
+                using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUyeViewExist, DbCon);
                 try
                 {
                     var version = cmd.ExecuteScalar().ToString();
@@ -87,13 +88,13 @@ else
                 catch (System.Exception)
                 {
                     Log.Information("catch CreateUyeView");
-                    using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUyeView, Program.DbCon);
+                    using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUyeView, DbCon);
                     cmd2.ExecuteNonQuery();
                 }
             }
             else
             {
-                using var cmd = new NpgsqlCommand(SqlCommands.CheckIfDanismanViewExist, Program.DbCon);
+                using var cmd = new NpgsqlCommand(SqlCommands.CheckIfDanismanViewExist, DbCon);
                 try
                 {
                     var version = cmd.ExecuteScalar().ToString();
@@ -102,13 +103,13 @@ else
                 catch (System.Exception)
                 {
                     Log.Information("catch CreateDanismanView");
-                    using var cmd2 = new NpgsqlCommand(SqlCommands.CreateDanismanView, Program.DbCon);
+                    using var cmd2 = new NpgsqlCommand(SqlCommands.CreateDanismanView, DbCon);
                     cmd2.ExecuteNonQuery();
                 }
             }
 
             using var cmd3 = new NpgsqlCommand(isDanisman ? SqlCommands.SelectUyeler : SqlCommands.SelectDanismanlar,
-                Program.DbCon);
+                DbCon);
 
             NpgsqlDataReader reader = cmd3.ExecuteReader();
 
@@ -125,8 +126,8 @@ else
                 uyeler.Add(dbUye);
             }
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
             await Task.Delay(20);
             StateHasChanged();
@@ -138,18 +139,18 @@ else
     {
         if (ud.danisman_id == 0)
         {
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd = new NpgsqlCommand(SqlCommands.UpdateUyeDanisman, Program.DbCon);
+            using var cmd = new NpgsqlCommand(SqlCommands.UpdateUyeDanisman, DbCon);
             cmd.Parameters.AddWithValue("uye_id", ud.uye_id);
             cmd.Parameters.AddWithValue("danisman_id", uye.uye_id);
             cmd.Prepare();
 
             cmd.ExecuteNonQuery();
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
             uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
         }

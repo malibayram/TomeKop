@@ -3,3 +3,62 @@
 2021-01-02 18:26:49.817 +03:00 [INF] OnAfterRenderAsync
 2021-01-02 18:26:49.832 +03:00 [INF] try fromSession sessionStorage
 2021-01-02 18:26:49.881 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:01:19.720 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:01:20.338 +03:00 [INF] try NpgsqlCommand CheckIfDanismanViewExist tomekop
+2021-01-02 19:01:29.225 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:01:29.292 +03:00 [INF] try NpgsqlCommand CheckIfAraziTableExist tomekop
+2021-01-02 19:01:31.861 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:01:31.909 +03:00 [INF] try NpgsqlCommand CheckIfAraziTableExist tomekop
+2021-01-02 19:01:39.570 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:01:39.680 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-02 19:01:41.940 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:01:41.972 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-02 19:01:43.482 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:01:43.556 +03:00 [INF] try NpgsqlCommand
+2021-01-02 19:01:58.565 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:01:58.567 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-02 19:02:34.112 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:02:34.184 +03:00 [INF] firstRender
+2021-01-02 19:02:34.215 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:02:34.230 +03:00 [INF] try fromSession sessionStorage
+2021-01-02 19:02:34.255 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:02:37.794 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:02:42.704 +03:00 [INF] try NpgsqlCommand CheckIfDanismanViewExist tomekop
+2021-01-02 19:02:42.960 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:02:43.070 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:02:59.778 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:02:59.779 +03:00 [INF] firstRender
+2021-01-02 19:02:59.781 +03:00 [INF] try fromSession sessionStorage
+2021-01-02 19:02:59.810 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:02:59.815 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:03:01.315 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:03:01.317 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:03:01.320 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:03:01.325 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:03:04.213 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2021-01-02 19:52:32.019 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:52:32.088 +03:00 [INF] firstRender
+2021-01-02 19:52:32.094 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:52:32.166 +03:00 [INF] catch fromSession Exception
+2021-01-02 19:52:32.701 +03:00 [INF] try NpgsqlCommand CheckIfUyelerTableExist tomekop
+2021-01-02 19:52:32.768 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:52:34.175 +03:00 [INF] try NpgsqlCommand CheckUserLogin
+2021-01-02 19:52:34.238 +03:00 [INF] 0: 1 1: 33344455566
+2021-01-02 19:52:34.239 +03:00 [INF] reader.FieldCount: 10
+2021-01-02 19:52:34.240 +03:00 [INF] reader.VisibleFieldCount: 10
+2021-01-02 19:52:34.251 +03:00 [INF] jsonString: System.Byte[]
+2021-01-02 19:52:34.401 +03:00 [INF] System.Byte[]
+2021-01-02 19:52:34.404 +03:00 [INF] try NpgsqlCommand CheckUserLogin reader.HasRows True
+2021-01-02 19:52:34.605 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:52:34.606 +03:00 [INF] firstRender
+2021-01-02 19:52:34.658 +03:00 [INF] try fromSession sessionStorage
+2021-01-02 19:52:34.714 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:52:34.724 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:52:37.836 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 19:52:37.877 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-02 19:52:37.965 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-02 22:14:51.777 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 22:14:51.842 +03:00 [INF] firstRender
+2021-01-02 22:14:51.892 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 22:14:51.909 +03:00 [INF] try fromSession sessionStorage
+2021-01-02 22:14:51.931 +03:00 [INF] OnAfterRenderAsync

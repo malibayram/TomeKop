@@ -5,6 +5,7 @@
 
 @inject NavigationManager uriHelper;
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject IToastService toastService
 
 <h2>Adresler</h2>
 @if (Waiting)
@@ -54,36 +55,48 @@ else
     public Uye uye = new Uye();
     private List<Adres> adresler = new List<Adres>();
     private Adres adres = new Adres();
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
+    private NoticeEventHandler noticeEventHandler;
+    private void OnNotice(object O, NpgsqlNoticeEventArgs E)
+    {        
+        if (noticeEventHandler != null)
+        {
+            // noticeEventHandler(this, E);
+            toastService.ShowInfo(E.Notice.MessageText);
+            Log.Information(E.Notice.MessageText);
+        }
+    }
     private async void AdresSil(Adres adr)
     {
         Waiting = true;
-        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-            Program.DbCon.Open();
-        using var cmd = new NpgsqlCommand(SqlCommands.DeleteAdres, Program.DbCon);
+        if (DbCon.State == System.Data.ConnectionState.Closed)
+            DbCon.Open();
+        using var cmd = new NpgsqlCommand(SqlCommands.DeleteAdres, DbCon);
         cmd.Parameters.AddWithValue("adres_id", adr.adres_id);
 
         cmd.Prepare();
 
         cmd.ExecuteNonQuery();
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Open)
-            Program.DbCon.Close();
+        if (DbCon.State == System.Data.ConnectionState.Open)
+            DbCon.Close();
 
         await Task.Delay(20);
         Waiting = false;
+        await Task.Delay(5000);
 
         uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
     }
     private async void AdresEkle()
     {
         Waiting = true;
-        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-            Program.DbCon.Open();
-        var cmd = new NpgsqlCommand(SqlCommands.CreateAdres, Program.DbCon);
+        if (DbCon.State == System.Data.ConnectionState.Closed)
+            DbCon.Open();
+        var cmd = new NpgsqlCommand(SqlCommands.CreateAdres, DbCon);
 
         if (adres.adres_id > 0)
         {
-            cmd = new NpgsqlCommand(SqlCommands.UpdateAdres, Program.DbCon);
+            cmd = new NpgsqlCommand(SqlCommands.UpdateAdres, DbCon);
             cmd.Parameters.AddWithValue("adres_id", adres.adres_id);
         }
 
@@ -99,12 +112,13 @@ else
 
         cmd.ExecuteNonQuery();
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Open)
-            Program.DbCon.Close();
+        if (DbCon.State == System.Data.ConnectionState.Open)
+            DbCon.Close();
 
         await Task.Delay(20);
         Waiting = false;
         adres = new Adres();
+        await Task.Delay(5000);
 
         uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
     }
@@ -120,9 +134,11 @@ else
             catch (System.Exception)
             { }
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
-            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfAdresTableExist, Program.DbCon);
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfAdresTableExist, DbCon);
+            noticeEventHandler = new NoticeEventHandler(OnNotice);
+            DbCon.Notice += noticeEventHandler;
 
             try
             {
@@ -132,11 +148,30 @@ else
             catch (System.Exception)
             {
                 Log.Information("catch CreateAdresTable");
-                using var cmd2 = new NpgsqlCommand(SqlCommands.CreateAdresTable, Program.DbCon);
-                cmd2.ExecuteNonQuery();
+                
+                NpgsqlCommand pgCommand = new NpgsqlCommand();
+                pgCommand.Connection = DbCon;
+                NpgsqlTransaction myTrans;
+
+                myTrans = DbCon.BeginTransaction();
+                pgCommand.Transaction = myTrans;
+
+                try
+                {
+                    pgCommand.CommandText = SqlCommands.CreateAdresTable;
+                    pgCommand.ExecuteNonQuery();
+                    pgCommand.CommandText = SQLTriggers.CreateIlUyeSayiTrigger;
+                    pgCommand.ExecuteNonQuery();
+                    myTrans.Commit();
+                }
+                catch(Exception e)
+                {
+                    myTrans.Rollback();
+                    Log.Information(e.ToString());
+                }
             }
 
-            using var cmd3 = new NpgsqlCommand(SqlCommands.SelectAdresler, Program.DbCon);
+            using var cmd3 = new NpgsqlCommand(SqlCommands.SelectAdresler, DbCon);
             cmd3.Parameters.AddWithValue("uye_id", uye.uye_id);
             cmd3.Prepare();
 
@@ -156,8 +191,8 @@ else
             }
 
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
             await Task.Delay(10);
             Waiting = false;

@@ -61,11 +61,12 @@ else
     private int UretYili = 2020;
     private List<string> UrunAdlari = new List<string>();
     private List<int> UretYillari = new List<int>();
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
     private void GetTotal()
     {
-        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-            Program.DbCon.Open();
-        using var cmd = new NpgsqlCommand(SQLFuncs.TotalUrunC, Program.DbCon);
+        if (DbCon.State == System.Data.ConnectionState.Closed)
+            DbCon.Open();
+        using var cmd = new NpgsqlCommand(SQLFuncs.TotalUrunC, DbCon);
         cmd.Parameters.AddWithValue("girilen_urun", UrunAdi);
         cmd.Parameters.AddWithValue("yil", UretYili);
         cmd.Prepare();
@@ -73,15 +74,15 @@ else
 
         SonucMesaji = $"{UrunAdi} ürününden {UretYili} yılında toplam {sc} ton üretim yapılmıştır.";
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Open)
-            Program.DbCon.Close();
+        if (DbCon.State == System.Data.ConnectionState.Open)
+            DbCon.Close();
     }
 
     private void GetMax()
     {
-        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-            Program.DbCon.Open();
-        using var cmd = new NpgsqlCommand(SQLFuncs.MaxKarliUrunC, Program.DbCon);
+        if (DbCon.State == System.Data.ConnectionState.Closed)
+            DbCon.Open();
+        using var cmd = new NpgsqlCommand(SQLFuncs.MaxKarliUrunC, DbCon);
 
         cmd.Parameters.AddWithValue("yil", UretYili);
         cmd.Prepare();
@@ -89,15 +90,15 @@ else
 
         SonucMesaji = $"{UretYili} yılında en fazla kar elde edilen ürün: {UrunAdi}.";
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Open)
-            Program.DbCon.Close();
+        if (DbCon.State == System.Data.ConnectionState.Open)
+            DbCon.Close();
     }
 
     private void GetMin()
     {
-        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-            Program.DbCon.Open();
-        using var cmd = new NpgsqlCommand(SQLFuncs.MinKarliUrunC, Program.DbCon);
+        if (DbCon.State == System.Data.ConnectionState.Closed)
+            DbCon.Open();
+        using var cmd = new NpgsqlCommand(SQLFuncs.MinKarliUrunC, DbCon);
 
         cmd.Parameters.AddWithValue("yil", UretYili);
         cmd.Prepare();
@@ -105,20 +106,20 @@ else
 
         SonucMesaji = $"{UretYili} yılında en az kar elde edilen ürün: {UrunAdi}.";
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Open)
-            Program.DbCon.Close();
+        if (DbCon.State == System.Data.ConnectionState.Open)
+            DbCon.Close();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd1 = new NpgsqlCommand(SQLFuncs.TotalUrun, Program.DbCon);
-            using var cmd2 = new NpgsqlCommand(SQLFuncs.MaxKarliUrun, Program.DbCon);
-            using var cmd3 = new NpgsqlCommand(SQLFuncs.MinKarliUrun, Program.DbCon);
+            using var cmd1 = new NpgsqlCommand(SQLFuncs.TotalUrun, DbCon);
+            using var cmd2 = new NpgsqlCommand(SQLFuncs.MaxKarliUrun, DbCon);
+            using var cmd3 = new NpgsqlCommand(SQLFuncs.MinKarliUrun, DbCon);
 
             try
             {
@@ -132,7 +133,7 @@ else
                 Log.Information($"catch SQLFuncs.TotalUrun {npge}");
             }
 
-            using var cmd = new NpgsqlCommand("SELECT DISTINCT urun_adi, CAST(EXTRACT(YEAR FROM uret_tarihi) AS INT) as uret_yil FROM urunler;", Program.DbCon);
+            using var cmd = new NpgsqlCommand("SELECT DISTINCT urun_adi, CAST(EXTRACT(YEAR FROM uret_tarihi) AS INT) as uret_yil FROM urunler;", DbCon);
             NpgsqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.HasRows && reader.Read())
@@ -145,8 +146,8 @@ else
                     UretYillari.Add(UretYili);
             }
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
             Waiting = false;
             StateHasChanged();

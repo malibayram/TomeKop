@@ -13,8 +13,7 @@ namespace TomeKop
 {
     public class Program
     {
-        public Uye uye;
-        public static NpgsqlConnection DbCon;
+        public static string ConStr = "Host=localhost;Username=postgres;Password=2121;Database=tomekop";
         public static void Main(string[] args)
         {
             // http://zetcode.com/csharp/postgresql/

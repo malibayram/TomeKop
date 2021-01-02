@@ -107,6 +107,7 @@
     private bool ShowAlertDialog = false;
     private char[] cins = new char[] {'E', 'K', 'D'};
     public Uye uye = new Uye();
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -125,10 +126,10 @@
     {
         progressing = true;
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-            Program.DbCon.Open();
+        if (DbCon.State == System.Data.ConnectionState.Closed)
+            DbCon.Open();
 
-        using var cmd = new NpgsqlCommand(SqlCommands.DeleteUser, Program.DbCon);
+        using var cmd = new NpgsqlCommand(SqlCommands.DeleteUser, DbCon);
         cmd.Parameters.AddWithValue("uye_id",uye.uye_id);
 
         try
@@ -146,8 +147,8 @@
             toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
         }
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Open)
-            Program.DbCon.Close();
+        if (DbCon.State == System.Data.ConnectionState.Open)
+            DbCon.Close();
 
         progressing = false;
         ShowAlertDialog = false;
@@ -185,10 +186,10 @@
         }
         else
         {
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd = new NpgsqlCommand(SqlCommands.UpdateUserLogin, Program.DbCon);
+            using var cmd = new NpgsqlCommand(SqlCommands.UpdateUserLogin, DbCon);
 
             cmd.Parameters.AddWithValue("tc_no", uye.tc_no);
             cmd.Parameters.AddWithValue("adi", uye.adi);
@@ -217,8 +218,8 @@
                 toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
             }
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
         }
 
         progressing = false;

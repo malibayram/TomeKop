@@ -204,6 +204,7 @@
     private string SifreTekrar = "";
     private char[] cins = new char[] { 'E', 'K', 'D' };
     public Uye uye = new Uye();
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
 
     [Parameter]
     public string ButtonText { get; set; } = "Giriş Yap";
@@ -240,10 +241,10 @@
         }
         else
         {
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd = new NpgsqlCommand(SqlCommands.CreateUserLogin, Program.DbCon);
+            using var cmd = new NpgsqlCommand(SqlCommands.CreateUserLogin, DbCon);
 
             if (isDanisman)
                 uye.danisman_id = -1;
@@ -274,8 +275,8 @@
                 toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
             }
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
         }
         progressing = false;
@@ -289,10 +290,10 @@
         if (GeneralFunctions.IsValidEmail(uye.email) && uye.login_password.Length > 5 && uye.login_password.Length < 21)
         {
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd = new NpgsqlCommand(SqlCommands.CheckUserLogin, Program.DbCon);
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckUserLogin, DbCon);
 
             cmd.Parameters.AddWithValue("email", uye.email);
             cmd.Parameters.AddWithValue("login_password", uye.login_password);
@@ -342,8 +343,8 @@
                 toastService.ShowError($"Kritik bir hata oluştu: {npge.Detail}");
             }
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
         }
         else
         {

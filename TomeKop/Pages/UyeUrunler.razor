@@ -55,6 +55,7 @@ else
     private bool Waiting = true;
     private List<IDictionary<string, object>> urunler = new List<IDictionary<string, object>>();
     private int miktar_ton = 10;
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
 
     private void UrunFiltrele()
     {
@@ -63,10 +64,10 @@ else
 
         StateHasChanged();
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-            Program.DbCon.Open();
+        if (DbCon.State == System.Data.ConnectionState.Closed)
+            DbCon.Open();
 
-        using var cmd3 = new NpgsqlCommand(SqlCommands.SelectSumUyeUrunler, Program.DbCon);
+        using var cmd3 = new NpgsqlCommand(SqlCommands.SelectSumUyeUrunler, DbCon);
         cmd3.Parameters.AddWithValue("miktar_ton", miktar_ton);
         cmd3.Prepare();
 
@@ -82,8 +83,8 @@ else
             urunler.Add(expando);
         }
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Open)
-            Program.DbCon.Close();
+        if (DbCon.State == System.Data.ConnectionState.Open)
+            DbCon.Close();
 
         Waiting = false;
         StateHasChanged();
@@ -93,10 +94,10 @@ else
     {
         if (firstRender)
         {
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUrunTableExist, Program.DbCon);
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUrunTableExist, DbCon);
 
             try
             {
@@ -106,14 +107,14 @@ else
             catch (System.Exception)
             {
                 Log.Information("catch CreateUrunTable");
-                using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUrunTable, Program.DbCon);
+                using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUrunTable, DbCon);
                 cmd2.ExecuteNonQuery();
             }
 
             UrunFiltrele();
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
             Waiting = false;
         }

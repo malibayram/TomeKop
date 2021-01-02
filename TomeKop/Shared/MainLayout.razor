@@ -48,6 +48,7 @@ else
 @code {
     private bool Waiting = true;
     public Uye uye;
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
 
     protected override async Task OnInitializedAsync()
     {
@@ -82,9 +83,9 @@ else
             {
                 Log.Information("catch fromSession Exception");
 
-                if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                    Program.DbCon.Open();
-                using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUyelerTableExist, Program.DbCon);
+                if (DbCon.State == System.Data.ConnectionState.Closed)
+                    DbCon.Open();
+                using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUyelerTableExist, DbCon);
 
                 try
                 {
@@ -94,11 +95,11 @@ else
                 catch (System.Exception)
                 {
                     Log.Information("catch CreateUyeTable");
-                    using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUyeTable, Program.DbCon);
+                    using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUyeTable, DbCon);
                     cmd2.ExecuteNonQuery();
                 }
-                if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                    Program.DbCon.Close();
+                if (DbCon.State == System.Data.ConnectionState.Open)
+                    DbCon.Close();
             }
             Waiting = false;
             StateHasChanged();

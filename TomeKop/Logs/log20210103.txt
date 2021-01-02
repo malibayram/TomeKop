@@ -1,0 +1,165 @@
+2021-01-03 01:44:32.381 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 01:44:33.086 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 01:44:41.016 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 01:44:41.046 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 01:44:44.342 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 01:44:44.427 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:01:06.376 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:01:06.443 +03:00 [INF] firstRender
+2021-01-03 02:01:06.448 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:01:06.461 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:01:06.482 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:01:58.215 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:01:58.285 +03:00 [INF] firstRender
+2021-01-03 02:01:58.315 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:01:58.330 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:01:58.352 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:02:00.511 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:02:01.211 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:02:09.136 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:02:09.137 +03:00 [INF] firstRender
+2021-01-03 02:02:09.190 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:02:09.242 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:02:09.247 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:02:09.373 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:03:57.178 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:03:57.227 +03:00 [INF] firstRender
+2021-01-03 02:03:57.231 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:03:57.246 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:03:57.269 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:07:06.506 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:07:06.552 +03:00 [INF] firstRender
+2021-01-03 02:07:06.557 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:07:06.569 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:07:06.593 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:07:08.575 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:07:09.051 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:07:15.200 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:07:15.200 +03:00 [INF] firstRender
+2021-01-03 02:07:15.202 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:07:15.210 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:07:15.221 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:07:15.231 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:12:32.590 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:12:32.649 +03:00 [INF] firstRender
+2021-01-03 02:12:32.653 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:12:32.671 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:12:32.702 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:12:33.245 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:12:42.126 +03:00 [INF] Npgsql.NpgsqlConnection
+2021-01-03 02:12:42.127 +03:00 [INF] Müşteri ürün kaydı güncellenmiştir.
+2021-01-03 02:12:42.127 +03:00 [INF] Npgsql.PostgresNotice
+2021-01-03 02:12:42.128 +03:00 [INF] Npgsql.NpgsqlConnection
+2021-01-03 02:12:42.128 +03:00 [INF] İşleme alınan ürün: Domates - Ürün satıcı sayısı: 1
+2021-01-03 02:12:42.128 +03:00 [INF] Npgsql.PostgresNotice
+2021-01-03 02:12:42.279 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:12:42.280 +03:00 [INF] firstRender
+2021-01-03 02:12:42.281 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:12:42.286 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:12:42.290 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:12:42.295 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:15:34.597 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:15:34.653 +03:00 [INF] firstRender
+2021-01-03 02:15:34.657 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:15:34.675 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:15:34.709 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:15:35.268 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:16:44.591 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:16:44.634 +03:00 [INF] firstRender
+2021-01-03 02:16:44.637 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:16:44.649 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:16:44.665 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:16:45.168 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:17:14.296 +03:00 [INF] Müşteri ürün kaydı güncellenmiştir.
+2021-01-03 02:17:14.297 +03:00 [INF] İşleme alınan ürün: Domates - Ürün satıcı sayısı: 1
+2021-01-03 02:17:17.464 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:17:17.464 +03:00 [INF] firstRender
+2021-01-03 02:17:17.466 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:17:17.471 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:17:17.475 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:17:17.477 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:17:51.171 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:17:51.236 +03:00 [INF] firstRender
+2021-01-03 02:17:51.244 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:17:51.265 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:17:51.295 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:17:51.847 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:18:12.521 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:18:12.585 +03:00 [INF] firstRender
+2021-01-03 02:18:12.591 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:18:12.617 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:18:12.655 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:18:13.227 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:19:54.105 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:19:54.171 +03:00 [INF] firstRender
+2021-01-03 02:19:54.177 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:19:54.200 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:19:54.228 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:19:54.754 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:20:02.036 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:20:02.049 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:20:02.062 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:20:07.327 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:20:07.328 +03:00 [INF] firstRender
+2021-01-03 02:20:07.329 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:20:07.339 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:20:07.340 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:20:07.354 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:20:07.362 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:20:49.641 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:20:49.702 +03:00 [INF] firstRender
+2021-01-03 02:20:49.707 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:20:49.723 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:20:49.797 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:20:50.353 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:20:50.396 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:21:18.925 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:18.990 +03:00 [INF] firstRender
+2021-01-03 02:21:18.996 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:19.018 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:21:19.099 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:19.616 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:21:19.655 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:21:28.933 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:28.934 +03:00 [INF] firstRender
+2021-01-03 02:21:28.936 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:21:28.948 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:28.949 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:28.955 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:21:28.965 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:21:33.517 +03:00 [INF] Müşteri adres kaydı güncellenmiştir.
+2021-01-03 02:21:33.519 +03:00 [INF] Kayıtlı il: Urfa İldeki kayıtlı kişi sayısı: 1
+2021-01-03 02:21:38.670 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:38.671 +03:00 [INF] firstRender
+2021-01-03 02:21:38.673 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:21:38.684 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:38.685 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:38.692 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:21:38.701 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:21:41.491 +03:00 [INF] Müşteri adres kaydı güncellenmiştir.
+2021-01-03 02:21:41.492 +03:00 [INF] Kayıtlı il: Denizli İldeki kayıtlı kişi sayısı: 1
+2021-01-03 02:21:46.630 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:46.631 +03:00 [INF] firstRender
+2021-01-03 02:21:46.633 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:21:46.643 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:46.650 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:21:46.655 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:21:46.662 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:22:12.057 +03:00 [INF] Müşteri adres kaydı güncellenmiştir.
+2021-01-03 02:22:12.057 +03:00 [INF] Kayıtlı il: Denizli İldeki kayıtlı kişi sayısı: 2
+2021-01-03 02:22:17.228 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:22:17.229 +03:00 [INF] firstRender
+2021-01-03 02:22:17.231 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:22:17.242 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:22:17.243 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:22:17.251 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:22:17.259 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:22:25.626 +03:00 [INF] Müşteri adres kaydı güncellenmiştir.
+2021-01-03 02:22:25.627 +03:00 [INF] Kayıtlı il: Urfa İldeki kayıtlı kişi sayısı: 1
+2021-01-03 02:22:30.827 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:22:30.828 +03:00 [INF] firstRender
+2021-01-03 02:22:30.829 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:22:30.838 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:22:30.846 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:22:30.852 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:22:30.862 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}

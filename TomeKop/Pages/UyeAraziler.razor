@@ -13,37 +13,47 @@
     <span class="col-md-3"> m2'den fazla olan üyeleri</span>
     <button class="btn btn-outline-success col-md-4" type="submit">Listele</button>
 </EditForm>
-<p>Toplam arazi miktarı <b class="text-danger">@alan_m2</b> m2'den fazla olan <b class="text-danger">@araziler.Count</b> üye bulundu</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Üye No</th>
-            <th scope="col">Adı Soyadı</th>
-            <th scope="col">Alan (m2)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            int i = 0;
-        }
-        @foreach (IDictionary<string, object> araziItem in araziler)
-        {
-            i++;
+@if (Waiting)
+{
+    <div class="spinner-grow text-danger" role="status">
+    <span class="visually-hidden"></span>
+</div>
+}
+else
+{
+    <p>Toplam arazi miktarı <b class="text-danger">@alan_m2</b> m2'den fazla olan <b class="text-danger">@araziler.Count</b> üye bulundu</p>
+    <table class="table">
+        <thead>
             <tr>
-                <th scope="row">@i</th>
-                <td>@araziItem["uye_id"]</td>
-                <td>@araziItem["adi"] @araziItem["soyadi"]</td>
-                <td>@araziItem["alan_m2"]</td>
+                <th scope="col">#</th>
+                <th scope="col">Üye No</th>
+                <th scope="col">Adı Soyadı</th>
+                <th scope="col">Alan (m2)</th>
             </tr>
-        }            
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @{
+                int i = 0;
+            }
+            @foreach (IDictionary<string, object> araziItem in araziler)
+            {
+                i++;
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@araziItem["uye_id"]</td>
+                    <td>@araziItem["adi"] @araziItem["soyadi"]</td>
+                    <td>@araziItem["alan_m2"]</td>
+                </tr>
+            }            
+        </tbody>
+    </table>
+}
 
 @code {
     private bool Waiting = true;
     private List<IDictionary<string, object>> araziler = new List<IDictionary<string, object>>();
     private int alan_m2 = 100;
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
 
     private void AraziFiltrele()
     {
@@ -52,10 +62,10 @@
 
         StateHasChanged();
         
-        if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();        
+        if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();        
 
-        using var cmd3 = new NpgsqlCommand(SqlCommands.SelectSumUyeAraziler, Program.DbCon);
+        using var cmd3 = new NpgsqlCommand(SqlCommands.SelectSumUyeAraziler, DbCon);
         cmd3.Parameters.AddWithValue("alan_m2", alan_m2);
         cmd3.Prepare();
 
@@ -71,8 +81,8 @@
             araziler.Add(expando);
         }
 
-        if (Program.DbCon.State == System.Data.ConnectionState.Open)
-            Program.DbCon.Close();
+        if (DbCon.State == System.Data.ConnectionState.Open)
+            DbCon.Close();
 
         Waiting = false;
         StateHasChanged();
@@ -82,10 +92,10 @@
     {
         if (firstRender)
         {
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfAraziTableExist, Program.DbCon);
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfAraziTableExist, DbCon);
 
             try
             {
@@ -98,10 +108,10 @@
                 Log.Information("catch CreateAraziTable");
 
                 NpgsqlCommand pgCommand = new NpgsqlCommand();
-                pgCommand.Connection = Program.DbCon;
+                pgCommand.Connection = DbCon;
                 NpgsqlTransaction myTrans;
 
-                myTrans = Program.DbCon.BeginTransaction();
+                myTrans = DbCon.BeginTransaction();
                 pgCommand.Transaction = myTrans;
 
                 try
@@ -122,8 +132,8 @@
 
             AraziFiltrele();
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
             Waiting = false;
         }

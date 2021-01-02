@@ -96,30 +96,43 @@ else
     private Urun urun = new Urun() {
         uret_tarihi = DateTime.Now,
     };
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
+    private NoticeEventHandler noticeEventHandler;
+    private void OnNotice(object O, NpgsqlNoticeEventArgs E)
+    {        
+        if (noticeEventHandler != null)
+        {
+            // noticeEventHandler(this, E);
+            toastService.ShowInfo(E.Notice.MessageText);
+            Log.Information(E.Notice.MessageText);
+        }
+    }
 
     private async void UrunSil(Urun urn)
     {
+
         if (!Waiting)
         {
             Waiting = true;
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd = new NpgsqlCommand(SqlCommands.DeleteUrun, Program.DbCon);
+            using var cmd = new NpgsqlCommand(SqlCommands.DeleteUrun, DbCon);
             cmd.Parameters.AddWithValue("urun_id", urn.urun_id);
 
             cmd.Prepare();
 
             cmd.ExecuteNonQuery();
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
             Waiting = false;
+            await Task.Delay(5000);
 
             uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
         }
-        await Task.Delay(10);        
+        await Task.Delay(10);
     }
 
     private async void UrunEkle()
@@ -127,14 +140,14 @@ else
         if (!Waiting)
         {
             Waiting = true;
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            var cmd = new NpgsqlCommand(SqlCommands.CreateUrun, Program.DbCon);
+            var cmd = new NpgsqlCommand(SqlCommands.CreateUrun, DbCon);
 
             if (urun.urun_id > 0)
             {
-                cmd = new NpgsqlCommand(SqlCommands.UpdateUrun, Program.DbCon);
+                cmd = new NpgsqlCommand(SqlCommands.UpdateUrun, DbCon);
                 cmd.Parameters.AddWithValue("urun_id", urun.urun_id);
             }
 
@@ -153,10 +166,11 @@ else
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
 
-                if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                    Program.DbCon.Close();
+                if (DbCon.State == System.Data.ConnectionState.Open)
+                    DbCon.Close();
 
                 urun = new Urun();
+                await Task.Delay(5000);
 
                 uriHelper.NavigateTo(uriHelper.Uri, forceLoad: true);
             }
@@ -177,10 +191,12 @@ else
             uye = JsonSerializer.Deserialize<Uye>(await localStorage.GetItemAsync<byte[]>("uyeJsonString"));
             urun.uye_id = uye.uye_id;
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUrunTableExist, Program.DbCon);
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfUrunTableExist, DbCon);
+            noticeEventHandler = new NoticeEventHandler(OnNotice);
+            DbCon.Notice += noticeEventHandler;
 
             try
             {
@@ -190,11 +206,30 @@ else
             catch (System.Exception)
             {
                 Log.Information("catch CreateUrunTable");
-                using var cmd2 = new NpgsqlCommand(SqlCommands.CreateUrunTable, Program.DbCon);
-                cmd2.ExecuteNonQuery();
+
+                NpgsqlCommand pgCommand = new NpgsqlCommand();
+                pgCommand.Connection = DbCon;
+                NpgsqlTransaction myTrans;
+
+                myTrans = DbCon.BeginTransaction();
+                pgCommand.Transaction = myTrans;
+
+                try
+                {
+                    pgCommand.CommandText = SqlCommands.CreateUrunTable;
+                    pgCommand.ExecuteNonQuery();
+                    pgCommand.CommandText = SQLTriggers.CreateUrunUyeSayiTrigger;
+                    pgCommand.ExecuteNonQuery();
+                    myTrans.Commit();
+                }
+                catch(Exception e)
+                {
+                    myTrans.Rollback();
+                    Log.Information(e.ToString());
+                }
             }
 
-            using var cmd3 = new NpgsqlCommand(SqlCommands.SelectUrunler, Program.DbCon);
+            using var cmd3 = new NpgsqlCommand(SqlCommands.SelectUrunler, DbCon);
             cmd3.Parameters.AddWithValue("uye_id", uye.uye_id);
             cmd3.Prepare();
 
@@ -213,8 +248,8 @@ else
                 urunler.Add(dbUrun);
             }
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
             await Task.Delay(10);
             Waiting = false;

@@ -85,20 +85,21 @@ else
     private Arazi arazi = new Arazi() {
         tapu_tarihi = DateTime.Now,
     };
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
 
     public void AraziEkle()
     {
         if (!Waiting)
         {
             Waiting = true;
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            var cmd = new NpgsqlCommand(SqlCommands.CreateArazi, Program.DbCon);
+            var cmd = new NpgsqlCommand(SqlCommands.CreateArazi, DbCon);
 
             if (arazi.arazi_id > 0)
             {
-                cmd = new NpgsqlCommand(SqlCommands.UpdateArazi, Program.DbCon);
+                cmd = new NpgsqlCommand(SqlCommands.UpdateArazi, DbCon);
                 cmd.Parameters.AddWithValue("arazi_id", arazi.arazi_id);
             }
 
@@ -115,8 +116,8 @@ else
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
 
-                if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                    Program.DbCon.Close();
+                if (DbCon.State == System.Data.ConnectionState.Open)
+                    DbCon.Close();
 
                 arazi = new Arazi();
 
@@ -136,18 +137,18 @@ else
         if (!Waiting)
         {
             Waiting = true;
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd = new NpgsqlCommand(SqlCommands.DeleteArazi, Program.DbCon);
+            using var cmd = new NpgsqlCommand(SqlCommands.DeleteArazi, DbCon);
             cmd.Parameters.AddWithValue("arazi_id", arz.arazi_id);
 
             cmd.Prepare();
 
             cmd.ExecuteNonQuery();
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
             Waiting = false;
 
@@ -164,10 +165,10 @@ else
             uye = JsonSerializer.Deserialize<Uye>(await localStorage.GetItemAsync<byte[]>("uyeJsonString"));
             arazi.tapu_sahibi_tc_no = uye.tc_no;
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Closed)
-                Program.DbCon.Open();
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
 
-            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfAraziTableExist, Program.DbCon);
+            using var cmd = new NpgsqlCommand(SqlCommands.CheckIfAraziTableExist, DbCon);
 
             try
             {
@@ -180,10 +181,10 @@ else
                 Log.Information("catch CreateAraziTable");
 
                 NpgsqlCommand pgCommand = new NpgsqlCommand();
-                pgCommand.Connection = Program.DbCon;
+                pgCommand.Connection = DbCon;
                 NpgsqlTransaction myTrans;
 
-                myTrans = Program.DbCon.BeginTransaction();
+                myTrans = DbCon.BeginTransaction();
                 pgCommand.Transaction = myTrans;
 
                 try
@@ -202,7 +203,7 @@ else
 
             }
 
-            using var cmd3 = new NpgsqlCommand(SqlCommands.SelectAraziler, Program.DbCon);
+            using var cmd3 = new NpgsqlCommand(SqlCommands.SelectAraziler, DbCon);
             cmd3.Parameters.AddWithValue("uye_id", uye.uye_id);
             cmd3.Prepare();
 
@@ -222,8 +223,8 @@ else
             }
 
 
-            if (Program.DbCon.State == System.Data.ConnectionState.Open)
-                Program.DbCon.Close();
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
 
             await Task.Delay(10);
             Waiting = false;

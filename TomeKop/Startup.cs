@@ -49,14 +49,14 @@ namespace TomeKop
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
-                Program.DbCon = new NpgsqlConnection("Host=localhost;Username=postgres;Password=2121;Database=tomekop");
                 app.UseDeveloperExceptionPage();
             }
             else
             {
-                Program.DbCon = new NpgsqlConnection("Host=tomekop.postgres.database.azure.com;Username=tomekop91@tomekop;Password=Tomekop21.;Database=tomekop;SSLMode=Prefer");
+                Program.ConStr = "Host=tomekop.postgres.database.azure.com;Username=tomekop91@tomekop;Password=Tomekop21.;Database=tomekop;SSLMode=Prefer";
                 app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
