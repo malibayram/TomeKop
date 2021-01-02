@@ -1,0 +1,5 @@
+2021-01-02 18:26:49.713 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 18:26:49.790 +03:00 [INF] firstRender
+2021-01-02 18:26:49.817 +03:00 [INF] OnAfterRenderAsync
+2021-01-02 18:26:49.832 +03:00 [INF] try fromSession sessionStorage
+2021-01-02 18:26:49.881 +03:00 [INF] OnAfterRenderAsync
