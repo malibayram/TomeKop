@@ -52,20 +52,20 @@ else
 
     <h3>Ürünleriniz</h3>
     <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Ürün Adı</th>
-                <th scope="col">Ürün Cinsi</th>
-                <th scope="col">Miktar Ton</th>
-                <th scope="col">TKG Alış Fiyatı</th>
-                <th scope="col">KG Satış Fiyatı</th>
-                <th scope="col">Üretim Tarihi</th>
-                <th scope="col">İşlemler</th>
-            </tr>
-        </thead>
-        <tbody>
-            @{
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Ürün Cinsi</th>
+            <th scope="col">Miktar Ton</th>
+            <th scope="col">TKG Alış Fiyatı</th>
+            <th scope="col">KG Satış Fiyatı</th>
+            <th scope="col">Üretim Tarihi</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
                 int i = 0;
             }
             @foreach (Urun urunItem in urunler)
@@ -93,13 +93,14 @@ else
     private bool Waiting = true;
     public Uye uye = new Uye();
     private List<Urun> urunler = new List<Urun>();
-    private Urun urun = new Urun() {
+    private Urun urun = new Urun()
+    {
         uret_tarihi = DateTime.Now,
     };
     private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
     private NoticeEventHandler noticeEventHandler;
     private void OnNotice(object O, NpgsqlNoticeEventArgs E)
-    {        
+    {
         if (noticeEventHandler != null)
         {
             // noticeEventHandler(this, E);
@@ -152,7 +153,7 @@ else
             }
 
             urun.uye_id = uye.uye_id;
-            
+
             cmd.Parameters.AddWithValue("urun_adi", urun.urun_adi);
             cmd.Parameters.AddWithValue("cinsi", urun.cinsi);
             cmd.Parameters.AddWithValue("miktar_ton", urun.miktar_ton);
@@ -178,7 +179,7 @@ else
             {
                 toastService.ShowError($"Kritik bir hata oluştu: {npge.MessageText}");
             }
-            
+
             Waiting = false;
         }
         await Task.Delay(10);
@@ -222,7 +223,7 @@ else
                     pgCommand.ExecuteNonQuery();
                     myTrans.Commit();
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     myTrans.Rollback();
                     Log.Information(e.ToString());

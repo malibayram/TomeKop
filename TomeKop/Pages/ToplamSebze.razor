@@ -1,0 +1,76 @@
+@page "/toplam-sebze"
+
+@using Npgsql
+@using System.Dynamic
+@using Utils
+
+<h2>Toplam Sebze Miktarları</h2>
+@if (Waiting)
+{
+    <div class="spinner-grow text-danger" role="status">
+    <span class="visually-hidden"></span>
+</div>
+}
+else
+{
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ürün Adı</th>
+            <th scope="col">Toplam Miktar Ton</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+                int i = 0;
+            }
+            @foreach (IDictionary<string, object> listItem in toplamListesi)
+            {
+                i++;
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@listItem["urun_adi"]</td>
+                    <td>@listItem["toplam_miktar_ton"]</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private bool Waiting = true;
+    private NpgsqlConnection DbCon = new NpgsqlConnection(Program.ConStr);
+    private List<IDictionary<string, object>> toplamListesi = new List<IDictionary<string, object>>();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (DbCon.State == System.Data.ConnectionState.Closed)
+                DbCon.Open();
+
+            using var cmd3 = new NpgsqlCommand(SQLExcepts.ToplamSebze, DbCon);
+            NpgsqlDataReader reader = cmd3.ExecuteReader();
+
+            while (reader.HasRows && reader.Read())
+            {
+                var expando = new ExpandoObject() as IDictionary<string, object>;
+                for (int i = 0; i < reader.VisibleFieldCount; i++)
+                {
+                    expando[reader.GetName(i)] = reader.GetValue(i);
+                }
+
+                toplamListesi.Add(expando);
+            }
+
+            if (DbCon.State == System.Data.ConnectionState.Open)
+                DbCon.Close();
+
+            Waiting = false;
+            StateHasChanged();
+        }
+
+        await Task.Delay(10);
+    }
+}

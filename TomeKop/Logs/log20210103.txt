@@ -163,3 +163,131 @@
 2021-01-03 02:22:30.846 +03:00 [INF] OnAfterRenderAsync
 2021-01-03 02:22:30.852 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
 2021-01-03 02:22:30.862 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:34:37.797 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:34:37.843 +03:00 [INF] firstRender
+2021-01-03 02:34:37.849 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:34:37.870 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:34:37.943 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:34:38.473 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:34:38.514 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:36:02.676 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:36:02.737 +03:00 [INF] firstRender
+2021-01-03 02:36:02.743 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:36:02.767 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:36:02.786 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:36:15.017 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:36:15.077 +03:00 [INF] firstRender
+2021-01-03 02:36:15.084 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:36:15.108 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:36:15.187 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:36:15.717 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:36:15.755 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:38:27.375 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:38:27.430 +03:00 [INF] firstRender
+2021-01-03 02:38:27.435 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:38:27.451 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:38:27.522 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:38:28.022 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:38:28.060 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:38:50.560 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:38:50.609 +03:00 [INF] firstRender
+2021-01-03 02:38:50.615 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:38:50.632 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:38:50.699 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:38:51.233 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:38:51.271 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:39:14.849 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:39:14.903 +03:00 [INF] firstRender
+2021-01-03 02:39:14.908 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:39:14.923 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:39:14.985 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:39:15.498 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:39:15.536 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:40:08.955 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:40:08.998 +03:00 [INF] firstRender
+2021-01-03 02:40:09.002 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:40:09.014 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:40:09.072 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:40:09.591 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:40:09.632 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:48:42.578 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:48:42.638 +03:00 [INF] firstRender
+2021-01-03 02:48:42.644 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:48:42.667 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:48:42.751 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:48:43.294 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:48:43.333 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:50:48.566 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:50:48.614 +03:00 [INF] firstRender
+2021-01-03 02:50:48.619 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:50:48.631 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:50:48.695 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:50:49.215 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:50:49.255 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:51:32.814 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:51:32.814 +03:00 [INF] firstRender
+2021-01-03 02:51:32.816 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:51:32.822 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:51:32.823 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:27.139 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:27.209 +03:00 [INF] firstRender
+2021-01-03 02:52:27.214 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:27.231 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:52:27.302 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:27.878 +03:00 [INF] try NpgsqlCommand CheckIfAdresTableExist tomekop
+2021-01-03 02:52:27.923 +03:00 [INF] jsonString: {"adi":"oner","soyadi":"oner","email":"sadad@gmail.com","tel_no":"5555555555"}
+2021-01-03 02:52:30.927 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:31.693 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:32.667 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:33.513 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:33.518 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 02:52:34.193 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:34.788 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:56.042 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:56.098 +03:00 [INF] firstRender
+2021-01-03 02:52:56.103 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 02:52:56.119 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 02:52:56.146 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:00:40.672 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:00:40.718 +03:00 [INF] firstRender
+2021-01-03 03:00:40.722 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:00:40.734 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 03:00:40.750 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:09:19.719 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:09:19.762 +03:00 [INF] firstRender
+2021-01-03 03:09:19.766 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:09:19.778 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 03:09:19.794 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:12:24.464 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:12:24.508 +03:00 [INF] firstRender
+2021-01-03 03:12:24.511 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:12:24.524 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 03:12:24.538 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:12:26.749 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:12:30.793 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:12:34.520 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:12:34.542 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 03:13:08.099 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:13:08.151 +03:00 [INF] firstRender
+2021-01-03 03:13:08.156 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:13:08.173 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 03:13:08.192 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:13:08.705 +03:00 [INF] try NpgsqlCommand CheckIfUrunTableExist tomekop
+2021-01-03 03:13:10.020 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:13:12.830 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:13:13.449 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:14:10.290 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:14:10.339 +03:00 [INF] firstRender
+2021-01-03 03:14:10.346 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:14:10.363 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 03:14:10.386 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:14:12.790 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:14:16.955 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:14:17.725 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:14:20.179 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:14:21.184 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:16:13.228 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:16:13.277 +03:00 [INF] firstRender
+2021-01-03 03:16:13.281 +03:00 [INF] OnAfterRenderAsync
+2021-01-03 03:16:13.294 +03:00 [INF] try fromSession sessionStorage
+2021-01-03 03:16:13.310 +03:00 [INF] OnAfterRenderAsync
